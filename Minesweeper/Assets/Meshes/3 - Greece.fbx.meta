@@ -1,0 +1,1245 @@
+fileFormatVersion: 2
+guid: 84a61664056b00b46849d7369f507326
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: 0
+    100002: 0.2
+    100004: 0.3
+    100006: 0.4
+    100008: 0.5
+    100010: 0.6
+    100012: 1
+    100014: 1.10
+    100016: 1.11
+    100018: 1.12
+    100020: 1.2
+    100022: 1.3
+    100024: 1.4
+    100026: 1.5
+    100028: 1.6
+    100030: 1.7
+    100032: 1.8
+    100034: 1.9
+    100036: 2
+    100038: 2.10
+    100040: 2.2
+    100042: 2.3
+    100044: 2.4
+    100046: 2.5
+    100048: 2.6
+    100050: 2.7
+    100052: 2.8
+    100054: 2.9
+    100056: 3
+    100058: //RootNode
+    100060: 3.2
+    100062: 3.3
+    100064: 3.4
+    100066: Basinha1
+    100068: Basinha1.1
+    100070: Basinha1.2
+    100072: Basinha1.3
+    100074: Basinha1.4
+    100076: Basinha1.5
+    100078: Basinha1.6
+    100080: Bordas
+    100082: Bordas.10
+    100084: Bordas.11
+    100086: Bordas.12
+    100088: Bordas.13
+    100090: Bordas.14
+    100092: Bordas.15
+    100094: Bordas.16
+    100096: Bordas.17
+    100098: Bordas.18
+    100100: Bordas.19
+    100102: Bordas.2
+    100104: Bordas.20
+    100106: Bordas.21
+    100108: Bordas.22
+    100110: Bordas.23
+    100112: Bordas.24
+    100114: Bordas.25
+    100116: Bordas.26
+    100118: Bordas.27
+    100120: Bordas.28
+    100122: Bordas.29
+    100124: Bordas.3
+    100126: Bordas.30
+    100128: Bordas.31
+    100130: Bordas.32
+    100132: Bordas.33
+    100134: Bordas.34
+    100136: Bordas.35
+    100138: Bordas.36
+    100140: Bordas.4
+    100142: Bordas.5
+    100144: Bordas.6
+    100146: Bordas.7
+    100148: Bordas.8
+    100150: Bordas.9
+    100152: Cabeca
+    100154: Cabelo
+    100156: Camera
+    100158: Camera.1
+    100160: Campo
+    100162: Campo.10
+    100164: Campo.11
+    100166: Campo.12
+    100168: Campo.13
+    100170: Campo.14
+    100172: Campo.15
+    100174: Campo.16
+    100176: Campo.17
+    100178: Campo.18
+    100180: Campo.19
+    100182: Campo.2
+    100184: Campo.20
+    100186: Campo.21
+    100188: Campo.22
+    100190: Campo.23
+    100192: Campo.24
+    100194: Campo.25
+    100196: Campo.26
+    100198: Campo.27
+    100200: Campo.28
+    100202: Campo.29
+    100204: Campo.3
+    100206: Campo.30
+    100208: Campo.31
+    100210: Campo.32
+    100212: Campo.33
+    100214: Campo.34
+    100216: Campo.35
+    100218: Campo.36
+    100220: Campo.37
+    100222: Campo.38
+    100224: Campo.39
+    100226: Campo.4
+    100228: Campo.40
+    100230: Campo.41
+    100232: Campo.42
+    100234: Campo.43
+    100236: Campo.44
+    100238: Campo.45
+    100240: Campo.46
+    100242: Campo.47
+    100244: Campo.48
+    100246: Campo.49
+    100248: Campo.5
+    100250: Campo.50
+    100252: Campo.51
+    100254: Campo.52
+    100256: Campo.53
+    100258: Campo.54
+    100260: Campo.55
+    100262: Campo.56
+    100264: Campo.57
+    100266: Campo.58
+    100268: Campo.59
+    100270: Campo.6
+    100272: Campo.60
+    100274: Campo.61
+    100276: Campo.62
+    100278: Campo.63
+    100280: Campo.64
+    100282: Campo.65
+    100284: Campo.66
+    100286: Campo.67
+    100288: Campo.7
+    100290: Campo.8
+    100292: Campo.9
+    100294: Cima
+    100296: Corpo
+    100298: Divisor
+    100300: Estatua
+    100302: Extrude NURBS
+    100304: Extrude NURBS.1
+    100306: Extrude NURBS.1.2
+    100308: Extrude NURBS.10
+    100310: Extrude NURBS.10.2
+    100312: Extrude NURBS.11
+    100314: Extrude NURBS.11.2
+    100316: Extrude NURBS.12
+    100318: Extrude NURBS.12.2
+    100320: Extrude NURBS.13
+    100322: Extrude NURBS.13.2
+    100324: Extrude NURBS.14
+    100326: Extrude NURBS.14.2
+    100328: Extrude NURBS.15
+    100330: Extrude NURBS.15.2
+    100332: Extrude NURBS.16
+    100334: Extrude NURBS.16.2
+    100336: Extrude NURBS.17
+    100338: Extrude NURBS.17.2
+    100340: Extrude NURBS.18
+    100342: Extrude NURBS.18.2
+    100344: Extrude NURBS.19
+    100346: Extrude NURBS.19.2
+    100348: Extrude NURBS.2
+    100350: Extrude NURBS.2.2
+    100352: Extrude NURBS.2.3
+    100354: Extrude NURBS.20
+    100356: Extrude NURBS.20.2
+    100358: Extrude NURBS.21
+    100360: Extrude NURBS.21.2
+    100362: Extrude NURBS.22
+    100364: Extrude NURBS.22.2
+    100366: Extrude NURBS.23
+    100368: Extrude NURBS.23.2
+    100370: Extrude NURBS.24
+    100372: Extrude NURBS.24.2
+    100374: Extrude NURBS.25
+    100376: Extrude NURBS.25.2
+    100378: Extrude NURBS.26
+    100380: Extrude NURBS.26.2
+    100382: Extrude NURBS.27
+    100384: Extrude NURBS.27.2
+    100386: Extrude NURBS.28
+    100388: Extrude NURBS.28.2
+    100390: Extrude NURBS.29
+    100392: Extrude NURBS.29.2
+    100394: Extrude NURBS.3
+    100396: Extrude NURBS.3.2
+    100398: Extrude NURBS.30
+    100400: Extrude NURBS.30.2
+    100402: Extrude NURBS.31
+    100404: Extrude NURBS.31.2
+    100406: Extrude NURBS.4
+    100408: Extrude NURBS.4.2
+    100410: Extrude NURBS.5
+    100412: Extrude NURBS.5.2
+    100414: Extrude NURBS.6
+    100416: Extrude NURBS.6.2
+    100418: Extrude NURBS.7
+    100420: Extrude NURBS.7.2
+    100422: Extrude NURBS.8
+    100424: Extrude NURBS.8.2
+    100426: Extrude NURBS.9
+    100428: Extrude NURBS.9.2
+    100430: Greece
+    100432: Lados
+    100434: Light
+    100436: Light.1
+    100438: Light.2
+    100440: Light.3
+    100442: Numbers
+    100444: ParedeRedor1
+    100446: ParedeRedor1.1
+    100448: ParedeRedor1.2
+    100450: ParedeRedor1.3
+    100452: ParedeRedor1.4
+    100454: ParedeRedor1.5
+    100456: ParedeRedor1.6
+    100458: ParedeRedor2
+    100460: ParedeRedor2.1
+    100462: ParedeRedor2.2
+    100464: ParedeRedor2.3
+    100466: ParedeRedor2.4
+    100468: ParedeRedor2.5
+    100470: ParedeRedor2.6
+    100472: ParedeRedor3
+    100474: ParedeRedor3.1
+    100476: ParedeRedor3.2
+    100478: ParedeRedor3.3
+    100480: ParedeRedor3.4
+    100482: ParedeRedor3.5
+    100484: ParedeRedor3.6
+    100486: ParedeRedor4
+    100488: ParedeRedor4.1
+    100490: ParedeRedor4.2
+    100492: ParedeRedor4.3
+    100494: ParedeRedor4.4
+    100496: ParedeRedor4.5
+    100498: ParedeRedor4.6
+    100500: Pilar
+    100502: Pilar.1
+    100504: Pilar.2
+    100506: Pilar.3
+    100508: Pilar.4
+    100510: Pilar.5
+    100512: Pilastra
+    100514: Pilastra.1
+    100516: Pilastra.10
+    100518: Pilastra.2
+    100520: Pilastra.3
+    100522: Pilastra.4
+    100524: Pilastra.5
+    100526: Pilastra.6
+    100528: Pilastra.7
+    100530: Pilastra.8
+    100532: Pilastra.9
+    100534: Piso
+    100536: Piso.1
+    100538: Sobrancelha D
+    100540: Sobrancelha E
+    100542: Telhinha
+    100544: Telhinha.1
+    100546: Telhinha.2
+    100548: Telhinha.3
+    100550: Telhinha.4
+    100552: Telhinha.5
+    100554: Telhinha.6
+    400000: 0
+    400002: 0.2
+    400004: 0.3
+    400006: 0.4
+    400008: 0.5
+    400010: 0.6
+    400012: 1
+    400014: 1.10
+    400016: 1.11
+    400018: 1.12
+    400020: 1.2
+    400022: 1.3
+    400024: 1.4
+    400026: 1.5
+    400028: 1.6
+    400030: 1.7
+    400032: 1.8
+    400034: 1.9
+    400036: 2
+    400038: 2.10
+    400040: 2.2
+    400042: 2.3
+    400044: 2.4
+    400046: 2.5
+    400048: 2.6
+    400050: 2.7
+    400052: 2.8
+    400054: 2.9
+    400056: 3
+    400058: //RootNode
+    400060: 3.2
+    400062: 3.3
+    400064: 3.4
+    400066: Basinha1
+    400068: Basinha1.1
+    400070: Basinha1.2
+    400072: Basinha1.3
+    400074: Basinha1.4
+    400076: Basinha1.5
+    400078: Basinha1.6
+    400080: Bordas
+    400082: Bordas.10
+    400084: Bordas.11
+    400086: Bordas.12
+    400088: Bordas.13
+    400090: Bordas.14
+    400092: Bordas.15
+    400094: Bordas.16
+    400096: Bordas.17
+    400098: Bordas.18
+    400100: Bordas.19
+    400102: Bordas.2
+    400104: Bordas.20
+    400106: Bordas.21
+    400108: Bordas.22
+    400110: Bordas.23
+    400112: Bordas.24
+    400114: Bordas.25
+    400116: Bordas.26
+    400118: Bordas.27
+    400120: Bordas.28
+    400122: Bordas.29
+    400124: Bordas.3
+    400126: Bordas.30
+    400128: Bordas.31
+    400130: Bordas.32
+    400132: Bordas.33
+    400134: Bordas.34
+    400136: Bordas.35
+    400138: Bordas.36
+    400140: Bordas.4
+    400142: Bordas.5
+    400144: Bordas.6
+    400146: Bordas.7
+    400148: Bordas.8
+    400150: Bordas.9
+    400152: Cabeca
+    400154: Cabelo
+    400156: Camera
+    400158: Camera.1
+    400160: Campo
+    400162: Campo.10
+    400164: Campo.11
+    400166: Campo.12
+    400168: Campo.13
+    400170: Campo.14
+    400172: Campo.15
+    400174: Campo.16
+    400176: Campo.17
+    400178: Campo.18
+    400180: Campo.19
+    400182: Campo.2
+    400184: Campo.20
+    400186: Campo.21
+    400188: Campo.22
+    400190: Campo.23
+    400192: Campo.24
+    400194: Campo.25
+    400196: Campo.26
+    400198: Campo.27
+    400200: Campo.28
+    400202: Campo.29
+    400204: Campo.3
+    400206: Campo.30
+    400208: Campo.31
+    400210: Campo.32
+    400212: Campo.33
+    400214: Campo.34
+    400216: Campo.35
+    400218: Campo.36
+    400220: Campo.37
+    400222: Campo.38
+    400224: Campo.39
+    400226: Campo.4
+    400228: Campo.40
+    400230: Campo.41
+    400232: Campo.42
+    400234: Campo.43
+    400236: Campo.44
+    400238: Campo.45
+    400240: Campo.46
+    400242: Campo.47
+    400244: Campo.48
+    400246: Campo.49
+    400248: Campo.5
+    400250: Campo.50
+    400252: Campo.51
+    400254: Campo.52
+    400256: Campo.53
+    400258: Campo.54
+    400260: Campo.55
+    400262: Campo.56
+    400264: Campo.57
+    400266: Campo.58
+    400268: Campo.59
+    400270: Campo.6
+    400272: Campo.60
+    400274: Campo.61
+    400276: Campo.62
+    400278: Campo.63
+    400280: Campo.64
+    400282: Campo.65
+    400284: Campo.66
+    400286: Campo.67
+    400288: Campo.7
+    400290: Campo.8
+    400292: Campo.9
+    400294: Cima
+    400296: Corpo
+    400298: Divisor
+    400300: Estatua
+    400302: Extrude NURBS
+    400304: Extrude NURBS.1
+    400306: Extrude NURBS.1.2
+    400308: Extrude NURBS.10
+    400310: Extrude NURBS.10.2
+    400312: Extrude NURBS.11
+    400314: Extrude NURBS.11.2
+    400316: Extrude NURBS.12
+    400318: Extrude NURBS.12.2
+    400320: Extrude NURBS.13
+    400322: Extrude NURBS.13.2
+    400324: Extrude NURBS.14
+    400326: Extrude NURBS.14.2
+    400328: Extrude NURBS.15
+    400330: Extrude NURBS.15.2
+    400332: Extrude NURBS.16
+    400334: Extrude NURBS.16.2
+    400336: Extrude NURBS.17
+    400338: Extrude NURBS.17.2
+    400340: Extrude NURBS.18
+    400342: Extrude NURBS.18.2
+    400344: Extrude NURBS.19
+    400346: Extrude NURBS.19.2
+    400348: Extrude NURBS.2
+    400350: Extrude NURBS.2.2
+    400352: Extrude NURBS.2.3
+    400354: Extrude NURBS.20
+    400356: Extrude NURBS.20.2
+    400358: Extrude NURBS.21
+    400360: Extrude NURBS.21.2
+    400362: Extrude NURBS.22
+    400364: Extrude NURBS.22.2
+    400366: Extrude NURBS.23
+    400368: Extrude NURBS.23.2
+    400370: Extrude NURBS.24
+    400372: Extrude NURBS.24.2
+    400374: Extrude NURBS.25
+    400376: Extrude NURBS.25.2
+    400378: Extrude NURBS.26
+    400380: Extrude NURBS.26.2
+    400382: Extrude NURBS.27
+    400384: Extrude NURBS.27.2
+    400386: Extrude NURBS.28
+    400388: Extrude NURBS.28.2
+    400390: Extrude NURBS.29
+    400392: Extrude NURBS.29.2
+    400394: Extrude NURBS.3
+    400396: Extrude NURBS.3.2
+    400398: Extrude NURBS.30
+    400400: Extrude NURBS.30.2
+    400402: Extrude NURBS.31
+    400404: Extrude NURBS.31.2
+    400406: Extrude NURBS.4
+    400408: Extrude NURBS.4.2
+    400410: Extrude NURBS.5
+    400412: Extrude NURBS.5.2
+    400414: Extrude NURBS.6
+    400416: Extrude NURBS.6.2
+    400418: Extrude NURBS.7
+    400420: Extrude NURBS.7.2
+    400422: Extrude NURBS.8
+    400424: Extrude NURBS.8.2
+    400426: Extrude NURBS.9
+    400428: Extrude NURBS.9.2
+    400430: Greece
+    400432: Lados
+    400434: Light
+    400436: Light.1
+    400438: Light.2
+    400440: Light.3
+    400442: Numbers
+    400444: ParedeRedor1
+    400446: ParedeRedor1.1
+    400448: ParedeRedor1.2
+    400450: ParedeRedor1.3
+    400452: ParedeRedor1.4
+    400454: ParedeRedor1.5
+    400456: ParedeRedor1.6
+    400458: ParedeRedor2
+    400460: ParedeRedor2.1
+    400462: ParedeRedor2.2
+    400464: ParedeRedor2.3
+    400466: ParedeRedor2.4
+    400468: ParedeRedor2.5
+    400470: ParedeRedor2.6
+    400472: ParedeRedor3
+    400474: ParedeRedor3.1
+    400476: ParedeRedor3.2
+    400478: ParedeRedor3.3
+    400480: ParedeRedor3.4
+    400482: ParedeRedor3.5
+    400484: ParedeRedor3.6
+    400486: ParedeRedor4
+    400488: ParedeRedor4.1
+    400490: ParedeRedor4.2
+    400492: ParedeRedor4.3
+    400494: ParedeRedor4.4
+    400496: ParedeRedor4.5
+    400498: ParedeRedor4.6
+    400500: Pilar
+    400502: Pilar.1
+    400504: Pilar.2
+    400506: Pilar.3
+    400508: Pilar.4
+    400510: Pilar.5
+    400512: Pilastra
+    400514: Pilastra.1
+    400516: Pilastra.10
+    400518: Pilastra.2
+    400520: Pilastra.3
+    400522: Pilastra.4
+    400524: Pilastra.5
+    400526: Pilastra.6
+    400528: Pilastra.7
+    400530: Pilastra.8
+    400532: Pilastra.9
+    400534: Piso
+    400536: Piso.1
+    400538: Sobrancelha D
+    400540: Sobrancelha E
+    400542: Telhinha
+    400544: Telhinha.1
+    400546: Telhinha.2
+    400548: Telhinha.3
+    400550: Telhinha.4
+    400552: Telhinha.5
+    400554: Telhinha.6
+    2300000: Basinha1
+    2300002: Basinha1.1
+    2300004: Basinha1.2
+    2300006: Basinha1.3
+    2300008: Basinha1.4
+    2300010: Basinha1.5
+    2300012: Basinha1.6
+    2300014: Bordas
+    2300016: Bordas.10
+    2300018: Bordas.11
+    2300020: Bordas.12
+    2300022: Bordas.13
+    2300024: Bordas.14
+    2300026: Bordas.15
+    2300028: Bordas.16
+    2300030: Bordas.17
+    2300032: Bordas.18
+    2300034: Bordas.19
+    2300036: Bordas.2
+    2300038: Bordas.20
+    2300040: Bordas.21
+    2300042: Bordas.22
+    2300044: Bordas.23
+    2300046: Bordas.24
+    2300048: Bordas.25
+    2300050: Bordas.26
+    2300052: Bordas.27
+    2300054: Bordas.28
+    2300056: Bordas.29
+    2300058: Bordas.3
+    2300060: Bordas.30
+    2300062: Bordas.31
+    2300064: Bordas.32
+    2300066: Bordas.33
+    2300068: Bordas.34
+    2300070: Bordas.35
+    2300072: Bordas.36
+    2300074: Bordas.4
+    2300076: Bordas.5
+    2300078: Bordas.6
+    2300080: Bordas.7
+    2300082: Bordas.8
+    2300084: Bordas.9
+    2300086: Cabeca
+    2300088: Cabelo
+    2300090: Campo.10
+    2300092: Campo.11
+    2300094: Campo.12
+    2300096: Campo.13
+    2300098: Campo.14
+    2300100: Campo.15
+    2300102: Campo.16
+    2300104: Campo.17
+    2300106: Campo.18
+    2300108: Campo.19
+    2300110: Campo.2
+    2300112: Campo.20
+    2300114: Campo.21
+    2300116: Campo.22
+    2300118: Campo.23
+    2300120: Campo.24
+    2300122: Campo.25
+    2300124: Campo.26
+    2300126: Campo.27
+    2300128: Campo.28
+    2300130: Campo.29
+    2300132: Campo.3
+    2300134: Campo.30
+    2300136: Campo.31
+    2300138: Campo.32
+    2300140: Campo.33
+    2300142: Campo.34
+    2300144: Campo.35
+    2300146: Campo.36
+    2300148: Campo.37
+    2300150: Campo.38
+    2300152: Campo.39
+    2300154: Campo.4
+    2300156: Campo.40
+    2300158: Campo.41
+    2300160: Campo.42
+    2300162: Campo.43
+    2300164: Campo.44
+    2300166: Campo.45
+    2300168: Campo.46
+    2300170: Campo.47
+    2300172: Campo.48
+    2300174: Campo.49
+    2300176: Campo.5
+    2300178: Campo.50
+    2300180: Campo.51
+    2300182: Campo.52
+    2300184: Campo.53
+    2300186: Campo.54
+    2300188: Campo.55
+    2300190: Campo.56
+    2300192: Campo.57
+    2300194: Campo.58
+    2300196: Campo.59
+    2300198: Campo.6
+    2300200: Campo.60
+    2300202: Campo.61
+    2300204: Campo.62
+    2300206: Campo.63
+    2300208: Campo.64
+    2300210: Campo.65
+    2300212: Campo.66
+    2300214: Campo.67
+    2300216: Campo.7
+    2300218: Campo.8
+    2300220: Campo.9
+    2300222: Cima
+    2300224: Corpo
+    2300226: Divisor
+    2300228: Extrude NURBS.1.2
+    2300230: Extrude NURBS.10.2
+    2300232: Extrude NURBS.11.2
+    2300234: Extrude NURBS.12.2
+    2300236: Extrude NURBS.13.2
+    2300238: Extrude NURBS.14.2
+    2300240: Extrude NURBS.15.2
+    2300242: Extrude NURBS.16.2
+    2300244: Extrude NURBS.17.2
+    2300246: Extrude NURBS.18.2
+    2300248: Extrude NURBS.19.2
+    2300250: Extrude NURBS.2.2
+    2300252: Extrude NURBS.2.3
+    2300254: Extrude NURBS.20.2
+    2300256: Extrude NURBS.21.2
+    2300258: Extrude NURBS.22.2
+    2300260: Extrude NURBS.23.2
+    2300262: Extrude NURBS.24.2
+    2300264: Extrude NURBS.25.2
+    2300266: Extrude NURBS.26.2
+    2300268: Extrude NURBS.27.2
+    2300270: Extrude NURBS.28.2
+    2300272: Extrude NURBS.29.2
+    2300274: Extrude NURBS.3.2
+    2300276: Extrude NURBS.30.2
+    2300278: Extrude NURBS.31.2
+    2300280: Extrude NURBS.4.2
+    2300282: Extrude NURBS.5.2
+    2300284: Extrude NURBS.6.2
+    2300286: Extrude NURBS.7.2
+    2300288: Extrude NURBS.8.2
+    2300290: Extrude NURBS.9.2
+    2300292: Lados
+    2300294: ParedeRedor1
+    2300296: ParedeRedor1.1
+    2300298: ParedeRedor1.2
+    2300300: ParedeRedor1.3
+    2300302: ParedeRedor1.4
+    2300304: ParedeRedor1.5
+    2300306: ParedeRedor1.6
+    2300308: ParedeRedor2
+    2300310: ParedeRedor2.1
+    2300312: ParedeRedor2.2
+    2300314: ParedeRedor2.3
+    2300316: ParedeRedor2.4
+    2300318: ParedeRedor2.5
+    2300320: ParedeRedor2.6
+    2300322: ParedeRedor3
+    2300324: ParedeRedor3.1
+    2300326: ParedeRedor3.2
+    2300328: ParedeRedor3.3
+    2300330: ParedeRedor3.4
+    2300332: ParedeRedor3.5
+    2300334: ParedeRedor3.6
+    2300336: ParedeRedor4
+    2300338: ParedeRedor4.1
+    2300340: ParedeRedor4.2
+    2300342: ParedeRedor4.3
+    2300344: ParedeRedor4.4
+    2300346: ParedeRedor4.5
+    2300348: ParedeRedor4.6
+    2300350: Pilar
+    2300352: Pilar.1
+    2300354: Pilar.2
+    2300356: Pilar.3
+    2300358: Pilar.4
+    2300360: Pilar.5
+    2300362: Pilastra
+    2300364: Pilastra.1
+    2300366: Pilastra.10
+    2300368: Pilastra.2
+    2300370: Pilastra.3
+    2300372: Pilastra.4
+    2300374: Pilastra.5
+    2300376: Pilastra.6
+    2300378: Pilastra.7
+    2300380: Pilastra.8
+    2300382: Pilastra.9
+    2300384: Piso
+    2300386: Piso.1
+    2300388: Sobrancelha D
+    2300390: Sobrancelha E
+    2300392: Telhinha
+    2300394: Telhinha.1
+    2300396: Telhinha.2
+    2300398: Telhinha.3
+    2300400: Telhinha.4
+    2300402: Telhinha.5
+    2300404: Telhinha.6
+    3300000: Basinha1
+    3300002: Basinha1.1
+    3300004: Basinha1.2
+    3300006: Basinha1.3
+    3300008: Basinha1.4
+    3300010: Basinha1.5
+    3300012: Basinha1.6
+    3300014: Bordas
+    3300016: Bordas.10
+    3300018: Bordas.11
+    3300020: Bordas.12
+    3300022: Bordas.13
+    3300024: Bordas.14
+    3300026: Bordas.15
+    3300028: Bordas.16
+    3300030: Bordas.17
+    3300032: Bordas.18
+    3300034: Bordas.19
+    3300036: Bordas.2
+    3300038: Bordas.20
+    3300040: Bordas.21
+    3300042: Bordas.22
+    3300044: Bordas.23
+    3300046: Bordas.24
+    3300048: Bordas.25
+    3300050: Bordas.26
+    3300052: Bordas.27
+    3300054: Bordas.28
+    3300056: Bordas.29
+    3300058: Bordas.3
+    3300060: Bordas.30
+    3300062: Bordas.31
+    3300064: Bordas.32
+    3300066: Bordas.33
+    3300068: Bordas.34
+    3300070: Bordas.35
+    3300072: Bordas.36
+    3300074: Bordas.4
+    3300076: Bordas.5
+    3300078: Bordas.6
+    3300080: Bordas.7
+    3300082: Bordas.8
+    3300084: Bordas.9
+    3300086: Cabeca
+    3300088: Cabelo
+    3300090: Campo.10
+    3300092: Campo.11
+    3300094: Campo.12
+    3300096: Campo.13
+    3300098: Campo.14
+    3300100: Campo.15
+    3300102: Campo.16
+    3300104: Campo.17
+    3300106: Campo.18
+    3300108: Campo.19
+    3300110: Campo.2
+    3300112: Campo.20
+    3300114: Campo.21
+    3300116: Campo.22
+    3300118: Campo.23
+    3300120: Campo.24
+    3300122: Campo.25
+    3300124: Campo.26
+    3300126: Campo.27
+    3300128: Campo.28
+    3300130: Campo.29
+    3300132: Campo.3
+    3300134: Campo.30
+    3300136: Campo.31
+    3300138: Campo.32
+    3300140: Campo.33
+    3300142: Campo.34
+    3300144: Campo.35
+    3300146: Campo.36
+    3300148: Campo.37
+    3300150: Campo.38
+    3300152: Campo.39
+    3300154: Campo.4
+    3300156: Campo.40
+    3300158: Campo.41
+    3300160: Campo.42
+    3300162: Campo.43
+    3300164: Campo.44
+    3300166: Campo.45
+    3300168: Campo.46
+    3300170: Campo.47
+    3300172: Campo.48
+    3300174: Campo.49
+    3300176: Campo.5
+    3300178: Campo.50
+    3300180: Campo.51
+    3300182: Campo.52
+    3300184: Campo.53
+    3300186: Campo.54
+    3300188: Campo.55
+    3300190: Campo.56
+    3300192: Campo.57
+    3300194: Campo.58
+    3300196: Campo.59
+    3300198: Campo.6
+    3300200: Campo.60
+    3300202: Campo.61
+    3300204: Campo.62
+    3300206: Campo.63
+    3300208: Campo.64
+    3300210: Campo.65
+    3300212: Campo.66
+    3300214: Campo.67
+    3300216: Campo.7
+    3300218: Campo.8
+    3300220: Campo.9
+    3300222: Cima
+    3300224: Corpo
+    3300226: Divisor
+    3300228: Extrude NURBS.1.2
+    3300230: Extrude NURBS.10.2
+    3300232: Extrude NURBS.11.2
+    3300234: Extrude NURBS.12.2
+    3300236: Extrude NURBS.13.2
+    3300238: Extrude NURBS.14.2
+    3300240: Extrude NURBS.15.2
+    3300242: Extrude NURBS.16.2
+    3300244: Extrude NURBS.17.2
+    3300246: Extrude NURBS.18.2
+    3300248: Extrude NURBS.19.2
+    3300250: Extrude NURBS.2.2
+    3300252: Extrude NURBS.2.3
+    3300254: Extrude NURBS.20.2
+    3300256: Extrude NURBS.21.2
+    3300258: Extrude NURBS.22.2
+    3300260: Extrude NURBS.23.2
+    3300262: Extrude NURBS.24.2
+    3300264: Extrude NURBS.25.2
+    3300266: Extrude NURBS.26.2
+    3300268: Extrude NURBS.27.2
+    3300270: Extrude NURBS.28.2
+    3300272: Extrude NURBS.29.2
+    3300274: Extrude NURBS.3.2
+    3300276: Extrude NURBS.30.2
+    3300278: Extrude NURBS.31.2
+    3300280: Extrude NURBS.4.2
+    3300282: Extrude NURBS.5.2
+    3300284: Extrude NURBS.6.2
+    3300286: Extrude NURBS.7.2
+    3300288: Extrude NURBS.8.2
+    3300290: Extrude NURBS.9.2
+    3300292: Lados
+    3300294: ParedeRedor1
+    3300296: ParedeRedor1.1
+    3300298: ParedeRedor1.2
+    3300300: ParedeRedor1.3
+    3300302: ParedeRedor1.4
+    3300304: ParedeRedor1.5
+    3300306: ParedeRedor1.6
+    3300308: ParedeRedor2
+    3300310: ParedeRedor2.1
+    3300312: ParedeRedor2.2
+    3300314: ParedeRedor2.3
+    3300316: ParedeRedor2.4
+    3300318: ParedeRedor2.5
+    3300320: ParedeRedor2.6
+    3300322: ParedeRedor3
+    3300324: ParedeRedor3.1
+    3300326: ParedeRedor3.2
+    3300328: ParedeRedor3.3
+    3300330: ParedeRedor3.4
+    3300332: ParedeRedor3.5
+    3300334: ParedeRedor3.6
+    3300336: ParedeRedor4
+    3300338: ParedeRedor4.1
+    3300340: ParedeRedor4.2
+    3300342: ParedeRedor4.3
+    3300344: ParedeRedor4.4
+    3300346: ParedeRedor4.5
+    3300348: ParedeRedor4.6
+    3300350: Pilar
+    3300352: Pilar.1
+    3300354: Pilar.2
+    3300356: Pilar.3
+    3300358: Pilar.4
+    3300360: Pilar.5
+    3300362: Pilastra
+    3300364: Pilastra.1
+    3300366: Pilastra.10
+    3300368: Pilastra.2
+    3300370: Pilastra.3
+    3300372: Pilastra.4
+    3300374: Pilastra.5
+    3300376: Pilastra.6
+    3300378: Pilastra.7
+    3300380: Pilastra.8
+    3300382: Pilastra.9
+    3300384: Piso
+    3300386: Piso.1
+    3300388: Sobrancelha D
+    3300390: Sobrancelha E
+    3300392: Telhinha
+    3300394: Telhinha.1
+    3300396: Telhinha.2
+    3300398: Telhinha.3
+    3300400: Telhinha.4
+    3300402: Telhinha.5
+    3300404: Telhinha.6
+    4300000: Extrude NURBS.31.2
+    4300002: Extrude NURBS.30.2
+    4300004: Extrude NURBS.29.2
+    4300006: Extrude NURBS.28.2
+    4300008: Extrude NURBS.27.2
+    4300010: Extrude NURBS.26.2
+    4300012: Extrude NURBS.25.2
+    4300014: Extrude NURBS.24.2
+    4300016: Extrude NURBS.23.2
+    4300018: Extrude NURBS.22.2
+    4300020: Extrude NURBS.21.2
+    4300022: Extrude NURBS.20.2
+    4300024: Extrude NURBS.19.2
+    4300026: Extrude NURBS.18.2
+    4300028: Extrude NURBS.17.2
+    4300030: Extrude NURBS.16.2
+    4300032: Extrude NURBS.15.2
+    4300034: Extrude NURBS.14.2
+    4300036: Extrude NURBS.13.2
+    4300038: Extrude NURBS.12.2
+    4300040: Extrude NURBS.11.2
+    4300042: Extrude NURBS.10.2
+    4300044: Extrude NURBS.9.2
+    4300046: Extrude NURBS.8.2
+    4300048: Extrude NURBS.7.2
+    4300050: Extrude NURBS.6.2
+    4300052: Extrude NURBS.5.2
+    4300054: Extrude NURBS.4.2
+    4300056: Extrude NURBS.3.2
+    4300058: Extrude NURBS.2.2
+    4300060: Extrude NURBS.2.3
+    4300062: Extrude NURBS.1.2
+    4300064: Divisor
+    4300066: Campo.2
+    4300068: Campo.3
+    4300070: Campo.4
+    4300072: Campo.5
+    4300074: Campo.6
+    4300076: Campo.7
+    4300078: Campo.8
+    4300080: Campo.9
+    4300082: Campo.10
+    4300084: Campo.11
+    4300086: Campo.12
+    4300088: Campo.13
+    4300090: Campo.14
+    4300092: Campo.15
+    4300094: Campo.16
+    4300096: Campo.17
+    4300098: Campo.18
+    4300100: Campo.19
+    4300102: Campo.20
+    4300104: Campo.21
+    4300106: Campo.22
+    4300108: Campo.23
+    4300110: Campo.24
+    4300112: Campo.25
+    4300114: Campo.26
+    4300116: Campo.27
+    4300118: Campo.28
+    4300120: Campo.29
+    4300122: Campo.30
+    4300124: Campo.31
+    4300126: Campo.32
+    4300128: Campo.33
+    4300130: Campo.34
+    4300132: Campo.35
+    4300134: Campo.36
+    4300136: Campo.37
+    4300138: Campo.38
+    4300140: Campo.39
+    4300142: Campo.40
+    4300144: Campo.41
+    4300146: Campo.42
+    4300148: Campo.43
+    4300150: Campo.44
+    4300152: Campo.45
+    4300154: Campo.46
+    4300156: Campo.47
+    4300158: Campo.48
+    4300160: Campo.49
+    4300162: Campo.50
+    4300164: Campo.51
+    4300166: Campo.52
+    4300168: Campo.53
+    4300170: Campo.54
+    4300172: Campo.55
+    4300174: Campo.56
+    4300176: Campo.57
+    4300178: Campo.58
+    4300180: Campo.59
+    4300182: Campo.60
+    4300184: Campo.61
+    4300186: Campo.62
+    4300188: Campo.63
+    4300190: Campo.64
+    4300192: Campo.65
+    4300194: Campo.66
+    4300196: Campo.67
+    4300198: Lados
+    4300200: Bordas
+    4300202: Bordas.2
+    4300204: Bordas.3
+    4300206: Bordas.4
+    4300208: Bordas.5
+    4300210: Bordas.6
+    4300212: Bordas.7
+    4300214: Bordas.8
+    4300216: Bordas.9
+    4300218: Bordas.10
+    4300220: Bordas.11
+    4300222: Bordas.12
+    4300224: Bordas.13
+    4300226: Bordas.14
+    4300228: Bordas.15
+    4300230: Bordas.16
+    4300232: Bordas.17
+    4300234: Bordas.18
+    4300236: Bordas.19
+    4300238: Bordas.20
+    4300240: Bordas.21
+    4300242: Bordas.22
+    4300244: Bordas.23
+    4300246: Bordas.24
+    4300248: Bordas.25
+    4300250: Bordas.26
+    4300252: Bordas.27
+    4300254: Bordas.28
+    4300256: Bordas.29
+    4300258: Bordas.30
+    4300260: Bordas.31
+    4300262: Bordas.32
+    4300264: Bordas.33
+    4300266: Bordas.34
+    4300268: Bordas.35
+    4300270: Bordas.36
+    4300272: Sobrancelha D
+    4300274: Sobrancelha E
+    4300276: Cabelo
+    4300278: Cabeca
+    4300280: Corpo
+    4300282: Pilastra.10
+    4300284: Pilastra.9
+    4300286: Pilastra.8
+    4300288: Pilastra.7
+    4300290: ParedeRedor1.6
+    4300292: ParedeRedor2.6
+    4300294: ParedeRedor3.6
+    4300296: ParedeRedor4.6
+    4300298: Telhinha.6
+    4300300: Basinha1.6
+    4300302: Pilar.5
+    4300304: Pilar.4
+    4300306: Piso.1
+    4300308: Pilastra.6
+    4300310: Pilastra.5
+    4300312: ParedeRedor1.5
+    4300314: ParedeRedor2.5
+    4300316: ParedeRedor3.5
+    4300318: ParedeRedor4.5
+    4300320: Telhinha.5
+    4300322: Basinha1.5
+    4300324: ParedeRedor1.4
+    4300326: ParedeRedor2.4
+    4300328: ParedeRedor3.4
+    4300330: ParedeRedor4.4
+    4300332: Telhinha.4
+    4300334: Basinha1.4
+    4300336: Pilastra.4
+    4300338: Pilastra.3
+    4300340: ParedeRedor1.3
+    4300342: ParedeRedor2.3
+    4300344: ParedeRedor3.3
+    4300346: ParedeRedor4.3
+    4300348: Telhinha.3
+    4300350: Basinha1.3
+    4300352: ParedeRedor1.2
+    4300354: ParedeRedor2.2
+    4300356: ParedeRedor3.2
+    4300358: ParedeRedor4.2
+    4300360: Telhinha.2
+    4300362: Basinha1.2
+    4300364: ParedeRedor1.1
+    4300366: ParedeRedor2.1
+    4300368: ParedeRedor3.1
+    4300370: ParedeRedor4.1
+    4300372: Telhinha.1
+    4300374: Basinha1.1
+    4300376: Pilastra.2
+    4300378: Pilastra.1
+    4300380: ParedeRedor1
+    4300382: ParedeRedor2
+    4300384: ParedeRedor3
+    4300386: ParedeRedor4
+    4300388: Telhinha
+    4300390: Basinha1
+    4300392: Pilar.3
+    4300394: Pilar.2
+    4300396: Pilar.1
+    4300398: Piso
+    4300400: Pilar
+    4300402: Pilastra
+    4300404: Cima
+    7400000: Greece_Entrance
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: Greece_Entrance
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\Splashscreen\LogoPanel.cs">
+    <Files>
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs" Line="483" Column="78" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\World.cs" Line="4" Column="14" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Level.cs" Line="14" Column="18" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Flow\Flow.cs" Line="250" Column="33" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Game.cs" Line="17" Column="15" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Round.cs" Line="26" Column="2" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\CreateStage.cs" Line="219" Column="91" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Splashscreen\LogoPanel.cs" Line="66" Column="64" />
+      <File FileName="..\..\AppData\LocalLow\FreeGamesAndTopApps\MinesweeperRaider\Tileset.xml" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,560 @@
+fileFormatVersion: 2
+guid: 43804e682ff6f3249a535b70ab20e2dd
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Braco do cacto1
+    100004: Braco do cacto2
+    100006: Cacto
+    100008: Cenario
+    100010: Cruz
+    100012: Cruz 1
+    100014: Cruz 1.10
+    100016: Cruz 1.11
+    100018: Cruz 1.12
+    100020: Cruz 1.13
+    100022: Cruz 1.14
+    100024: Cruz 1.15
+    100026: Cruz 1.16
+    100028: Cruz 1.17
+    100030: Cruz 1.18
+    100032: Cruz 1.19
+    100034: Cruz 1.2
+    100036: Cruz 1.20
+    100038: Cruz 1.21
+    100040: Cruz 1.22
+    100042: Cruz 1.23
+    100044: Cruz 1.24
+    100046: Cruz 1.25
+    100048: Cruz 1.26
+    100050: Cruz 1.27
+    100052: Cruz 1.28
+    100054: Cruz 1.3
+    100056: Cruz 1.4
+    100058: Cruz 1.5
+    100060: Cruz 1.6
+    100062: Cruz 1.7
+    100064: Cruz 1.8
+    100066: Cruz 1.9
+    100068: Cruz.1
+    100070: Cruz.10
+    100072: Cruz.11
+    100074: Cruz.12
+    100076: Cruz.13
+    100078: Cruz.14
+    100080: Cruz.15
+    100082: Cruz.16
+    100084: Cruz.17
+    100086: Cruz.18
+    100088: Cruz.19
+    100090: Cruz.2
+    100092: Cruz.20
+    100094: Cruz.21
+    100096: Cruz.22
+    100098: Cruz.23
+    100100: Cruz.24
+    100102: Cruz.25
+    100104: Cruz.26
+    100106: Cruz.3
+    100108: Cruz.4
+    100110: Cruz.5
+    100112: Cruz.6
+    100114: Cruz.7
+    100116: Cruz.8
+    100118: Cruz.9
+    100120: Cruz2
+    100122: Helices
+    100124: Moinho1_001.1
+    100126: MoinhoLouco
+    100128: Montanha
+    100130: Montanha_001
+    100132: Pedrita
+    100134: Pedrita.1
+    100136: Pedrita.10
+    100138: Pedrita.11
+    100140: Pedrita.12
+    100142: Pedrita.13
+    100144: Pedrita.14
+    100146: Pedrita.15
+    100148: Pedrita.16
+    100150: Pedrita.17
+    100152: Pedrita.18
+    100154: Pedrita.19
+    100156: Pedrita.2
+    100158: Pedrita.20
+    100160: Pedrita.21
+    100162: Pedrita.22
+    100164: Pedrita.23
+    100166: Pedrita.24
+    100168: Pedrita.25
+    100170: Pedrita.26
+    100172: Pedrita.27
+    100174: Pedrita.28
+    100176: Pedrita.29
+    100178: Pedrita.3
+    100180: Pedrita.4
+    100182: Pedrita.5
+    100184: Pedrita.6
+    100186: Pedrita.7
+    100188: Pedrita.8
+    100190: Pedrita.9
+    100192: Plantation.1
+    100194: Plantation.2
+    100196: Plantation.4
+    100198: Plataforma.1
+    100200: Ponte e Trem
+    100202: sustentacao
+    100204: Trem
+    400000: //RootNode
+    400002: Braco do cacto1
+    400004: Braco do cacto2
+    400006: Cacto
+    400008: Cenario
+    400010: Cruz
+    400012: Cruz 1
+    400014: Cruz 1.10
+    400016: Cruz 1.11
+    400018: Cruz 1.12
+    400020: Cruz 1.13
+    400022: Cruz 1.14
+    400024: Cruz 1.15
+    400026: Cruz 1.16
+    400028: Cruz 1.17
+    400030: Cruz 1.18
+    400032: Cruz 1.19
+    400034: Cruz 1.2
+    400036: Cruz 1.20
+    400038: Cruz 1.21
+    400040: Cruz 1.22
+    400042: Cruz 1.23
+    400044: Cruz 1.24
+    400046: Cruz 1.25
+    400048: Cruz 1.26
+    400050: Cruz 1.27
+    400052: Cruz 1.28
+    400054: Cruz 1.3
+    400056: Cruz 1.4
+    400058: Cruz 1.5
+    400060: Cruz 1.6
+    400062: Cruz 1.7
+    400064: Cruz 1.8
+    400066: Cruz 1.9
+    400068: Cruz.1
+    400070: Cruz.10
+    400072: Cruz.11
+    400074: Cruz.12
+    400076: Cruz.13
+    400078: Cruz.14
+    400080: Cruz.15
+    400082: Cruz.16
+    400084: Cruz.17
+    400086: Cruz.18
+    400088: Cruz.19
+    400090: Cruz.2
+    400092: Cruz.20
+    400094: Cruz.21
+    400096: Cruz.22
+    400098: Cruz.23
+    400100: Cruz.24
+    400102: Cruz.25
+    400104: Cruz.26
+    400106: Cruz.3
+    400108: Cruz.4
+    400110: Cruz.5
+    400112: Cruz.6
+    400114: Cruz.7
+    400116: Cruz.8
+    400118: Cruz.9
+    400120: Cruz2
+    400122: Helices
+    400124: Moinho1_001.1
+    400126: MoinhoLouco
+    400128: Montanha
+    400130: Montanha_001
+    400132: Pedrita
+    400134: Pedrita.1
+    400136: Pedrita.10
+    400138: Pedrita.11
+    400140: Pedrita.12
+    400142: Pedrita.13
+    400144: Pedrita.14
+    400146: Pedrita.15
+    400148: Pedrita.16
+    400150: Pedrita.17
+    400152: Pedrita.18
+    400154: Pedrita.19
+    400156: Pedrita.2
+    400158: Pedrita.20
+    400160: Pedrita.21
+    400162: Pedrita.22
+    400164: Pedrita.23
+    400166: Pedrita.24
+    400168: Pedrita.25
+    400170: Pedrita.26
+    400172: Pedrita.27
+    400174: Pedrita.28
+    400176: Pedrita.29
+    400178: Pedrita.3
+    400180: Pedrita.4
+    400182: Pedrita.5
+    400184: Pedrita.6
+    400186: Pedrita.7
+    400188: Pedrita.8
+    400190: Pedrita.9
+    400192: Plantation.1
+    400194: Plantation.2
+    400196: Plantation.4
+    400198: Plataforma.1
+    400200: Ponte e Trem
+    400202: sustentacao
+    400204: Trem
+    2300000: Braco do cacto1
+    2300002: Braco do cacto2
+    2300004: Cacto
+    2300006: Cruz
+    2300008: Cruz 1
+    2300010: Cruz 1.10
+    2300012: Cruz 1.11
+    2300014: Cruz 1.12
+    2300016: Cruz 1.13
+    2300018: Cruz 1.14
+    2300020: Cruz 1.15
+    2300022: Cruz 1.16
+    2300024: Cruz 1.17
+    2300026: Cruz 1.18
+    2300028: Cruz 1.19
+    2300030: Cruz 1.2
+    2300032: Cruz 1.20
+    2300034: Cruz 1.21
+    2300036: Cruz 1.22
+    2300038: Cruz 1.23
+    2300040: Cruz 1.24
+    2300042: Cruz 1.25
+    2300044: Cruz 1.26
+    2300046: Cruz 1.27
+    2300048: Cruz 1.28
+    2300050: Cruz 1.3
+    2300052: Cruz 1.4
+    2300054: Cruz 1.5
+    2300056: Cruz 1.6
+    2300058: Cruz 1.7
+    2300060: Cruz 1.8
+    2300062: Cruz 1.9
+    2300064: Cruz.1
+    2300066: Cruz.10
+    2300068: Cruz.11
+    2300070: Cruz.12
+    2300072: Cruz.13
+    2300074: Cruz.14
+    2300076: Cruz.15
+    2300078: Cruz.16
+    2300080: Cruz.17
+    2300082: Cruz.18
+    2300084: Cruz.19
+    2300086: Cruz.2
+    2300088: Cruz.20
+    2300090: Cruz.21
+    2300092: Cruz.22
+    2300094: Cruz.23
+    2300096: Cruz.24
+    2300098: Cruz.25
+    2300100: Cruz.26
+    2300102: Cruz.3
+    2300104: Cruz.4
+    2300106: Cruz.5
+    2300108: Cruz.6
+    2300110: Cruz.7
+    2300112: Cruz.8
+    2300114: Cruz.9
+    2300116: Cruz2
+    2300118: Helices
+    2300120: Moinho1_001.1
+    2300122: Montanha
+    2300124: Montanha_001
+    2300126: Pedrita
+    2300128: Pedrita.1
+    2300130: Pedrita.10
+    2300132: Pedrita.11
+    2300134: Pedrita.12
+    2300136: Pedrita.13
+    2300138: Pedrita.14
+    2300140: Pedrita.15
+    2300142: Pedrita.16
+    2300144: Pedrita.17
+    2300146: Pedrita.18
+    2300148: Pedrita.19
+    2300150: Pedrita.2
+    2300152: Pedrita.20
+    2300154: Pedrita.21
+    2300156: Pedrita.22
+    2300158: Pedrita.23
+    2300160: Pedrita.24
+    2300162: Pedrita.25
+    2300164: Pedrita.26
+    2300166: Pedrita.27
+    2300168: Pedrita.28
+    2300170: Pedrita.29
+    2300172: Pedrita.3
+    2300174: Pedrita.4
+    2300176: Pedrita.5
+    2300178: Pedrita.6
+    2300180: Pedrita.7
+    2300182: Pedrita.8
+    2300184: Pedrita.9
+    2300186: Plantation.1
+    2300188: Plantation.2
+    2300190: Plantation.4
+    2300192: Plataforma.1
+    2300194: sustentacao
+    2300196: Trem
+    3300000: Braco do cacto1
+    3300002: Braco do cacto2
+    3300004: Cacto
+    3300006: Cruz
+    3300008: Cruz 1
+    3300010: Cruz 1.10
+    3300012: Cruz 1.11
+    3300014: Cruz 1.12
+    3300016: Cruz 1.13
+    3300018: Cruz 1.14
+    3300020: Cruz 1.15
+    3300022: Cruz 1.16
+    3300024: Cruz 1.17
+    3300026: Cruz 1.18
+    3300028: Cruz 1.19
+    3300030: Cruz 1.2
+    3300032: Cruz 1.20
+    3300034: Cruz 1.21
+    3300036: Cruz 1.22
+    3300038: Cruz 1.23
+    3300040: Cruz 1.24
+    3300042: Cruz 1.25
+    3300044: Cruz 1.26
+    3300046: Cruz 1.27
+    3300048: Cruz 1.28
+    3300050: Cruz 1.3
+    3300052: Cruz 1.4
+    3300054: Cruz 1.5
+    3300056: Cruz 1.6
+    3300058: Cruz 1.7
+    3300060: Cruz 1.8
+    3300062: Cruz 1.9
+    3300064: Cruz.1
+    3300066: Cruz.10
+    3300068: Cruz.11
+    3300070: Cruz.12
+    3300072: Cruz.13
+    3300074: Cruz.14
+    3300076: Cruz.15
+    3300078: Cruz.16
+    3300080: Cruz.17
+    3300082: Cruz.18
+    3300084: Cruz.19
+    3300086: Cruz.2
+    3300088: Cruz.20
+    3300090: Cruz.21
+    3300092: Cruz.22
+    3300094: Cruz.23
+    3300096: Cruz.24
+    3300098: Cruz.25
+    3300100: Cruz.26
+    3300102: Cruz.3
+    3300104: Cruz.4
+    3300106: Cruz.5
+    3300108: Cruz.6
+    3300110: Cruz.7
+    3300112: Cruz.8
+    3300114: Cruz.9
+    3300116: Cruz2
+    3300118: Helices
+    3300120: Moinho1_001.1
+    3300122: Montanha
+    3300124: Montanha_001
+    3300126: Pedrita
+    3300128: Pedrita.1
+    3300130: Pedrita.10
+    3300132: Pedrita.11
+    3300134: Pedrita.12
+    3300136: Pedrita.13
+    3300138: Pedrita.14
+    3300140: Pedrita.15
+    3300142: Pedrita.16
+    3300144: Pedrita.17
+    3300146: Pedrita.18
+    3300148: Pedrita.19
+    3300150: Pedrita.2
+    3300152: Pedrita.20
+    3300154: Pedrita.21
+    3300156: Pedrita.22
+    3300158: Pedrita.23
+    3300160: Pedrita.24
+    3300162: Pedrita.25
+    3300164: Pedrita.26
+    3300166: Pedrita.27
+    3300168: Pedrita.28
+    3300170: Pedrita.29
+    3300172: Pedrita.3
+    3300174: Pedrita.4
+    3300176: Pedrita.5
+    3300178: Pedrita.6
+    3300180: Pedrita.7
+    3300182: Pedrita.8
+    3300184: Pedrita.9
+    3300186: Plantation.1
+    3300188: Plantation.2
+    3300190: Plantation.4
+    3300192: Plataforma.1
+    3300194: sustentacao
+    3300196: Trem
+    4300000: Helices
+    4300002: Moinho1_001.1
+    4300004: Plataforma.1
+    4300006: Plantation.4
+    4300008: Plantation.2
+    4300010: Plantation.1
+    4300012: Cacto
+    4300014: Braco do cacto1
+    4300016: Braco do cacto2
+    4300018: Pedrita.6
+    4300020: Pedrita.5
+    4300022: Pedrita.4
+    4300024: Pedrita.3
+    4300026: Pedrita.2
+    4300028: Pedrita.1
+    4300030: Pedrita
+    4300032: Pedrita.29
+    4300034: Pedrita.28
+    4300036: Pedrita.27
+    4300038: Pedrita.26
+    4300040: Pedrita.25
+    4300042: Pedrita.24
+    4300044: Pedrita.23
+    4300046: Pedrita.22
+    4300048: Pedrita.21
+    4300050: Pedrita.20
+    4300052: Pedrita.19
+    4300054: Pedrita.18
+    4300056: Pedrita.17
+    4300058: Pedrita.16
+    4300060: Pedrita.15
+    4300062: Pedrita.14
+    4300064: Pedrita.13
+    4300066: Pedrita.12
+    4300068: Pedrita.11
+    4300070: Pedrita.10
+    4300072: Pedrita.9
+    4300074: Pedrita.8
+    4300076: Pedrita.7
+    4300078: Cruz.26
+    4300080: Cruz 1
+    4300082: Cruz.25
+    4300084: Cruz 1.2
+    4300086: Cruz.24
+    4300088: Cruz 1.3
+    4300090: Cruz.23
+    4300092: Cruz 1.4
+    4300094: Cruz.22
+    4300096: Cruz 1.5
+    4300098: Cruz.21
+    4300100: Cruz 1.6
+    4300102: Cruz.20
+    4300104: Cruz 1.7
+    4300106: Cruz.19
+    4300108: Cruz 1.8
+    4300110: Cruz.18
+    4300112: Cruz 1.9
+    4300114: Cruz.17
+    4300116: Cruz 1.10
+    4300118: Cruz.16
+    4300120: Cruz 1.11
+    4300122: Cruz.15
+    4300124: Cruz 1.12
+    4300126: Cruz.14
+    4300128: Cruz 1.13
+    4300130: Cruz.13
+    4300132: Cruz 1.14
+    4300134: Cruz.12
+    4300136: Cruz 1.15
+    4300138: Cruz.11
+    4300140: Cruz 1.16
+    4300142: Cruz.10
+    4300144: Cruz 1.17
+    4300146: Cruz.9
+    4300148: Cruz 1.18
+    4300150: Cruz.8
+    4300152: Cruz 1.19
+    4300154: Cruz.7
+    4300156: Cruz 1.20
+    4300158: Cruz.6
+    4300160: Cruz 1.21
+    4300162: Cruz.5
+    4300164: Cruz 1.22
+    4300166: Cruz.4
+    4300168: Cruz 1.23
+    4300170: Cruz.3
+    4300172: Cruz 1.24
+    4300174: Cruz.2
+    4300176: Cruz 1.25
+    4300178: Cruz.1
+    4300180: Cruz 1.26
+    4300182: Cruz2
+    4300184: Cruz 1.27
+    4300186: Cruz
+    4300188: Cruz 1.28
+    4300190: Trem
+    4300192: Montanha_001
+    4300194: Montanha
+    4300196: sustentacao
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 0
+  userData: 

@@ -1,0 +1,903 @@
+fileFormatVersion: 2
+guid: d66c6eb33118e4fc5a6d75405970f286
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Armadura
+    100002: Armas
+    100004: Barba
+    100006: Barba2
+    100008: Barba3
+    100010: Bigode
+    100012: Bigode2
+    100014: Bigode3
+    100016: Bigode3.2
+    100018: Bigode5
+    100020: Boca
+    100022: Botao
+    100024: Botao.1
+    100026: Botao.1.2
+    100028: Botao.2
+    100030: Botao.2.2
+    100032: Botao.2.3
+    100034: Botao.3
+    100036: Botao.3.2
+    100038: Botao.4
+    100040: Botao.4.2
+    100042: Botao.5
+    100044: Botao.5.2
+    100046: BotaoA
+    100048: BotaoA.1
+    100050: BotaoA.2
+    100052: BotaoA.3
+    100054: Braco D
+    100056: Braco E
+    100058: CabeloIndio
+    100060: CabeloIndio.1
+    100062: CabeloIndio.2
+    100064: CabeloIndio.3
+    100066: CabeloIndio.4
+    100068: Camera
+    100070: Canela D
+    100072: Canela E
+    100074: Canga
+    100076: Canga.1
+    100078: Carabina
+    100080: Carabina_Cano
+    100082: ChapeuMex
+    100084: Char
+    100086: Char10_Cangaceiro
+    100088: Char1_Clint
+    100090: Char2_Van Cleef
+    100092: Char3_Indio
+    100094: Char4_Union
+    100096: Char5_Confederate
+    100098: Char6_Slave
+    100100: Char7_Mexicano
+    100102: Char8_Coveiro
+    100104: Char9_Xerife
+    100106: Character
+    100108: Cigarro
+    100110: Cinto
+    100112: Cintura
+    100114: Coisas do Corpo
+    100116: Cotovelo D
+    100118: Cotovelo E
+    100120: Coxa D
+    100122: Coxa E
+    100124: Dedao D
+    100126: Dedao E
+    100128: Dedo Indicador D
+    100130: Dedo Indicador E
+    100132: Dedos D
+    100134: Dedos E
+    100136: Face
+    100138: Gunslinger
+    100140: Item do Chapeu
+    100142: Item do Chapeu.2
+    100144: Joelho D
+    100146: Joelho E
+    100148: Joint.1
+    100150: Joint.1.2
+    100152: Joint.1.3
+    100154: Joint.2
+    100156: Joint.2.2
+    100158: Joint.2.3
+    100160: Joint.2.4
+    100162: Joint.2.5
+    100164: Joint.2.6
+    100166: Joint.3
+    100168: Joint.3.2
+    100170: Joint.3.3
+    100172: Lenco
+    100174: Lenco2
+    100176: Lenco3
+    100178: Municao
+    100180: Nariz
+    100182: Null
+    100184: Null.2
+    100186: Null.3
+    100188: Null.4
+    100190: Null.5
+    100192: Null.6
+    100194: Oi
+    100196: Oi.1
+    100198: Oi.2
+    100200: Oi.3
+    100202: Oi.4
+    100204: Oi.5
+    100206: Oi.6
+    100208: Oi.7
+    100210: Olho Direito
+    100212: Olho Esquerdo
+    100214: Ombro D
+    100216: Ombro E
+    100218: Pa
+    100220: Pa Cabo
+    100222: Pe D
+    100224: Pe D.2
+    100226: Pe E
+    100228: Pe E.2
+    100230: Pena1
+    100232: Pena2
+    100234: Pena3
+    100236: Pena4
+    100238: Perna D
+    100240: Perna E
+    100242: //RootNode
+    100244: Pescoco
+    100246: Pistoleiro
+    100248: Poncho
+    100250: Pulso D
+    100252: Pulso E
+    100254: R1-J1
+    100256: R1-J2
+    100258: R2-J1
+    100260: R2-J2
+    100262: R3-J1
+    100264: R3-J2
+    100266: R4-J1
+    100268: R4-J2
+    100270: R5-J1
+    100272: R5-J2
+    100274: Revolver 1
+    100276: Revolver 1 Joint
+    100278: Revolver 2
+    100280: Revolver 2 Joint
+    100282: Revolver 3
+    100284: Revolver 3 Joint
+    100286: Revolver 4
+    100288: Revolver 4 Joint
+    100290: Revolver 5
+    100292: Revolver 5 Joint
+    100294: Sobrancelha Direita
+    100296: Sobrancelha Esquerda
+    100298: Sphere
+    100300: Sphere.1
+    100302: Sphere.2
+    100304: Sphere.3
+    100306: Sphere.4
+    100308: Star
+    100310: Star2
+    100312: Star3
+    100314: Star3.1
+    100316: Star3.2
+    100318: Star3.3
+    100320: Star3.4
+    100322: Star3.5
+    100324: TopoChapeu
+    400000: Armadura
+    400002: Armas
+    400004: Barba
+    400006: Barba2
+    400008: Barba3
+    400010: Bigode
+    400012: Bigode2
+    400014: Bigode3
+    400016: Bigode3.2
+    400018: Bigode5
+    400020: Boca
+    400022: Botao
+    400024: Botao.1
+    400026: Botao.1.2
+    400028: Botao.2
+    400030: Botao.2.2
+    400032: Botao.2.3
+    400034: Botao.3
+    400036: Botao.3.2
+    400038: Botao.4
+    400040: Botao.4.2
+    400042: Botao.5
+    400044: Botao.5.2
+    400046: BotaoA
+    400048: BotaoA.1
+    400050: BotaoA.2
+    400052: BotaoA.3
+    400054: Braco D
+    400056: Braco E
+    400058: CabeloIndio
+    400060: CabeloIndio.1
+    400062: CabeloIndio.2
+    400064: CabeloIndio.3
+    400066: CabeloIndio.4
+    400068: Camera
+    400070: Canela D
+    400072: Canela E
+    400074: Canga
+    400076: Canga.1
+    400078: Carabina
+    400080: Carabina_Cano
+    400082: ChapeuMex
+    400084: Char
+    400086: Char10_Cangaceiro
+    400088: Char1_Clint
+    400090: Char2_Van Cleef
+    400092: Char3_Indio
+    400094: Char4_Union
+    400096: Char5_Confederate
+    400098: Char6_Slave
+    400100: Char7_Mexicano
+    400102: Char8_Coveiro
+    400104: Char9_Xerife
+    400106: Character
+    400108: Cigarro
+    400110: Cinto
+    400112: Cintura
+    400114: Coisas do Corpo
+    400116: Cotovelo D
+    400118: Cotovelo E
+    400120: Coxa D
+    400122: Coxa E
+    400124: Dedao D
+    400126: Dedao E
+    400128: Dedo Indicador D
+    400130: Dedo Indicador E
+    400132: Dedos D
+    400134: Dedos E
+    400136: Face
+    400138: Gunslinger
+    400140: Item do Chapeu
+    400142: Item do Chapeu.2
+    400144: Joelho D
+    400146: Joelho E
+    400148: Joint.1
+    400150: Joint.1.2
+    400152: Joint.1.3
+    400154: Joint.2
+    400156: Joint.2.2
+    400158: Joint.2.3
+    400160: Joint.2.4
+    400162: Joint.2.5
+    400164: Joint.2.6
+    400166: Joint.3
+    400168: Joint.3.2
+    400170: Joint.3.3
+    400172: Lenco
+    400174: Lenco2
+    400176: Lenco3
+    400178: Municao
+    400180: Nariz
+    400182: Null
+    400184: Null.2
+    400186: Null.3
+    400188: Null.4
+    400190: Null.5
+    400192: Null.6
+    400194: Oi
+    400196: Oi.1
+    400198: Oi.2
+    400200: Oi.3
+    400202: Oi.4
+    400204: Oi.5
+    400206: Oi.6
+    400208: Oi.7
+    400210: Olho Direito
+    400212: Olho Esquerdo
+    400214: Ombro D
+    400216: Ombro E
+    400218: Pa
+    400220: Pa Cabo
+    400222: Pe D
+    400224: Pe D.2
+    400226: Pe E
+    400228: Pe E.2
+    400230: Pena1
+    400232: Pena2
+    400234: Pena3
+    400236: Pena4
+    400238: Perna D
+    400240: Perna E
+    400242: //RootNode
+    400244: Pescoco
+    400246: Pistoleiro
+    400248: Poncho
+    400250: Pulso D
+    400252: Pulso E
+    400254: R1-J1
+    400256: R1-J2
+    400258: R2-J1
+    400260: R2-J2
+    400262: R3-J1
+    400264: R3-J2
+    400266: R4-J1
+    400268: R4-J2
+    400270: R5-J1
+    400272: R5-J2
+    400274: Revolver 1
+    400276: Revolver 1 Joint
+    400278: Revolver 2
+    400280: Revolver 2 Joint
+    400282: Revolver 3
+    400284: Revolver 3 Joint
+    400286: Revolver 4
+    400288: Revolver 4 Joint
+    400290: Revolver 5
+    400292: Revolver 5 Joint
+    400294: Sobrancelha Direita
+    400296: Sobrancelha Esquerda
+    400298: Sphere
+    400300: Sphere.1
+    400302: Sphere.2
+    400304: Sphere.3
+    400306: Sphere.4
+    400308: Star
+    400310: Star2
+    400312: Star3
+    400314: Star3.1
+    400316: Star3.2
+    400318: Star3.3
+    400320: Star3.4
+    400322: Star3.5
+    400324: TopoChapeu
+    2300000: Barba
+    2300002: Barba2
+    2300004: Barba3
+    2300006: Bigode
+    2300008: Bigode2
+    2300010: Bigode3
+    2300012: Bigode3.2
+    2300014: Bigode5
+    2300016: Boca
+    2300018: Botao
+    2300020: Botao.1
+    2300022: Botao.1.2
+    2300024: Botao.2
+    2300026: Botao.2.2
+    2300028: Botao.2.3
+    2300030: Botao.3
+    2300032: Botao.3.2
+    2300034: Botao.4
+    2300036: Botao.4.2
+    2300038: Botao.5
+    2300040: Botao.5.2
+    2300042: BotaoA
+    2300044: BotaoA.1
+    2300046: BotaoA.2
+    2300048: BotaoA.3
+    2300050: CabeloIndio
+    2300052: CabeloIndio.1
+    2300054: CabeloIndio.2
+    2300056: CabeloIndio.3
+    2300058: CabeloIndio.4
+    2300060: Canga
+    2300062: Canga.1
+    2300064: Carabina
+    2300066: Carabina_Cano
+    2300068: ChapeuMex
+    2300070: Cigarro
+    2300072: Cinto
+    2300074: Item do Chapeu
+    2300076: Item do Chapeu.2
+    2300078: Lenco
+    2300080: Lenco2
+    2300082: Lenco3
+    2300084: Municao
+    2300086: Nariz
+    2300088: Oi
+    2300090: Oi.1
+    2300092: Oi.2
+    2300094: Oi.3
+    2300096: Oi.4
+    2300098: Oi.5
+    2300100: Oi.6
+    2300102: Oi.7
+    2300104: Olho Direito
+    2300106: Olho Esquerdo
+    2300108: Pa
+    2300110: Pa Cabo
+    2300112: Pena1
+    2300114: Pena2
+    2300116: Pena3
+    2300118: Pena4
+    2300120: Poncho
+    2300122: Sobrancelha Direita
+    2300124: Sobrancelha Esquerda
+    2300126: Sphere
+    2300128: Sphere.1
+    2300130: Sphere.2
+    2300132: Sphere.3
+    2300134: Sphere.4
+    2300136: Star
+    2300138: Star2
+    2300140: Star3
+    2300142: Star3.1
+    2300144: Star3.2
+    2300146: Star3.3
+    2300148: Star3.4
+    2300150: Star3.5
+    2300152: TopoChapeu
+    3300000: Barba
+    3300002: Barba2
+    3300004: Barba3
+    3300006: Bigode
+    3300008: Bigode2
+    3300010: Bigode3
+    3300012: Bigode3.2
+    3300014: Bigode5
+    3300016: Boca
+    3300018: Botao
+    3300020: Botao.1
+    3300022: Botao.1.2
+    3300024: Botao.2
+    3300026: Botao.2.2
+    3300028: Botao.2.3
+    3300030: Botao.3
+    3300032: Botao.3.2
+    3300034: Botao.4
+    3300036: Botao.4.2
+    3300038: Botao.5
+    3300040: Botao.5.2
+    3300042: BotaoA
+    3300044: BotaoA.1
+    3300046: BotaoA.2
+    3300048: BotaoA.3
+    3300050: CabeloIndio
+    3300052: CabeloIndio.1
+    3300054: CabeloIndio.2
+    3300056: CabeloIndio.3
+    3300058: CabeloIndio.4
+    3300060: Canga
+    3300062: Canga.1
+    3300064: Carabina
+    3300066: Carabina_Cano
+    3300068: ChapeuMex
+    3300070: Cigarro
+    3300072: Cinto
+    3300074: Item do Chapeu
+    3300076: Item do Chapeu.2
+    3300078: Lenco
+    3300080: Lenco2
+    3300082: Lenco3
+    3300084: Municao
+    3300086: Nariz
+    3300088: Oi
+    3300090: Oi.1
+    3300092: Oi.2
+    3300094: Oi.3
+    3300096: Oi.4
+    3300098: Oi.5
+    3300100: Oi.6
+    3300102: Oi.7
+    3300104: Olho Direito
+    3300106: Olho Esquerdo
+    3300108: Pa
+    3300110: Pa Cabo
+    3300112: Pena1
+    3300114: Pena2
+    3300116: Pena3
+    3300118: Pena4
+    3300120: Poncho
+    3300122: Sobrancelha Direita
+    3300124: Sobrancelha Esquerda
+    3300126: Sphere
+    3300128: Sphere.1
+    3300130: Sphere.2
+    3300132: Sphere.3
+    3300134: Sphere.4
+    3300136: Star
+    3300138: Star2
+    3300140: Star3
+    3300142: Star3.1
+    3300144: Star3.2
+    3300146: Star3.3
+    3300148: Star3.4
+    3300150: Star3.5
+    3300152: TopoChapeu
+    4300000: Revolver 1
+    4300002: Revolver 2
+    4300004: Revolver 3
+    4300006: Revolver 4
+    4300008: Revolver 5
+    4300010: Cinto
+    4300012: Sobrancelha Esquerda
+    4300014: Sobrancelha Direita
+    4300016: Olho Esquerdo
+    4300018: Olho Direito
+    4300020: Lenco
+    4300022: Bigode
+    4300024: CabeloIndio.4
+    4300026: CabeloIndio.3
+    4300028: CabeloIndio.2
+    4300030: CabeloIndio.1
+    4300032: CabeloIndio
+    4300034: Pena1
+    4300036: Pena2
+    4300038: Pena3
+    4300040: Pena4
+    4300042: Item do Chapeu
+    4300044: Botao.5
+    4300046: Botao.4
+    4300048: Botao.3
+    4300050: Botao.2
+    4300052: Botao.1
+    4300054: Botao
+    4300056: Lenco2
+    4300058: Item do Chapeu.2
+    4300060: Botao.5.2
+    4300062: Botao.4.2
+    4300064: Botao.3.2
+    4300066: Botao.2.2
+    4300068: Botao.1.2
+    4300070: Botao.2.3
+    4300072: Lenco3
+    4300074: Bigode2
+    4300076: Barba
+    4300078: Poncho
+    4300080: ChapeuMex
+    4300082: TopoChapeu
+    4300084: Bigode3
+    4300086: Barba2
+    4300088: Pa Cabo
+    4300090: Pa
+    4300092: Cigarro
+    4300094: Bigode3.2
+    4300096: BotaoA.3
+    4300098: BotaoA.2
+    4300100: BotaoA.1
+    4300102: BotaoA
+    4300104: Sphere.4
+    4300106: Sphere.3
+    4300108: Sphere.2
+    4300110: Sphere.1
+    4300112: Sphere
+    4300114: Star
+    4300116: Star2
+    4300118: Star3.5
+    4300120: Star3.4
+    4300122: Star3.3
+    4300124: Star3.2
+    4300126: Star3.1
+    4300128: Star3
+    4300130: Canga.1
+    4300132: Canga
+    4300134: Carabina_Cano
+    4300136: Carabina
+    4300138: Bigode5
+    4300140: Barba3
+    4300142: Municao
+    4300144: Nariz
+    4300146: Boca
+    4300148: Oi.7
+    4300150: Oi.6
+    4300152: Oi.5
+    4300154: Oi.4
+    4300156: Oi.3
+    4300158: Oi.2
+    4300160: Oi.1
+    4300162: Oi
+    4300164: Pistoleiro
+    7400000: idle
+    7400002: prepare
+    7400004: shoot
+    7400006: shootOnFoot
+    7400008: die1
+    7400010: victory3
+    7400012: jump
+    7400014: victory1
+    7400016: victory2
+    7400018: victory4
+    7400020: victory5
+    7400022: die2
+    7400024: die3
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Pistoleiro
+    13700002: Revolver 1
+    13700004: Revolver 2
+    13700006: Revolver 3
+    13700008: Revolver 4
+    13700010: Revolver 5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: idle
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: prepare
+      takeName: C4D Animation Take
+      firstFrame: 15
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: shoot
+      takeName: C4D Animation Take
+      firstFrame: 16
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: shootOnFoot
+      takeName: C4D Animation Take
+      firstFrame: 165
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: die1
+      takeName: C4D Animation Take
+      firstFrame: 110
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: victory3
+      takeName: C4D Animation Take
+      firstFrame: 85
+      lastFrame: 105
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: jump
+      takeName: C4D Animation Take
+      firstFrame: 180
+      lastFrame: 188
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: victory1
+      takeName: C4D Animation Take
+      firstFrame: 25
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: victory2
+      takeName: C4D Animation Take
+      firstFrame: 40
+      lastFrame: 82
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: victory4
+      takeName: C4D Animation Take
+      firstFrame: 220
+      lastFrame: 265
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: victory5
+      takeName: C4D Animation Take
+      firstFrame: 270
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: die2
+      takeName: C4D Animation Take
+      firstFrame: 135
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

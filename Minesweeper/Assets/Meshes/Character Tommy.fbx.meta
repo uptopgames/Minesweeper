@@ -1,0 +1,397 @@
+fileFormatVersion: 2
+guid: 7dc8e4e17649ff240975d3a5a2c3f058
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Arqueologo
+    100002: Barriga
+    100004: Braco D
+    100006: Braco E
+    100008: Cabeca
+    100010: Cabelo
+    100012: Cabeza 1
+    100014: Cabeza 2
+    100016: Camera
+    100018: Chapeu
+    100020: Chapeu 1
+    100022: Chapeu 2
+    100024: //RootNode
+    100026: Corpo
+    100028: Cotovelo D
+    100030: Cotovelo E
+    100032: Coxa D
+    100034: Coxa E
+    100036: Dedos 2 D
+    100038: Dedos 2 E
+    100040: Dedos D
+    100042: Dedos E
+    100044: Escudo
+    100046: EscudoBase
+    100048: Esqueleto
+    100050: Hat
+    100052: Head
+    100054: Joelho D
+    100056: Joelho E
+    100058: Null
+    100060: Null.2
+    100062: Null.3
+    100064: Null.4
+    100066: Ombro D
+    100068: Ombro D.Pole
+    100070: Ombro E
+    100072: Ombro E.Pole
+    100074: Pe D
+    100076: Pe E
+    100078: Pe_D
+    100080: Pe_E
+    100082: Pelvis
+    100084: Perna D
+    100086: Perna E
+    100088: Pescoco
+    100090: Polegar 2 D
+    100092: Polegar 2 E
+    100094: Polegar D
+    100096: Polegar E
+    100098: Pulso D
+    100100: Pulso E
+    100102: Scuddo
+    100104: Scudo
+    100106: Sobrancelha D
+    100108: Sobrancelha E
+    100110: Tommy
+    100112: Tornozelo D
+    100114: Tornozelo E
+    400000: Arqueologo
+    400002: Barriga
+    400004: Braco D
+    400006: Braco E
+    400008: Cabeca
+    400010: Cabelo
+    400012: Cabeza 1
+    400014: Cabeza 2
+    400016: Camera
+    400018: Chapeu
+    400020: Chapeu 1
+    400022: Chapeu 2
+    400024: //RootNode
+    400026: Corpo
+    400028: Cotovelo D
+    400030: Cotovelo E
+    400032: Coxa D
+    400034: Coxa E
+    400036: Dedos 2 D
+    400038: Dedos 2 E
+    400040: Dedos D
+    400042: Dedos E
+    400044: Escudo
+    400046: EscudoBase
+    400048: Esqueleto
+    400050: Hat
+    400052: Head
+    400054: Joelho D
+    400056: Joelho E
+    400058: Null
+    400060: Null.2
+    400062: Null.3
+    400064: Null.4
+    400066: Ombro D
+    400068: Ombro D.Pole
+    400070: Ombro E
+    400072: Ombro E.Pole
+    400074: Pe D
+    400076: Pe E
+    400078: Pe_D
+    400080: Pe_E
+    400082: Pelvis
+    400084: Perna D
+    400086: Perna E
+    400088: Pescoco
+    400090: Polegar 2 D
+    400092: Polegar 2 E
+    400094: Polegar D
+    400096: Polegar E
+    400098: Pulso D
+    400100: Pulso E
+    400102: Scuddo
+    400104: Scudo
+    400106: Sobrancelha D
+    400108: Sobrancelha E
+    400110: Tommy
+    400112: Tornozelo D
+    400114: Tornozelo E
+    2300000: Cabelo
+    2300002: Sobrancelha D
+    2300004: Sobrancelha E
+    3300000: Cabelo
+    3300002: Sobrancelha D
+    3300004: Sobrancelha E
+    4300000: Sobrancelha D
+    4300002: Sobrancelha E
+    4300004: Cabelo
+    4300006: Chapeu
+    4300008: Cabeca
+    4300010: Corpo
+    4300012: Escudo
+    7400000: walk
+    7400002: stand
+    7400004: waiting
+    7400006: walkShield
+    7400008: standShield
+    7400010: Menu
+    7400012: win
+    7400014: lose1
+    7400016: lose2
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Cabeca
+    13700002: Chapeu
+    13700004: Corpo
+    13700006: Escudo
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: walk
+      takeName: C4D Animation Take
+      firstFrame: 30
+      lastFrame: 60
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: stand
+      takeName: C4D Animation Take
+      firstFrame: 90
+      lastFrame: 120
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: waiting
+      takeName: C4D Animation Take
+      firstFrame: 330
+      lastFrame: 360
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: walkShield
+      takeName: C4D Animation Take
+      firstFrame: 150
+      lastFrame: 180
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: standShield
+      takeName: C4D Animation Take
+      firstFrame: 185
+      lastFrame: 185.100006
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: Menu
+      takeName: C4D Animation Take
+      firstFrame: 480
+      lastFrame: 660
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: win
+      takeName: C4D Animation Take
+      firstFrame: 270
+      lastFrame: 300
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: lose1
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: .100000001
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: lose2
+      takeName: C4D Animation Take
+      firstFrame: 390
+      lastFrame: 443
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

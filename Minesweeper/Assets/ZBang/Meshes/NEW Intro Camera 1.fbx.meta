@@ -1,0 +1,296 @@
+fileFormatVersion: 2
+guid: b561926e38cd24179854cd05d76e59cb
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Armas
+    100002: Armas.2
+    100004: Base
+    100006: Cacto
+    100008: Cacto.1
+    100010: Cacto.2
+    100012: Cacto.3
+    100014: Cacto.4
+    100016: Camera
+    100018: Cenario1
+    100020: Char
+    100022: Char.2
+    100024: Character
+    100026: Character.2
+    100028: Estacao
+    100030: Estazione_Teto
+    100032: Gunslinger
+    100034: Gunslinger.1
+    100036: Helices
+    100038: Linha_do_Trem
+    100040: Moinho
+    100042: Montanha1_000
+    100044: Montanha1_001
+    100046: Montanha1_002
+    100048: Montanha1_003
+    100050: Montanha1_004
+    100052: Montanha1_005
+    100054: Montanha1_006
+    100056: Montanha1_007
+    100058: Montanha1_008
+    100060: //RootNode
+    100062: Null
+    100064: Null.10
+    100066: Null.11
+    100068: Null.12
+    100070: Null.2
+    100072: Null.3
+    100074: Null.4
+    100076: Null.5
+    100078: Null.6
+    100080: Null.7
+    100082: Null.8
+    100084: Null.9
+    100086: Piso
+    100088: Pistoleiro
+    100090: Pistoleiro.2
+    100092: Plataforma
+    100094: Revolver 1
+    100096: Revolver 1.2
+    100098: Revolver 2
+    100100: Revolver 2.2
+    100102: Revolver 3
+    100104: Revolver 3.2
+    100106: Revolver 4
+    100108: Revolver 4.2
+    100110: Revolver 5
+    100112: Revolver 5.2
+    400000: Armas
+    400002: Armas.2
+    400004: Base
+    400006: Cacto
+    400008: Cacto.1
+    400010: Cacto.2
+    400012: Cacto.3
+    400014: Cacto.4
+    400016: Camera
+    400018: Cenario1
+    400020: Char
+    400022: Char.2
+    400024: Character
+    400026: Character.2
+    400028: Estacao
+    400030: Estazione_Teto
+    400032: Gunslinger
+    400034: Gunslinger.1
+    400036: Helices
+    400038: Linha_do_Trem
+    400040: Moinho
+    400042: Montanha1_000
+    400044: Montanha1_001
+    400046: Montanha1_002
+    400048: Montanha1_003
+    400050: Montanha1_004
+    400052: Montanha1_005
+    400054: Montanha1_006
+    400056: Montanha1_007
+    400058: Montanha1_008
+    400060: //RootNode
+    400062: Null
+    400064: Null.10
+    400066: Null.11
+    400068: Null.12
+    400070: Null.2
+    400072: Null.3
+    400074: Null.4
+    400076: Null.5
+    400078: Null.6
+    400080: Null.7
+    400082: Null.8
+    400084: Null.9
+    400086: Piso
+    400088: Pistoleiro
+    400090: Pistoleiro.2
+    400092: Plataforma
+    400094: Revolver 1
+    400096: Revolver 1.2
+    400098: Revolver 2
+    400100: Revolver 2.2
+    400102: Revolver 3
+    400104: Revolver 3.2
+    400106: Revolver 4
+    400108: Revolver 4.2
+    400110: Revolver 5
+    400112: Revolver 5.2
+    2300000: Base
+    2300002: Cacto
+    2300004: Cacto.1
+    2300006: Cacto.2
+    2300008: Cacto.3
+    2300010: Cacto.4
+    2300012: Estacao
+    2300014: Estazione_Teto
+    2300016: Helices
+    2300018: Linha_do_Trem
+    2300020: Moinho
+    2300022: Montanha1_000
+    2300024: Montanha1_001
+    2300026: Montanha1_002
+    2300028: Montanha1_003
+    2300030: Montanha1_004
+    2300032: Montanha1_005
+    2300034: Montanha1_006
+    2300036: Montanha1_007
+    2300038: Montanha1_008
+    2300040: Piso
+    2300042: Pistoleiro
+    2300044: Pistoleiro.2
+    2300046: Plataforma
+    2300048: Revolver 1
+    2300050: Revolver 1.2
+    2300052: Revolver 2
+    2300054: Revolver 2.2
+    2300056: Revolver 3
+    2300058: Revolver 3.2
+    2300060: Revolver 4
+    2300062: Revolver 4.2
+    2300064: Revolver 5
+    2300066: Revolver 5.2
+    3300000: Base
+    3300002: Cacto
+    3300004: Cacto.1
+    3300006: Cacto.2
+    3300008: Cacto.3
+    3300010: Cacto.4
+    3300012: Estacao
+    3300014: Estazione_Teto
+    3300016: Helices
+    3300018: Linha_do_Trem
+    3300020: Moinho
+    3300022: Montanha1_000
+    3300024: Montanha1_001
+    3300026: Montanha1_002
+    3300028: Montanha1_003
+    3300030: Montanha1_004
+    3300032: Montanha1_005
+    3300034: Montanha1_006
+    3300036: Montanha1_007
+    3300038: Montanha1_008
+    3300040: Piso
+    3300042: Pistoleiro
+    3300044: Pistoleiro.2
+    3300046: Plataforma
+    3300048: Revolver 1
+    3300050: Revolver 1.2
+    3300052: Revolver 2
+    3300054: Revolver 2.2
+    3300056: Revolver 3
+    3300058: Revolver 3.2
+    3300060: Revolver 4
+    3300062: Revolver 4.2
+    3300064: Revolver 5
+    3300066: Revolver 5.2
+    4300000: Revolver 1
+    4300002: Revolver 2
+    4300004: Revolver 3
+    4300006: Revolver 4
+    4300008: Revolver 5
+    4300010: Pistoleiro
+    4300012: Revolver 1.2
+    4300014: Revolver 2.2
+    4300016: Revolver 3.2
+    4300018: Revolver 4.2
+    4300020: Revolver 5.2
+    4300022: Pistoleiro.2
+    4300024: Cacto.4
+    4300026: Cacto.3
+    4300028: Cacto.2
+    4300030: Cacto.1
+    4300032: Cacto
+    4300034: Helices
+    4300036: Moinho
+    4300038: Estazione_Teto
+    4300040: Estacao
+    4300042: Linha_do_Trem
+    4300044: Base
+    4300046: Piso
+    4300048: Plataforma
+    4300050: Montanha1_002
+    4300052: Montanha1_000
+    4300054: Montanha1_001
+    4300056: Montanha1_008
+    4300058: Montanha1_007
+    4300060: Montanha1_006
+    4300062: Montanha1_005
+    4300064: Montanha1_004
+    4300066: Montanha1_003
+    7400000: startCutscene
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: startCutscene
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

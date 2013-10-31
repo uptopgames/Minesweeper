@@ -1,0 +1,439 @@
+fileFormatVersion: 2
+guid: edeb4d080a8b349878b3e056440d9905
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Armadura
+    100002: Armas
+    100004: //RootNode
+    100006: Bigode
+    100008: Braco D
+    100010: Braco E
+    100012: Canela D
+    100014: Canela E
+    100016: Char
+    100018: Character
+    100020: Cinto
+    100022: Cintura
+    100024: Coisas do Corpo
+    100026: Cotovelo D
+    100028: Cotovelo E
+    100030: Coxa D
+    100032: Coxa E
+    100034: Dedao D
+    100036: Dedao E
+    100038: Dedo Indicador D
+    100040: Dedo Indicador E
+    100042: Dedos D
+    100044: Dedos E
+    100046: Joelho D
+    100048: Joelho E
+    100050: Joint.1
+    100052: Joint.1.2
+    100054: Joint.1.3
+    100056: Joint.2
+    100058: Joint.2.2
+    100060: Joint.2.3
+    100062: Joint.2.4
+    100064: Joint.2.5
+    100066: Joint.2.6
+    100068: Joint.3
+    100070: Joint.3.2
+    100072: Joint.3.3
+    100074: Lenco
+    100076: Nariz
+    100078: Null
+    100080: Null.2
+    100082: Null.3
+    100084: Null.4
+    100086: Null.5
+    100088: Null.6
+    100090: Olho Direito
+    100092: Olho Esquerdo
+    100094: Ombro D
+    100096: Ombro E
+    100098: Pe D
+    100100: Pe D.2
+    100102: Pe E
+    100104: Pe E.2
+    100106: Perna D
+    100108: Perna E
+    100110: Pescoco
+    100112: Pistoleiro
+    100114: Pulso D
+    100116: Pulso E
+    100118: R1-J1
+    100120: R1-J2
+    100122: R2-J1
+    100124: R2-J2
+    100126: R3-J1
+    100128: R3-J2
+    100130: R4-J1
+    100132: R4-J2
+    100134: R5-J1
+    100136: R5-J2
+    100138: Revolver 1
+    100140: Revolver 1 Joint
+    100142: Revolver 2
+    100144: Revolver 2 Joint
+    100146: Revolver 3
+    100148: Revolver 3 Joint
+    100150: Revolver 4
+    100152: Revolver 4 Joint
+    100154: Revolver 5
+    100156: Revolver 5 Joint
+    100158: Sobrancelha Direita
+    100160: Sobrancelha Esquerda
+    400000: Armadura
+    400002: Armas
+    400004: //RootNode
+    400006: Bigode
+    400008: Braco D
+    400010: Braco E
+    400012: Canela D
+    400014: Canela E
+    400016: Char
+    400018: Character
+    400020: Cinto
+    400022: Cintura
+    400024: Coisas do Corpo
+    400026: Cotovelo D
+    400028: Cotovelo E
+    400030: Coxa D
+    400032: Coxa E
+    400034: Dedao D
+    400036: Dedao E
+    400038: Dedo Indicador D
+    400040: Dedo Indicador E
+    400042: Dedos D
+    400044: Dedos E
+    400046: Joelho D
+    400048: Joelho E
+    400050: Joint.1
+    400052: Joint.1.2
+    400054: Joint.1.3
+    400056: Joint.2
+    400058: Joint.2.2
+    400060: Joint.2.3
+    400062: Joint.2.4
+    400064: Joint.2.5
+    400066: Joint.2.6
+    400068: Joint.3
+    400070: Joint.3.2
+    400072: Joint.3.3
+    400074: Lenco
+    400076: Nariz
+    400078: Null
+    400080: Null.2
+    400082: Null.3
+    400084: Null.4
+    400086: Null.5
+    400088: Null.6
+    400090: Olho Direito
+    400092: Olho Esquerdo
+    400094: Ombro D
+    400096: Ombro E
+    400098: Pe D
+    400100: Pe D.2
+    400102: Pe E
+    400104: Pe E.2
+    400106: Perna D
+    400108: Perna E
+    400110: Pescoco
+    400112: Pistoleiro
+    400114: Pulso D
+    400116: Pulso E
+    400118: R1-J1
+    400120: R1-J2
+    400122: R2-J1
+    400124: R2-J2
+    400126: R3-J1
+    400128: R3-J2
+    400130: R4-J1
+    400132: R4-J2
+    400134: R5-J1
+    400136: R5-J2
+    400138: Revolver 1
+    400140: Revolver 1 Joint
+    400142: Revolver 2
+    400144: Revolver 2 Joint
+    400146: Revolver 3
+    400148: Revolver 3 Joint
+    400150: Revolver 4
+    400152: Revolver 4 Joint
+    400154: Revolver 5
+    400156: Revolver 5 Joint
+    400158: Sobrancelha Direita
+    400160: Sobrancelha Esquerda
+    2300000: Bigode
+    2300002: Cinto
+    2300004: Lenco
+    2300006: Nariz
+    2300008: Olho Direito
+    2300010: Olho Esquerdo
+    2300012: Sobrancelha Direita
+    2300014: Sobrancelha Esquerda
+    3300000: Bigode
+    3300002: Cinto
+    3300004: Lenco
+    3300006: Nariz
+    3300008: Olho Direito
+    3300010: Olho Esquerdo
+    3300012: Sobrancelha Direita
+    3300014: Sobrancelha Esquerda
+    4300000: Revolver 1
+    4300002: Revolver 2
+    4300004: Revolver 3
+    4300006: Revolver 4
+    4300008: Revolver 5
+    4300010: Bigode
+    4300012: Lenco
+    4300014: Cinto
+    4300016: Nariz
+    4300018: Sobrancelha Esquerda
+    4300020: Sobrancelha Direita
+    4300022: Olho Esquerdo
+    4300024: Olho Direito
+    4300026: Pistoleiro
+    7400000: stand
+    7400002: shoot
+    7400004: win1
+    7400006: win2
+    7400008: win3
+    7400010: lose1
+    7400012: lose2
+    7400014: lose3
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Pistoleiro
+    13700002: Revolver 1
+    13700004: Revolver 2
+    13700006: Revolver 3
+    13700008: Revolver 4
+    13700010: Revolver 5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: stand
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: shoot
+      takeName: C4D Animation Take
+      firstFrame: 15
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: win1
+      takeName: C4D Animation Take
+      firstFrame: 25
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: win2
+      takeName: C4D Animation Take
+      firstFrame: 40
+      lastFrame: 82
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: win3
+      takeName: C4D Animation Take
+      firstFrame: 85
+      lastFrame: 105
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: lose1
+      takeName: C4D Animation Take
+      firstFrame: 110
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: lose2
+      takeName: C4D Animation Take
+      firstFrame: 135
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    - name: lose3
+      takeName: C4D Animation Take
+      firstFrame: 165
+      lastFrame: 178
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      keepAdditionalBonesAnimation: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      skeletonMaskElements: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="7" android:versionName="1.0" android:installLocation="preferExternal" package="com.freegamesandtopapps.bangbang"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" />
+    <application android:name="com.prime31.EtceteraApplication" android:label="@string/app_name" android:icon="@drawable/app_icon" android:debuggable="true">
+		<meta-data android:name="PW_APPID" android:value="51B00-2966F" />
+		<meta-data android:name="PW_PROJECT_ID" android:value="" />
+        <activity android:label="@string/app_name" android:name="com.pushwoosh.unity.PWUnityPlayerProxyActivity" android:screenOrientation="portrait" android:launchMode="singleTop" android:configChanges="locale|mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<data android:scheme="mines"/>
+			</intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.pushwoosh.unity.PWUnityPlayerActivity" android:screenOrientation="portrait" android:launchMode="singleTop" android:configChanges="locale|mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" >
+            <intent-filter>
+                <action android:name="com.freegamesandtopapps.bangbang.MESSAGE_OLD"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.pushwoosh.unity.PWUnityPlayerNativeActivity" android:screenOrientation="portrait" android:launchMode="singleTop" android:configChanges="locale|mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale">
+            <meta-data android:name="android.app.lib_name" android:value="unity" />
+            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
+            <intent-filter>
+                <action android:name="com.freegamesandtopapps.bangbang.MESSAGE_NEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.unity3d.player.VideoPlayer" android:screenOrientation="portrait" android:configChanges="locale|mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" />
+        
+		<activity android:name="com.arellomobile.android.push.PushWebview"/>
+        
+		<activity android:name="com.arellomobile.android.push.MessageActivity"/>
+        
+		<activity android:name="com.arellomobile.android.push.PushHandlerActivity"/>
+		<activity android:name="com.prime31.WebViewActivity" android:configChanges="orientation"></activity>
+		<activity android:name="com.prime31.EtceteraProxyActivity"></activity>
+		
+		<!-- NOTE: You must include these three activity specifications for AdColony. -->
+        <activity android:name="com.jirbo.adcolony.AdColonyOverlay"
+        android:configChanges="keyboardHidden|orientation"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity android:name="com.jirbo.adcolony.AdColonyFullscreen"
+        android:configChanges="keyboardHidden|orientation"
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity android:name="com.jirbo.adcolony.AdColonyBrowser"
+        android:configChanges="keyboardHidden|orientation"
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+		
+		<!-- REV MOB-->
+		<activity
+            android:name="com.revmob.ads.fullscreen.FullscreenActivity"
+            android:configChanges="keyboardHidden|orientation" >
+    	</activity>
+		
+		<!-- ADMOB -->
+		<activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+		
+		<!-- PLAYHAVEN -->
+		<activity android:name="com.playhaven.src.publishersdk.content.PHContentView" android:theme="@android:style/Theme.Dialog" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:screenOrientation="sensor">
+    	</activity>
+		
+		<!-- VUNGLE -->
+		<activity android:name="com.vungle.sdk.VungleAdvert" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+ 		
+		<!--FLURRY -->
+		<activity android:name="com.flurry.android.FlurryFullscreenTakeoverActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode"/>
+        <!--
+         BroadcastReceiver that will receive intents from GCM
+         services and handle them to the custom IntentService.
+         
+         The com.google.android.c2dm.permission.SEND permission is necessary
+         so only GCM services can send data messages for the app.
+         -->
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.freegamesandtopapps.bangbang"/>
+            </intent-filter>
+        </receiver>
+        
+        <!--
+         Application-specific subclass of PushGCMIntentService that will
+         handle received messages.
+         -->
+        <service android:name="com.arellomobile.android.push.PushGCMIntentService"/>
+        
+		<!-- Inapps billing Old -->
+        <!-- <service android:name="com.prime31.billing.BillingService" />
+        <receiver android:name="com.prime31.billing.BillingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
+                <action android:name="com.android.vending.billing.RESPONSE_CODE" />
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
+            </intent-filter>
+        </receiver> -->
+		
+		<!-- Inapps billing -->
+		<activity android:name="com.prime31.GoogleIABProxyActivity"></activity>
+		
+    </application>
+    <uses-feature android:glEsVersion="131072" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	
+    <!-- Inapps-->
+    <uses-permission android:name="com.android.vending.BILLING" />
+    
+    <!-- REV MOB PERMISSIONS-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    
+    <!--library-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    
+    <!-- GCM connects to Google Services. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    
+    <!--
+     Creates a custom permission so only this app can receive its messages.
+     
+     NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
+     where PACKAGE is the application's package name.
+     -->
+    <permission
+    android:name="com.freegamesandtopapps.bangbang.permission.C2D_MESSAGE"
+    android:protectionLevel="signature"/>
+    <uses-permission
+    android:name="com.freegamesandtopapps.bangbang.permission.C2D_MESSAGE"/>
+    
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission
+    android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    
+    <!-- GCM requires Android SDK version 2.2 (API level <img src="http://www.pushwoosh.com/wp-includes/images/smilies/icon_cool.gif" alt="8)" class="wp-smiley"> or above. -->
+    <!-- The targetSdkVersion is optional, but it's always a good practice
+     to target higher versions. -->
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
+</manifest>
