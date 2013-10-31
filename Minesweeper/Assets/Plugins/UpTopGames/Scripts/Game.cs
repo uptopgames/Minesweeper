@@ -123,7 +123,7 @@ public class Game : MonoBehaviour
 		
 		if(GetComponent<World>())
 		{
-			world = GetComponent<World>().SetWorld (game.world.id, game.world.name, game.world.starsToUnlock, game.world.enemyGun);
+			world = GetComponent<World>().SetWorld (game.world.id, game.world.name, game.world.starsToUnlock);//, game.world.enemyGun);
 		}
 		myRoundList = game.myRoundList;
 		theirRoundList = game.theirRoundList;
@@ -241,9 +241,10 @@ public class Game : MonoBehaviour
 
 			
 			//if(status == "waitingChoice")
-			if (Flow.path == TurnStatus.BeginGame || Flow.path == TurnStatus.AnswerGame)			{
+			if (Flow.path == TurnStatus.BeginGame || Flow.path == TurnStatus.AnswerGame)			
+			{
 				//UIPanelManager.instance.BringIn("WorldSelectionScenePanel");
-				UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+				UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 			}
 			else
 			{

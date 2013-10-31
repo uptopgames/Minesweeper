@@ -189,7 +189,7 @@ public class Friend : MonoBehaviour
 		//UIPanelManager.instance.BringIn("WorldSelectionScenePanel");
 		// GLA
 		//Flow.currentMode = GameMode.Multiplayer;
-		UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+		UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 	}
 	
 	public void DeleteFriend()

@@ -35,8 +35,8 @@ public class MenuManager : MonoBehaviour
 				UIPanelManager.instance.BringIn("MultiplayerScenePanel");
 			break;
 			
-			case PanelToLoad.GunSelection:
-				UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+			case PanelToLoad.LevelSelection:
+				UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 			break;
 		}
 		

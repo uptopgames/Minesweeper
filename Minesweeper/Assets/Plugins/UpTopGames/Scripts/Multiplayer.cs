@@ -152,13 +152,13 @@ public class Multiplayer : MonoBehaviour
 				int pastEnemyGun = -1;
 				int pastPlayerGun = -1;
 				
-				Gun theirGun, pastTheirGun, pastMyGun;
+				/*Gun theirGun, pastTheirGun, pastMyGun;
 				
 				if (!data["games"][i]["gun"].IsNull)
 				{
 					theirGun = GameObject.FindWithTag("Guns").GetComponent<Guns>().guns[data["games"][i]["gun"].Int32Value -1];
 				}
-				else theirGun = null;
+				else theirGun = null;*/
 
 				List<Round> tempRoundList = new List<Round>();
 				List<Round> tempPastMyRoundList = new List<Round>();
@@ -173,27 +173,25 @@ public class Multiplayer : MonoBehaviour
 					//if(!data["games"][i]["scores"].IsNull) scores = data["games"][i]["scores"].StringValue.Split(separator,StringSplitOptions.None);
 					//if(!data["games"][i]["times"].IsNull) times = data["games"][i]["times"].StringValue.Split(separator,StringSplitOptions.None);
 					
-					if(!data["games"][i]["shotTimes"].IsNull) shotTimes = data["games"][i]["shotTimes"].StringValue.Split(separator,StringSplitOptions.None);
-					if(!data["games"][i]["bangTimes"].IsNull) bangTimes = data["games"][i]["bangTimes"].StringValue.Split(separator,StringSplitOptions.None);
-					if(!data["games"][i]["sandAttacks"].IsNull) sandAttacks = data["games"][i]["sandAttacks"].StringValue.Split(',');
+					//if(!data["games"][i]["shotTimes"].IsNull) shotTimes = data["games"][i]["shotTimes"].StringValue.Split(separator,StringSplitOptions.None);
+					//if(!data["games"][i]["bangTimes"].IsNull) bangTimes = data["games"][i]["bangTimes"].StringValue.Split(separator,StringSplitOptions.None);
+					//if(!data["games"][i]["sandAttacks"].IsNull) sandAttacks = data["games"][i]["sandAttacks"].StringValue.Split(',');
 					
 					for(int j = 0 ; j < Flow.ROUNDS_PER_TURN ; j++)
 					{
-						tempRoundList.Add (new Round (-1, data["games"][i]["turn"].Int32Value, data["games"][i]["friendID"].Int32Value, 
-							theirGun, shotTimes[j].ToFloat(), bangTimes[j].ToInt32(), sandAttacks[j].ToInt32(), -1));
+						tempRoundList.Add(new Round(-1, data["games"][i]["turn"].Int32Value, data["games"][i]["friendID"].Int32Value, data["games"][i]["friendTime"].ToFloat()));
+						
+						//tempRoundList.Add (new Round (-1, data["games"][i]["turn"].Int32Value, data["games"][i]["friendID"].Int32Value, 
+						//	theirGun, shotTimes[j].ToFloat(), bangTimes[j].ToInt32(), sandAttacks[j].ToInt32(), -1));
 					}
 				}
 				if(!data["games"][i]["lastTurn"].IsNull) 
 				{
 					Debug.Log("adicionei os rounds passados");
-					pastMyGun = GameObject.FindWithTag("Guns").GetComponent<Guns>().guns[data["games"][i]["pastCreatorGun"].Int32Value-1];
-					pastTheirGun = GameObject.FindWithTag("Guns").GetComponent<Guns>().guns[data["games"][i]["pastOpponentGun"].Int32Value-1];
-					//pastMyScores = data["games"][i]["myPastScores"].StringValue.Split(separator,StringSplitOptions.None);
-					//pastMyTimes = data["games"][i]["myPastTimes"].StringValue.Split(separator,StringSplitOptions.None);
-					//pastTheirScores = data["games"][i]["theirPastScores"].StringValue.Split(separator,StringSplitOptions.None);
-					//pastTheirTimes = data["games"][i]["theirPastTimes"].StringValue.Split(separator,StringSplitOptions.None);
+					//pastMyGun = GameObject.FindWithTag("Guns").GetComponent<Guns>().guns[data["games"][i]["pastCreatorGun"].Int32Value-1];
+					//pastTheirGun = GameObject.FindWithTag("Guns").GetComponent<Guns>().guns[data["games"][i]["pastOpponentGun"].Int32Value-1];
 					
-					pastMyShotTimes = data["games"][i]["myPastShots"].StringValue.Split(',');
+					/*pastMyShotTimes = data["games"][i]["myPastShots"].StringValue.Split(',');
 					pastMyBangTimes = data["games"][i]["myPastBangTimes"].StringValue.Split(',');
 					pastMySandAttacks = data["games"][i]["myPastSandAttacks"].StringValue.Split(',');
 					
@@ -202,16 +200,20 @@ public class Multiplayer : MonoBehaviour
 					
 					pastTheirShotTimes = data["games"][i]["theirPastShots"].StringValue.Split(',');
 					pastTheirBangTimes = data["games"][i]["theirPastBangTimes"].StringValue.Split(',');
-					pastTheirSandAttacks = data["games"][i]["theirPastSandAttacks"].StringValue.Split(',');
+					pastTheirSandAttacks = data["games"][i]["theirPastSandAttacks"].StringValue.Split(',');*/
 					
 					
 					for(int k = 0 ; k < Flow.ROUNDS_PER_TURN ; k++)
 					{
-						tempPastMyRoundList.Add(new Round(-1,-1,-1, pastMyGun, pastMyShotTimes[k].ToFloat(), pastMyBangTimes[k].ToFloat(), 
+						tempPastMyRoundList.Add(new Round(-1,-1,-1,data["games"][i]["myPastTime"].ToFloat()));
+						
+						tempPastTheirRoundList.Add(new Round(-1,-1,-1,data["games"][i]["friendPastTime"].ToFloat()));
+						
+						/*tempPastMyRoundList.Add(new Round(-1,-1,-1, pastMyGun, pastMyShotTimes[k].ToFloat(), pastMyBangTimes[k].ToFloat(), 
 							int.Parse(pastMySandAttacks[k]), int.Parse(pastMyRoundsWin[k])));
 						
 						tempPastTheirRoundList.Add(new Round(-1,-1,-1, pastTheirGun, pastTheirShotTimes[k].ToFloat(), pastTheirBangTimes[k].ToFloat(), 
-							int.Parse(pastTheirSandAttacks[k]), int.Parse(pastTheirRoundsWin[k])));
+							int.Parse(pastTheirSandAttacks[k]), int.Parse(pastTheirRoundsWin[k])));*/
 					}
 				}
 					
@@ -220,11 +222,12 @@ public class Multiplayer : MonoBehaviour
 				//if(!data["games"][i]["world"].IsNull) tempWorldID = data["games"][i]["world"].Int32Value;
 				//if(!data["games"][i]["worldName"].IsNull) tempWorldName = data["games"][i]["worldName"].StringValue;
 				//if(!data["games"][i]["pastWorldName"].IsNull) tempPastWorldName = data["games"][i]["pastWorldName"].StringValue;
+				
 				// GLA
-				tempWorldID = 1;
-				tempWorldName = "world1";
-				tempLevelID = 1;
-				tempPastWorldName = "world1";
+				//tempWorldID = 1;
+				//tempWorldName = "world1";
+				//tempLevelID = 1;
+				//tempPastWorldName = "world1";
 				
 				//Debug.Log("nome do cara "+data["games"][i]["username"].StringValue);
 				
@@ -249,7 +252,7 @@ public class Multiplayer : MonoBehaviour
 				World tempWorld = new World();
 				tempWorld.id = tempWorldID;
 				tempWorld.name = tempWorldName;
-				tempWorld.enemyGun = new Gun();
+				//tempWorld.enemyGun = new Gun();
 				tempWorld.starsToUnlock = 0;
 				
 				Level tempLevel = new Level();

@@ -31,8 +31,8 @@ public class Replay : MonoBehaviour
 		int myPoints = 0;
 		for(int i = 0 ; i < Flow.ROUNDS_PER_TURN ; i++)
 		{
-			myPoints += Flow.currentGame.pastMyRoundList[i].playerRoundWin;
-			enemyPoints += Flow.currentGame.pastTheirRoundList[i].playerRoundWin;
+			//myPoints += Flow.currentGame.pastMyRoundList[i].playerRoundWin;
+			//enemyPoints += Flow.currentGame.pastTheirRoundList[i].playerRoundWin;
 		}
 		
 		if(enemyPoints > myPoints) 

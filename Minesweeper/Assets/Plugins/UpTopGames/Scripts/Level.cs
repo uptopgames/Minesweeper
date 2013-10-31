@@ -14,8 +14,7 @@ public class Level : MonoBehaviour
 	public DateTime lastUpdate = new DateTime(1);
 	public Texture2D image;
 	public bool isDownloading = false;
-	
-	public List<int> tileset;
+	public List<int> tileset = new List<int>();
 	
 	void EnterLevel()
 	{
@@ -42,22 +41,25 @@ public class Level : MonoBehaviour
 			//Flow.currentGame.myRoundList.Add(new Round(-1,-1,-1,GameObject.FindWithTag("Guns").GetComponent<Guns>().guns[0],-1,1,0,0));
 			Flow.currentGame.theirRoundList = new List<Round>();
 			
-			for (int i = 0; i < Flow.ROUNDS_PER_TURN; i++)
+			
+			/*for (int i = 0; i < Flow.ROUNDS_PER_TURN; i++)
 			{
 				Flow.currentGame.theirRoundList.Add(new Round(-1,-1,-1, transform.parent.GetComponent<World>().enemyGun, 
 					UnityEngine.Random.Range(time.x, time.y), UnityEngine.Random.Range(1, 5), 0,0));
 					//UnityEngine.Random.Range(3, 5), UnityEngine.Random.Range(3, 5), 0,0)); TESTE
-			}
+			}*/
 			
-			Debug.Log ("EnterLevelGunId: " + Flow.currentGame.theirRoundList[0].gun.id);
-			Debug.Log ("EnterLevelGunReaction: " + Flow.currentGame.theirRoundList[0].gun.reaction);
+			//Debug.Log ("EnterLevelGunId: " + Flow.currentGame.theirRoundList[0].gun.id);
+			//Debug.Log ("EnterLevelGunReaction: " + Flow.currentGame.theirRoundList[0].gun.reaction);
 			Debug.Log ("World: " + Flow.currentGame.world.id);
 			Debug.Log ("Level: " + Flow.currentGame.level.id);
 			
-			UIPanelManager.instance.BringIn ("GunSelectionScenePanel",UIPanelManager.MENU_DIRECTION.Forwards);
+			Application.LoadLevel("Game");
 		}
 		else
+		{
 			Debug.Log ("locked");
+		}
 	}
 	
 	void Start()
@@ -105,8 +107,7 @@ public class Level : MonoBehaviour
 				//Debug.Log ("id: " + id + "Points2: " + points);
 			}
 		}
-		
-		
+			
 		if (Save.HasKey ("world" + transform.parent.GetComponent<World>().id + "_level" + id + "_stars"))
 		{
 			stars = Save.GetInt ("world" + transform.parent.GetComponent<World>().id + "_level" + id + "_stars");

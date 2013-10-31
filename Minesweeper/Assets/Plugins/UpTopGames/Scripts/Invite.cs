@@ -380,7 +380,7 @@ public class Invite : MonoBehaviour
 		Debug.Log(Flow.currentGame.friend.ToString());
 		
 		//mandar para próxima cena e colocar o temp delegate para parar o loading
-		UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+		UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 		
 	}
 	

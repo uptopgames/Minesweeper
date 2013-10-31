@@ -15,7 +15,7 @@ public class LogoPanel : MonoBehaviour
 		
 		logoPanel.AddTempTransitionDelegate(delegate
 		{
-			Application.LoadLevel(1);	
+			Application.LoadLevel("Mainmenu");	
 		});
 	}
 	

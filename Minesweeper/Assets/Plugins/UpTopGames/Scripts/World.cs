@@ -14,15 +14,15 @@ public class World : MonoBehaviour
 	public int id;
 	public string name;
 	public int starsToUnlock;
-	public Gun enemyGun;
+	//public Gun enemyGun;
 	public DateTime lastUpdate;
 	
-	public World SetWorld(int id, string name, int stars, Gun theirGun)
+	public World SetWorld(int id, string name, int stars)//, Gun theirGun)
 	{
 		id = id;
 		name = name;
 		starsToUnlock = stars;
-		enemyGun = theirGun;
+		//enemyGun = theirGun;
 		
 		return this;
 	}

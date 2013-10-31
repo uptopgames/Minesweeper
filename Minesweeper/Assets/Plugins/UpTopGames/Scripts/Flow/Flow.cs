@@ -15,14 +15,6 @@ public class Gun
 	public string description;
 }
 
-public class CustomStage
-{
-	public int world = 0;
-	public List<List<int>> tileset;
-	public int numberOfMines = 0;
-	public string name = "New Stage";
-}
-
 public class PlayerPrefsKeys
 {
 	public static string TOKEN = "LjA3ZBho8s",
@@ -62,7 +54,15 @@ public enum PanelToLoad
 	BattleStatus,
 	EndLevel,
 	Multiplayer,
-	GunSelection
+	LevelSelection
+}
+
+public class CustomStage
+{
+	public int world = 0;
+	public List<List<int>> tileset;
+	public int numberOfMines = 0;
+	public string name = "New Stage";
 }
 
 public enum TurnStatus
@@ -74,6 +74,7 @@ public class Flow: MonoBehaviour
 {
 	public static float playerExperience = 0;
 	public static int playerLevel = 1;
+	
 	public static List<CustomStage> customStages;
 	public static int currentCustomStage = -1;
 	
@@ -81,19 +82,8 @@ public class Flow: MonoBehaviour
 	public static int radarLevel = 1;
 	public static int hpLevel = 1;
 	
-	public static void AddCustomLevel(List<List<int>> customTileset, int customWorld, int numberOfMines, string name)
-	{
-		if(customStages == null)
-		{
-			customStages = new List<CustomStage>();
-		}
-		CustomStage c = new CustomStage();
-		c.tileset = customTileset;
-		c.world = customWorld;
-		c.numberOfMines = numberOfMines;
-		c.name = name;
-		customStages.Add(c);
-	}
+	
+	
 	
 	public static GameNativeGUI game_native = new GameNativeGUI();
 	
@@ -246,12 +236,12 @@ public class Flow: MonoBehaviour
 	
 	public static List<Theme> localThemes = new List<Theme>();
 	public static List<List<Locale>> currentLevelList = new List<List<Locale>>();
-	public static Dictionary<string, List<Locale>> levelDict = new Dictionary<string, List<Locale>>();
+	//public static Dictionary<string,List<Locale>> levelDict = new Dictionary<string, List<Locale>>();
 	public static int currentLevel;
 	public static int currentScore;
 	public static int MAX_WORLD_NUMBER = 5;
 	public static int MAX_LEVEL_NUMBER = 9;
-	public const int ROUNDS_PER_TURN = 5;
+	public const int ROUNDS_PER_TURN = 1;
 	
 	public static void getPlayerPhoto(string error, WWW data)
     {
@@ -269,7 +259,19 @@ public class Flow: MonoBehaviour
         }
     }
 	
-	
+	public static void AddCustomLevel(List<List<int>> customTileset, int customWorld, int numberOfMines, string name)
+	{
+		if(customStages == null)
+		{
+			customStages = new List<CustomStage>();
+		}
+		CustomStage c = new CustomStage();
+		c.tileset = customTileset;
+		c.world = customWorld;
+		c.numberOfMines = numberOfMines;
+		c.name = name;
+		customStages.Add(c);
+	}
 	
 	public static void Reset()
 	{

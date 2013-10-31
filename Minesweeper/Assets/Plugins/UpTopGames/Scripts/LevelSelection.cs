@@ -16,8 +16,12 @@ public class LevelSelection : MonoBehaviour
 		for (int i = 0; i < Flow.MAX_WORLD_NUMBER; i++)
 		{
 			GameObject world = GameObject.FindWithTag("World" + (i+1));
+			World dictWorld = Flow.worldDict[world.GetComponent<World>().id];
 			
-			if (!Flow.worldDict.ContainsKey(i))
+			world.GetComponent<World>().levelDict = dictWorld.levelDict;
+			
+			
+			/*if (!Flow.worldDict.ContainsKey(i))
 			{
 				Flow.worldDict.Add(i, world.GetComponent<World>());
 			}
@@ -28,8 +32,10 @@ public class LevelSelection : MonoBehaviour
 				{
 					Flow.worldDict[i].levelDict.Add(j, world.transform.FindChild("Level " + (j+1) + " Panel").GetComponent<Level>());
 				}
-			}
+			}*/
 		}
+		
+		
 		
 		// teste 
 		/*Save.Set ("world1_level1_stars", 2);
