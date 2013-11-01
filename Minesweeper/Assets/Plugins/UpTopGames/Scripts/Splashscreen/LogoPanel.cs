@@ -50,14 +50,12 @@ public class LogoPanel : MonoBehaviour
 	{
 		XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(rawXML);
-		int world = 0;
 		
 		foreach(XmlNode masterNode in xmlDoc.SelectNodes("Document/Worlds/World"))
 		{
 			World tempWorld = new World();
 			tempWorld.levelDict = new Dictionary<int, Level>();
 			tempWorld.id = masterNode.Attributes["ID"].InnerText.ToInt32();
-			int level = 0;
 			
 			foreach(XmlNode subNode in masterNode.SelectNodes("Levels/Level"))
 			{
@@ -71,12 +69,10 @@ public class LogoPanel : MonoBehaviour
 				{
 					tempLevel.tileset.Add(int.Parse(s[i].ToString()));
 				}
-				tempWorld.levelDict.Add(level, tempLevel);
-				level++;
+				tempWorld.levelDict.Add(tempLevel.id, tempLevel);
 			}
 			
-			Flow.worldDict.Add(world, tempWorld);
-			world++;
+			Flow.worldDict.Add(tempWorld.id, tempWorld);
 		}
 		
 		logoPanel.StartTransition(UIPanelManager.SHOW_MODE.BringInForward);

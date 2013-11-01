@@ -6,7 +6,8 @@ using CodeTitans.JSon;
 
 public class MenuManager : MonoBehaviour 
 {
-
+	public GameObject[] worldObjects; 
+	
 	// Use this for initialization
 	void Start ()
 	{
@@ -54,6 +55,45 @@ public class MenuManager : MonoBehaviour
 		
 		// TESTE
 		//Flow.header.coins = 2000;
+		int firstWorld = 9999;
+		foreach(KeyValuePair<int,World> w in Flow.worldDict)
+		{
+			if(w.Key < firstWorld) firstWorld = w.Key;
+		}
+		
+		for(int i = 0 ; i < worldObjects.Length ; i++)
+		{
+			int levelCounter = 0;
+			
+			worldObjects[i].GetComponent<World>().id = i+firstWorld;
+			
+			foreach(Transform child in worldObjects[i].transform)
+			{
+				int firstLevel = 9999;
+				
+				foreach(KeyValuePair<int,Level> l in Flow.worldDict[firstWorld+i].levelDict)
+				{
+					if(l.Key < firstLevel) firstLevel = l.Key;
+				}
+				
+				Debug.Log("firstLevel "+firstLevel);
+				
+				if(Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].id != 7)
+				{
+					Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].toUnlock = 
+						Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter-1].id;
+				}
+				else 
+				{
+					Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].toUnlock = 0;
+				}
+				
+				child.GetComponent<Level>().SetLevel(Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter]);
+				
+				levelCounter++;
+			}
+		}
+		
 	}
 	
 	void Connect()
@@ -78,29 +118,35 @@ public class MenuManager : MonoBehaviour
 				{
 					/*foreach(KeyValuePair<int,World> w in Flow.worldDict)
 					{
-						Debug.Log("worldID: " + w.Value.id);
+						Debug.Log("worldID: " + w.Key);
 						foreach(KeyValuePair<int,Level> l in w.Value.levelDict)
 						{
-							Debug.Log("levelID: " + l.Value.id);
+							Debug.Log("levelID: " + l.Key);
 						}
 					}*/
 					
-					Debug.Log(Flow.worldDict[3].levelDict[7].id);
+					//Debug.Log(Flow.worldDict[3].levelDict[7].id);
 					
-					/*Flow.worldDict[level["worldID"].Int32Value].levelDict[level["levelID"].Int32Value].lastUpdate =
-						DateTime.Parse(level["lastUpdate"].StringValue);*/
+					Debug.Log("world: "+level["worldID"].Int32Value);
+					Debug.Log("level: "+level["levelID"].Int32Value);
 					
-					/*Flow.worldDict[level["worldID"].Int32Value].levelDict[level["levelID"].Int32Value].tileset = new List<int>();
+					Flow.worldDict[level["worldID"].Int32Value].levelDict[level["levelID"].Int32Value].lastUpdate = level["lastUpdate"].DateTimeValue;
 					
-					for(int i = 0; i < level["levelTileset"].Length; i++)
+					Flow.worldDict[level["worldID"].Int32Value].levelDict[level["levelID"].Int32Value].tileset = new List<int>();
+					
+					//string[] teste = level["levelTileset"].StringValue.
+					
+					for(int i = 0; i < level["levelTileset"].StringValue.Length; i++)
 					{
 						Flow.worldDict[level["worldID"].Int32Value].levelDict[level["levelID"].Int32Value].tileset.Add
-							(level["levelTileset"][i].Int32Value);
-					}*/
+							(int.Parse(level["levelTileset"].StringValue[i].ToString()));
+					}
 				}
 			}
 			
-			Application.LoadLevel("Game");
+			//for(int i = 0 ; 
+			
+			//Application.LoadLevel("Game");
 		}
 	}
 }

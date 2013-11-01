@@ -103,13 +103,13 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	public void StartGame(int world, int level)
 	{
-		currentWorld = world;
-		currentLevel = level;
+		currentWorld = Flow.currentGame.world.id - 3;
+		currentLevel = Flow.currentGame.level.id - currentWorld*9 - 7;
 		
 		float tempCounter = 0;
 		tileset = new List<List<int>>();
 		List<int> tempList = new List<int>();
-		foreach(int i in Flow.worldDict[currentWorld].levelDict[currentLevel].tileset)
+		foreach(int i in Flow.currentGame.level.tileset)
 		{
 			if(tempCounter == 8)
 			{
@@ -120,6 +120,8 @@ public class MinesweeperRaider : MonoBehaviour
 			tempList.Add(i);
 			tempCounter++;
 		}
+		
+		
 		tileset.Add(tempList);
 		
 		RealStart();
@@ -478,11 +480,15 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Victory()
 	{
+		Save.Set(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id, 0, true);
+		//Save.Set("world"+Flow.currentGame.world.id+"_level"+Flow.currentGame.level.id+"_stars",0);
+		Save.Set(PlayerPrefsKeys.POINTS, Flow.currentGame.level.id, true);
+		
 		/*if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
 		else if(Flow.hpLevel+1==currentHp && Flow.currentGame.level.stars<2) Flow.currentGame.level.stars = 2;
 		else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;*/
 		
-		GameObject levelUp = GameObject.Instantiate(levelUpFade, levelUpFade.transform.position, Quaternion.identity) as GameObject;
+		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		
 		if(Flow.currentCustomStage == -1)
 		{
@@ -547,7 +553,7 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void LevelUp()
 	{
-		GameObject levelUp = GameObject.Instantiate(levelUpFade, levelUpFade.transform.position, Quaternion.identity) as GameObject;
+		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Level " + Flow.playerLevel.ToString() + "!";
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		
@@ -674,7 +680,7 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void ConfirmUpgrade()
 	{
-		GameObject levelUp = GameObject.Instantiate(levelUpFade, levelUpFade.transform.position, Quaternion.identity) as GameObject;
+		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		string upgradeText = "";
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		

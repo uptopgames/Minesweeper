@@ -180,20 +180,13 @@ public class BattleStatus : MonoBehaviour
 			
 			if(!Save.HasKey(Flow.currentGame.id+PlayerPrefsKeys.COINS+Flow.currentGame.lastTurnID))
 			{
-				int playerPoints = 0;
-				int enemyPoints = 0;
-				for(int i = 0 ; i < Flow.ROUNDS_PER_TURN ;  i++)
-				{
-					playerPoints += Flow.currentGame.pastMyRoundList[i].playerRoundWin;
-					enemyPoints += Flow.currentGame.pastTheirRoundList[i].playerRoundWin;
-				}
 				
-				if(playerPoints > enemyPoints)
+				if(Flow.currentGame.pastMyRoundList[0].time < Flow.currentGame.pastTheirRoundList[0].time)
 				{
 					// vitoria
 					Flow.header.coins += ServerSettings.GetInt("GAME_WIN");
 				}
-				else if(enemyPoints > playerPoints)
+				else if(Flow.currentGame.pastMyRoundList[0].time < Flow.currentGame.pastTheirRoundList[0].time)
 				{
 					// derrota
 					Flow.header.coins += ServerSettings.GetInt("GAME_LOSE");
@@ -348,13 +341,13 @@ public class BattleStatus : MonoBehaviour
 		else if(Flow.path == TurnStatus.AnswerGame)
 		{
 			Flow.path = TurnStatus.BeginGame;
-			UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 		}
 		else if(Flow.path == TurnStatus.ShowPast)
 		{
 			Flow.path = TurnStatus.AnswerGame;
 			
-			UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 			//Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 			//Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 			
@@ -411,14 +404,14 @@ public class BattleStatus : MonoBehaviour
 			// Fix Me UPTOP Mandar para world Selection
 			//Flow.nextPanel = PanelToLoad.GunSelection;
 			//Application.LoadLevel("Mainmenu");
-			UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 		}
 		else if(Flow.path == TurnStatus.ShowPast)
 		{
 			Flow.path = TurnStatus.AnswerGame;
 			//Flow.nextPanel = PanelToLoad.GunSelection;
 			//Application.LoadLevel("Mainmenu");
-			UIPanelManager.instance.BringIn("GunSelectionScenePanel");
+			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
 		}
 	}
 }

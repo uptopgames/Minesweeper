@@ -171,6 +171,7 @@ public class ConfigManager : MonoBehaviour
 		
 		if(!Save.HasKey(PlayerPrefsKeys.VOLUME)) Save.Set(PlayerPrefsKeys.VOLUME, 0.5f, true);
 		if(!Save.HasKey(PlayerPrefsKeys.PUSHNOTIFICATIONS)) Save.Set(PlayerPrefsKeys.PUSHNOTIFICATIONS, "On", true);
+		if(!Save.HasKey(PlayerPrefsKeys.POINTS)) Save.Set(PlayerPrefsKeys.POINTS, 0);
 		
 		// Nao abre outras conexoes, caso seja executado pelo Editor (sem ir pela primeira scene)
 		if (Application.loadedLevelName != "Init") return;

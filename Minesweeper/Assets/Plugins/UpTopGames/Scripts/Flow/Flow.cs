@@ -44,7 +44,9 @@ public class PlayerPrefsKeys
 	WIDGET = "nvq5NmUoSw",
 	INVITE = "Ms1GNXuYIP",
 	ITEM = "qpsHjQx2TC",
-	ITEMSPACK = "MgQTtHaxYF";
+	ITEMSPACK = "MgQTtHaxYF",
+	POINTS = "Q1ZULaw1OE",
+	LEVELSTARS = "fcUPEf6ONS";
 }
 
 public enum PanelToLoad

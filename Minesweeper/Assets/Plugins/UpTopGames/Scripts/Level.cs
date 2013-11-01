@@ -16,6 +16,18 @@ public class Level : MonoBehaviour
 	public bool isDownloading = false;
 	public List<int> tileset = new List<int>();
 	
+	public void SetLevel(Level level)
+	{
+		this.id = level.id;
+		this.name = level.name;
+		this.stars = level.stars;
+		this.toUnlock = level.toUnlock;
+		//this.points = level.points;
+		this.time = level.time;
+		this.lastUpdate = level.lastUpdate;
+		this.tileset = level.tileset;
+	}
+	
 	void EnterLevel()
 	{
 		Debug.Log ("EnterLevel");
@@ -25,7 +37,7 @@ public class Level : MonoBehaviour
 		
 		Flow.currentGame = new Game();
 		
-		if (points >= toUnlock)
+		if (Save.GetInt (PlayerPrefsKeys.POINTS) >= toUnlock)
 		{
 			Debug.Log ("unlocked");
 			
@@ -89,12 +101,12 @@ public class Level : MonoBehaviour
 		
 		// PARA QUEM FOR USAR EM JOGO QUE PRECISE SOMAR PONTOS DE LEVEIS ANTERIORES PARA DESTRAVAR O PROXIMO
 		
-		if (transform.parent.GetComponent<World>().id > 1 && id == 1)
+		/*if (transform.parent.GetComponent<World>().id > 1 && id == 1)
 		{
 			if (!Save.HasKey ("world" + transform.parent.GetComponent<World>().id + "_level" + id + "_stars") && 
 				Save.HasKey ("world" + (transform.parent.GetComponent<World>().id - 1) + "_level" + Flow.MAX_LEVEL_NUMBER + "_stars"))
 			{
-				points =  (transform.parent.GetComponent<World>().id -1) * 9 + id;
+				points = (transform.parent.GetComponent<World>().id -1) * 9 + id;
 				//Debug.Log ("id: " + id + "Points1: " + points);
 			}
 		}
@@ -103,7 +115,7 @@ public class Level : MonoBehaviour
 			if (!Save.HasKey ("world" + transform.parent.GetComponent<World>().id + "_level" + id + "_stars") &&
 				Save.HasKey ("world" + transform.parent.GetComponent<World>().id + "_level" + (id-1) + "_stars"))
 			{
-				points =  (transform.parent.GetComponent<World>().id -1) * 9 + id;
+				points = (transform.parent.GetComponent<World>().id -1) * 9 + id;
 				//Debug.Log ("id: " + id + "Points2: " + points);
 			}
 		}
@@ -113,10 +125,9 @@ public class Level : MonoBehaviour
 			stars = Save.GetInt ("world" + transform.parent.GetComponent<World>().id + "_level" + id + "_stars");
 			points =  (transform.parent.GetComponent<World>().id -1) * 9 + id;
 			//Debug.Log ("id: " + id + "Points3: " + points);
-		}
+		}*/
 		
-		
-		if(points >= toUnlock)
+		if(Save.GetInt (PlayerPrefsKeys.POINTS) >= toUnlock)
 		{
 			//Debug.Log ("id: " + id);
 			//Debug.Log ("points: " + points);

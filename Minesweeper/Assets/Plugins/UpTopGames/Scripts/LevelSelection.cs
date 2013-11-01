@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class LevelSelection : MonoBehaviour 
 {
@@ -12,46 +12,6 @@ public class LevelSelection : MonoBehaviour
 	void Start () 
 	{	
 		Debug.Log ("StartLevelSelection");
-		
-		for (int i = 0; i < Flow.MAX_WORLD_NUMBER; i++)
-		{
-			GameObject world = GameObject.FindWithTag("World" + (i+1));
-			World dictWorld = Flow.worldDict[world.GetComponent<World>().id];
-			
-			world.GetComponent<World>().levelDict = dictWorld.levelDict;
-			
-			
-			/*if (!Flow.worldDict.ContainsKey(i))
-			{
-				Flow.worldDict.Add(i, world.GetComponent<World>());
-			}
-			
-			for (int j = 0; j < Flow.MAX_LEVEL_NUMBER; j++)
-			{
-				if (!Flow.worldDict[i].levelDict.ContainsKey(j))
-				{
-					Flow.worldDict[i].levelDict.Add(j, world.transform.FindChild("Level " + (j+1) + " Panel").GetComponent<Level>());
-				}
-			}*/
-		}
-		
-		
-		
-		// teste 
-		/*Save.Set ("world1_level1_stars", 2);
-		Save.Set ("world1_level2_stars", 1);
-		Save.Set ("world1_level3_stars", 3);
-		Save.Set ("world1_level4_stars", 2);
-		Save.Set ("world1_level5_stars", 3);
-		Save.Set ("world1_level6_stars", 1);
-		Save.Set ("world1_level7_stars", 2);
-		Save.Set ("world1_level8_stars", 3);
-		Save.Set ("world1_level9_stars", 1);
-		Save.Set ("world2_level1_stars", 3);
-		Save.Set ("world2_level2_stars", 3);
-		Save.Set ("actualWorld" , 1);
-		Save.Set ("world1_level2_stars", 3);*/
-		//Flow.levelStars[0][0] = 2;
 		
 		GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitLevelSelection);
 		
@@ -79,44 +39,18 @@ public class LevelSelection : MonoBehaviour
 		//Debug.Log ("actualWorld: " + actualWorld);
 		
 		// salva as estrelas ganhas no flow
-		for (int i = 0; i < Flow.worldDict.Count; i++)
+		
+		foreach(KeyValuePair<int, World> w in Flow.worldDict)
 		{
-			for (int j = 0; j < Flow.worldDict[i].levelDict.Count; j++)
+			foreach (KeyValuePair<int, Level> l in w.Value.levelDict)
 			{
-				if (Save.HasKey ("world" + (i+1) + "_level" + (j+1) + "_stars"))
+				if (Save.HasKey (PlayerPrefsKeys.LEVELSTARS+l.Key))
 				{
-					Flow.worldDict[i].levelDict[j].stars = Save.GetInt ("world" + (i+1) + "_level" + (j+1) + "_stars"); // world1_level1_stars
-					Flow.worldDict[i].levelDict[j].points = (i*9) + (j+1);
-					
-					
-					//scrollLevels.transform.GetChild(0).transform.GetChild(actualWorld-1).transform.GetChild(j).GetComponent<Level>().stars = 
-						//Save.GetInt ("world" + (i+1) + "_level" + (j+1) + "_stars");
-					//scrollLevels.transform.GetChild(0).transform.GetChild(actualWorld-1).transform.GetChild(j).GetComponent<Level>().points = (i*9) + (j+1);
-					
-					if (j==8) 
-					{
-						Debug.Log ("fase9");
-						Flow.worldDict[i+1].levelDict[0].points = (i*9) + (j+1);
-					}
-					else
-					{
-						//Debug.Log ("faseMenorque9");
-						Flow.worldDict[i].levelDict[j+1].points = Flow.worldDict[i].levelDict[j].points + 1;
-						//Debug.Log ("pointsFaseSeguinte: " + Flow.worldDict[i].levelDict[j+1].points);	
-					}
-					
-					//Debug.Log ("points: " + Flow.worldDict[i].levelDict[j].points);
-					
-					
-					//Debug.Log ("tem chave: " + "i: " + i + "J: " + j);
-					//Debug.Log ("mundoFase: " + "world" + (i+1) + "_level" + (j+1));
-					//Debug.Log ("estrelasNoSave: " + Save.GetInt ("world" + (i+1) + "_level" + (j+1) + "_stars"));
-					//Debug.Log ("estrelasNoFlowLevel " + (j+1) + ": " + Flow.worldDict[i].levelDict[j].stars);
+					l.Value.stars = Save.GetInt(PlayerPrefsKeys.LEVELSTARS+l.Key); // world1_level1_stars
+					//l.Value.points = l.Key;
 				}
 			}
 		}
-		//scrollLevels.AddInputDelegate(SetWorldObjects);
-		//SetWorldObjects();
 	}
 	
 	void SetWorld(IUIListObject item)
@@ -146,7 +80,6 @@ public class LevelSelection : MonoBehaviour
 			
 			actualWorld --;
 			scrollLevels.ScrollToItem (actualWorld-1, 0.5f);
-			//SetWorldObjects();
 		}
 	}
 	
@@ -161,7 +94,6 @@ public class LevelSelection : MonoBehaviour
 			//scrollLevels.transform.GetChild(0).transform.GetChild(actualWorld-1).gameObject.SetActive(false);
 			actualWorld++;
 			scrollLevels.ScrollToItem (actualWorld-1, 0.5f);
-			//SetWorldObjects();
 		}
 		else
 		{
@@ -174,16 +106,5 @@ public class LevelSelection : MonoBehaviour
 	{
 		UIPanelManager.instance.BringIn("MenuScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
 	}
-	
-	/*void EnterLevel()
-	{
-		Flow.currentGame.world.id = actualWorld;
-		//Flow.singleLevel = scrollLevels.GetItem(actualWorld).transform.GetChildCount();
-		//Debug.Log ("name: " + gameObject.transform.GetComponent<UIButton>().name);
-		//Debug.Log ("index: " + worldLevels[]);
-		Flow.currentMode = GameMode.SinglePlayer;
-		Save.Set ("actualWorld", actualWorld);
-		Application.LoadLevel ("Scenario1");
-	}*/
-	
+
 }
