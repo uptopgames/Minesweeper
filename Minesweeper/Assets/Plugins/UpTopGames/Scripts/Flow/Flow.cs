@@ -65,6 +65,7 @@ public class CustomStage
 	public List<List<int>> tileset;
 	public int numberOfMines = 0;
 	public string name = "New Stage";
+	public int id = 0;
 }
 
 public enum TurnStatus

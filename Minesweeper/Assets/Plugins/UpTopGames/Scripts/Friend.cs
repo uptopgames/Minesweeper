@@ -184,12 +184,15 @@ public class Friend : MonoBehaviour
 			name = ar[0];
 		}
 		Flow.currentGame.friend = this;
+		
+		Debug.Log("friendID: "+Flow.currentGame.friend.id);
+		
 		//Flow.currentGame.friend.rawText = this.rawText;
 		//GetComponent<UIListItemContainer>().GetScrollList().transform.parent.GetComponent<Invite>().EraseFriendsList();
 		//UIPanelManager.instance.BringIn("WorldSelectionScenePanel");
 		// GLA
 		//Flow.currentMode = GameMode.Multiplayer;
-		UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
+		UIPanelManager.instance.BringIn("LevelSelectionPanel");
 	}
 	
 	public void DeleteFriend()

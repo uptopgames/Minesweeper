@@ -340,14 +340,19 @@ public class BattleStatus : MonoBehaviour
 		}
 		else if(Flow.path == TurnStatus.AnswerGame)
 		{
+			Debug.Log("work your body");
 			Flow.path = TurnStatus.BeginGame;
-			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
+			UIPanelManager.instance.BringIn("LevelSelectionPanel");
 		}
 		else if(Flow.path == TurnStatus.ShowPast)
 		{
+			Debug.Log("dont work your body");
 			Flow.path = TurnStatus.AnswerGame;
 			
-			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
+			Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+			Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+			
+			Application.LoadLevel("Game");
 			//Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 			//Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 			
@@ -404,14 +409,18 @@ public class BattleStatus : MonoBehaviour
 			// Fix Me UPTOP Mandar para world Selection
 			//Flow.nextPanel = PanelToLoad.GunSelection;
 			//Application.LoadLevel("Mainmenu");
-			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
+			UIPanelManager.instance.BringIn("LevelSelectionPanel");
 		}
 		else if(Flow.path == TurnStatus.ShowPast)
 		{
 			Flow.path = TurnStatus.AnswerGame;
 			//Flow.nextPanel = PanelToLoad.GunSelection;
 			//Application.LoadLevel("Mainmenu");
-			UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
+			
+			Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+			Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+			
+			Application.LoadLevel("Game");
 		}
 	}
 }

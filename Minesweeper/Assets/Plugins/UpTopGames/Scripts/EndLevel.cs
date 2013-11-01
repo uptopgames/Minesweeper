@@ -228,7 +228,7 @@ public class EndLevel : MonoBehaviour
 			
 		for (int i = 0; i < Flow.ROUNDS_PER_TURN; i++)
 		{
-			Flow.currentGame.theirRoundList.Add(new Round(-1,-1,-1,-1));/* Flow.currentGame.world.enemyGun, 
+			Flow.currentGame.theirRoundList.Add(new Round(-1,-1,-1,-1, -1));/* Flow.currentGame.world.enemyGun, 
 				UnityEngine.Random.Range(Flow.currentGame.level.time.x, Flow.currentGame.level.time.y), UnityEngine.Random.Range(1, 5), 0,0));*/
 				//UnityEngine.Random.Range(3, 5), UnityEngine.Random.Range(3, 5), 0,0)); TESTE
 		}

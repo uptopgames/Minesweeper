@@ -100,6 +100,7 @@ public class GameJsonAuthConnection: GameAuthConnection<IJSonObject>
 	// Obtem o resultado da conexao
 	private void handleConnection(WWW conn, string id, object state, byte[] form_data, Hashtable headers)
 	{		
+		//Debug.Log(conn.text);
 		// Verifica se houve erro
 		if (conn.error != null)
 		{

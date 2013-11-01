@@ -89,9 +89,12 @@ public class Multiplayer : MonoBehaviour
 			}
 		}
 		
+		Debug.Log("tem token: "+Save.HasKey(PlayerPrefsKeys.TOKEN));
+		if(Save.HasKey(PlayerPrefsKeys.TOKEN)) Debug.Log("token: "+Save.GetString(PlayerPrefsKeys.TOKEN));
+		
 		WWWForm form = new WWWForm();
 		form.AddField("lastUpdate",TimeZoneInfo.ConvertTimeToUtc(Flow.lastUpdate).ToString());
-		new GameJsonAuthConnection(Flow.URL_BASE + "bangbang/getgames.php", OnReceiveGames).connect(form);
+		new GameJsonAuthConnection(Flow.URL_BASE + "mines/getgames.php", OnReceiveGames).connect(form);
 	}
 	
 	void updatingAutomatically()
@@ -102,7 +105,8 @@ public class Multiplayer : MonoBehaviour
 		
 		WWWForm form = new WWWForm();
 		form.AddField("lastUpdate",TimeZoneInfo.ConvertTimeToUtc(Flow.lastUpdate).ToString());
-		new GameJsonAuthConnection(Flow.URL_BASE + "bangbang/getgames.php", OnReceiveGames).connect(form);
+		
+		new GameJsonAuthConnection(Flow.URL_BASE + "mines/getgames.php", OnReceiveGames).connect(form);
 	}
 	
 	void OnReceiveGames(string error, IJSonObject data)
@@ -179,7 +183,11 @@ public class Multiplayer : MonoBehaviour
 					
 					for(int j = 0 ; j < Flow.ROUNDS_PER_TURN ; j++)
 					{
-						tempRoundList.Add(new Round(-1, data["games"][i]["turn"].Int32Value, data["games"][i]["friendID"].Int32Value, data["games"][i]["friendTime"].ToFloat()));
+						tempRoundList.Add(new Round(-1, 
+							data["games"][i]["turn"].Int32Value, 
+							data["games"][i]["friendID"].Int32Value, 
+							data["games"][i]["friendTime"].ToFloat(), 
+							data["games"][i]["friendDeaths"].Int32Value));
 						
 						//tempRoundList.Add (new Round (-1, data["games"][i]["turn"].Int32Value, data["games"][i]["friendID"].Int32Value, 
 						//	theirGun, shotTimes[j].ToFloat(), bangTimes[j].ToInt32(), sandAttacks[j].ToInt32(), -1));
@@ -205,9 +213,9 @@ public class Multiplayer : MonoBehaviour
 					
 					for(int k = 0 ; k < Flow.ROUNDS_PER_TURN ; k++)
 					{
-						tempPastMyRoundList.Add(new Round(-1,-1,-1,data["games"][i]["myPastTime"].ToFloat()));
+						tempPastMyRoundList.Add(new Round(-1,-1,-1,data["games"][i]["myPastTime"].ToFloat(), data["games"][i]["myPastDeaths"].Int32Value));
 						
-						tempPastTheirRoundList.Add(new Round(-1,-1,-1,data["games"][i]["friendPastTime"].ToFloat()));
+						tempPastTheirRoundList.Add(new Round(-1,-1,-1,data["games"][i]["friendPastTime"].ToFloat(), data["games"][i]["friendPastDeaths"].Int32Value));
 						
 						/*tempPastMyRoundList.Add(new Round(-1,-1,-1, pastMyGun, pastMyShotTimes[k].ToFloat(), pastMyBangTimes[k].ToFloat(), 
 							int.Parse(pastMySandAttacks[k]), int.Parse(pastMyRoundsWin[k])));
@@ -219,7 +227,9 @@ public class Multiplayer : MonoBehaviour
 					
 				if(!data["games"][i]["facebookID"].IsNull) faceID = data["games"][i]["facebookID"].StringValue;
 				if(!data["games"][i]["lastTurn"].IsNull) lastTurnID = data["games"][i]["lastTurn"].Int32Value;
-				//if(!data["games"][i]["world"].IsNull) tempWorldID = data["games"][i]["world"].Int32Value;
+				if(!data["games"][i]["worldID"].IsNull) tempWorldID = data["games"][i]["worldID"].Int32Value;
+				if(!data["games"][i]["levelID"].IsNull) tempLevelID = data["games"][i]["levelID"].Int32Value;
+				
 				//if(!data["games"][i]["worldName"].IsNull) tempWorldName = data["games"][i]["worldName"].StringValue;
 				//if(!data["games"][i]["pastWorldName"].IsNull) tempPastWorldName = data["games"][i]["pastWorldName"].StringValue;
 				
@@ -250,14 +260,14 @@ public class Multiplayer : MonoBehaviour
 					);
 				
 				World tempWorld = new World();
-				tempWorld.id = tempWorldID;
-				tempWorld.name = tempWorldName;
-				//tempWorld.enemyGun = new Gun();
-				tempWorld.starsToUnlock = 0;
+				if(tempWorldID != -1) tempWorld = Flow.worldDict[tempWorldID];
 				
 				Level tempLevel = new Level();
-				tempLevel.id = tempLevelID;
-					
+				if(tempWorldID != -1) tempLevel = tempWorld.levelDict[tempLevelID];
+				
+				Debug.Log("wld "+tempWorld.id);
+				Debug.Log("lvl "+tempLevel.id);
+				
 				Game tempGame =  new Game
 				(
 					data["games"][i]["gameID"].Int32Value,
@@ -277,6 +287,8 @@ public class Multiplayer : MonoBehaviour
 					tempPastTheirRoundList,
 					tempPastWorldName
 				);
+				
+				Debug.Log("no game: "+tempGame.world.id);
 				
 				for(int h = 0 ; h < Flow.gameList.Count ; h++)
 				{
@@ -433,8 +445,12 @@ public class Multiplayer : MonoBehaviour
 						
 						// seta jogo novo no container com o pastIndex = -1, devemos atualizar depois
 						scroll.GetItem(Flow.gameList[j].pastIndex).transform.GetComponent<Game>().SetGame(Flow.gameList[j]);
+						scroll.GetItem(Flow.gameList[j].pastIndex).transform.GetComponent<Game>().world = Flow.gameList[j].world;
+						scroll.GetItem(Flow.gameList[j].pastIndex).transform.GetComponent<Game>().level = Flow.gameList[j].level;
 						tempContainer = GameObject.Instantiate(scroll.GetItem(Flow.gameList[j].pastIndex).gameObject) as GameObject;
 						tempContainer.transform.GetComponent<Game>().SetGame(Flow.gameList[j]);
+						tempContainer.transform.GetComponent<Game>().world = Flow.gameList[j].world;
+						tempContainer.transform.GetComponent<Game>().level = Flow.gameList[j].level;
 						
 						scroll.RemoveItem(Flow.gameList[j].pastIndex, true);
 						scroll.InsertItem(tempContainer.GetComponent<UIListItemContainer>(), j);
@@ -606,6 +622,8 @@ public class Multiplayer : MonoBehaviour
 		
 		scroll.InsertItem(tempGameContainer.GetComponent<UIListItemContainer>(), index);
 		tempGameContainer.GetComponent<Game>().SetGame(game);
+		tempGameContainer.GetComponent<Game>().world = game.world;
+		tempGameContainer.GetComponent<Game>().level = game.level;
 		//tempGameContainer.GetComponent<Game>().pastIndex = index;
 		//Flow.gameList[index].pastIndex = index;
 		return tempGameContainer;

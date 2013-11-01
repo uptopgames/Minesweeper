@@ -9,7 +9,7 @@ public class GameToken
 		if (!Save.HasKey(PlayerPrefsKeys.TOKEN_EXPIRATION.ToString()))
 		{
 			Save.Set(PlayerPrefsKeys.TOKEN_EXPIRATION.ToString(), data["expiration"].StringValue,true);
-			Save.Set(PlayerPrefsKeys.TOKEN.ToString(), data["token"].StringValue,true);
+			Save.Set(PlayerPrefsKeys.TOKEN.ToString(), data["token"].StringValue, true);
 		}
 		
 		else

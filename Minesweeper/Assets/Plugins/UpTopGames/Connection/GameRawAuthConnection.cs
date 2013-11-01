@@ -94,6 +94,7 @@ public class GameRawAuthConnection: GameAuthConnection<WWW>
 			if (url.Contains(Flow.URL_BASE) && url.EndsWith(".picture.php"))
 				return;
 			
+			Debug.Log(url);
 			Debug.Log("Internal server error to url (" + url + "): " + conn.error);
 			
 			sendToCallbackPersistent(conn.error, conn, state, id, conn.url, form_data, headers);

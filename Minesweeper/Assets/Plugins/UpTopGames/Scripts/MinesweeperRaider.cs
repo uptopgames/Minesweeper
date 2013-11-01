@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using System.IO;
+using CodeTitans.JSon;
 
 public enum GameState
 {
@@ -121,6 +122,8 @@ public class MinesweeperRaider : MonoBehaviour
 			tempCounter++;
 		}
 		
+		Flow.currentGame.myRoundList = new List<Round>();
+		Flow.currentGame.myRoundList.Add(new Round(-1,-1,-1,-1,-1));
 		
 		tileset.Add(tempList);
 		
@@ -480,28 +483,46 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Victory()
 	{
-		Save.Set(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id, 0, true);
-		//Save.Set("world"+Flow.currentGame.world.id+"_level"+Flow.currentGame.level.id+"_stars",0);
-		Save.Set(PlayerPrefsKeys.POINTS, Flow.currentGame.level.id, true);
-		
-		/*if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
+		if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
 		else if(Flow.hpLevel+1==currentHp && Flow.currentGame.level.stars<2) Flow.currentGame.level.stars = 2;
-		else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;*/
+		else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;
+		
+		Save.Set(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id, Flow.currentGame.level.stars, true);
+		Save.Set(PlayerPrefsKeys.POINTS, Flow.currentGame.level.id, true);
 		
 		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		
-		if(Flow.currentCustomStage == -1)
+		if(Flow.currentMode == GameMode.SinglePlayer)
 		{
-			//se o cara já tiver jogado essa fase antes, ao invés da linha de baixo colocar: Flow.experience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
-			Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
-			levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+			if(Flow.currentCustomStage == -1)
+			{
+				//se o cara já tiver jogado essa fase antes, ao invés da linha de baixo colocar: Flow.experience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
+				Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
+				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+			}
+			else
+			{
+				Flow.currentCustomStage = -1;
+				Flow.playerExperience += 80;
+				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +80";
+			}
 		}
 		else
 		{
-			Flow.currentCustomStage = -1;
-			Flow.playerExperience += 80;
-			levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +80";
+			if(Flow.currentCustomStage == -1)
+			{
+				//se o cara já tiver jogado essa fase antes, ao invés da linha de baixo colocar: Flow.experience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
+				Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
+				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+			}
+			else
+			{
+				Flow.currentCustomStage = -1;
+				Flow.playerExperience += 30;
+				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +30";
+			}
 		}
+		
 		
 		Debug.Log("Current Exp: " + Flow.playerExperience);
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
@@ -602,8 +623,40 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	public void NextLevel()
 	{
-		Application.LoadLevel(Application.loadedLevel);
-		Flow.currentCustomStage = -1;
+		if(Flow.currentMode == GameMode.Multiplayer && Flow.currentCustomStage == -1)
+		{
+			GameJsonAuthConnection conn = new GameJsonAuthConnection(Flow.URL_BASE + "mines/managegame.php", GameSent);
+			WWWForm form = new WWWForm();
+			form.AddField("worldID",Flow.currentGame.world.id);
+			form.AddField("levelID",Flow.currentGame.level.id);
+			form.AddField("friendID", Flow.currentGame.friend.id);
+			form.AddField("deaths", Flow.currentGame.myRoundList[0].deaths);
+			form.AddField("time", Flow.currentGame.myRoundList[0].time.ToString());
+			
+			conn.connect(form);
+		}
+		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage == -1)
+		{
+			Application.LoadLevel("Mainmenu");
+		}
+		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage != -1)
+		{
+			Flow.currentCustomStage = -1;
+		}
+	}
+	
+	public void GameSent(string error, IJSonObject data)
+	{	
+		if(error != null)
+		{
+			Debug.Log(error);
+		}
+		else
+		{
+			Debug.Log(data);
+			Flow.nextPanel = PanelToLoad.BattleStatus;
+			Application.LoadLevel("Mainmenu");
+		}
 	}
 	
 	public void GetShield()

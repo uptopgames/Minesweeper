@@ -65,7 +65,7 @@ public class Info
 			if (_manager != null)
 				return _manager;
 			
-			GameObject obj = GameObject.Find(ConfigManager.API);
+			GameObject obj = GameObject.FindWithTag(ConfigManager.API);
 			if (obj == null)
 	        {
 	            Debug.LogWarning("Prefab '" + ConfigManager.API + "' not found.");

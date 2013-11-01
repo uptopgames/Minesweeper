@@ -35,23 +35,28 @@ public class Level : MonoBehaviour
 		Debug.Log ("toUnlock: " + toUnlock);
 		Debug.Log ("name: " + transform.name);
 		
-		Flow.currentGame = new Game();
-		
 		if (Save.GetInt (PlayerPrefsKeys.POINTS) >= toUnlock)
 		{
 			Debug.Log ("unlocked");
 			
+			if(Flow.currentMode == GameMode.SinglePlayer) Flow.currentGame = new Game();
+			
 			Flow.currentGame.world = gameObject.transform.parent.GetComponent<World>();
 			Flow.currentGame.level = this;
 			//Flow.currentMode = GameMode.SinglePlayer;
-			Flow.path = TurnStatus.AnswerGame;
 			
-			Flow.currentGame.friend = new Friend();
-			Flow.currentGame.friend.rawText = image;
 			
+			if(Flow.currentMode == GameMode.SinglePlayer)
+			{
+				Flow.path = TurnStatus.AnswerGame;
+				Flow.currentGame.friend = new Friend();
+				Flow.currentGame.friend.rawText = image;
+				
+				Flow.currentGame.theirRoundList = new List<Round>();
+			}
 			//Flow.currentGame.myRoundList = new List<Round>();
 			//Flow.currentGame.myRoundList.Add(new Round(-1,-1,-1,GameObject.FindWithTag("Guns").GetComponent<Guns>().guns[0],-1,1,0,0));
-			Flow.currentGame.theirRoundList = new List<Round>();
+			
 			
 			
 			/*for (int i = 0; i < Flow.ROUNDS_PER_TURN; i++)
@@ -65,6 +70,9 @@ public class Level : MonoBehaviour
 			//Debug.Log ("EnterLevelGunReaction: " + Flow.currentGame.theirRoundList[0].gun.reaction);
 			Debug.Log ("World: " + Flow.currentGame.world.id);
 			Debug.Log ("Level: " + Flow.currentGame.level.id);
+			
+			Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+			Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 			
 			Application.LoadLevel("Game");
 		}

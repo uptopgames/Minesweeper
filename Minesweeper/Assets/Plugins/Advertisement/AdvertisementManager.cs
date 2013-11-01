@@ -20,7 +20,7 @@ public class AdvertisementManager : MonoBehaviour, IRevMobListener
 			if (AdvertisementManager._manager != null)
 				return AdvertisementManager._manager;
 				
-			GameObject gameAds = GameObject.Find(ConfigManager.API);
+			GameObject gameAds = GameObject.FindWithTag(ConfigManager.API);
 			if (gameAds != null)
 				return gameAds.GetComponent<AdvertisementManager>();
 			
@@ -775,7 +775,7 @@ public class AdvertisementManager : MonoBehaviour, IRevMobListener
 		if (Info.IsEditor() || AdvertisementManager.manager != null)
 			return true;
 		
-		GameObject gameAds = GameObject.Find(ConfigManager.API);
+		GameObject gameAds = GameObject.FindWithTag(ConfigManager.API);
 		
 		if (gameAds && gameAds.GetComponent<AdvertisementManager>() && gameAds.GetComponent<AdvertisementManager>().isActive)
 			return true;

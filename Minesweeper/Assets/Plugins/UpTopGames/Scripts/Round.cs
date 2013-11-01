@@ -6,21 +6,15 @@ public class Round
 	public int roundID;	
 	public int turnID;
 	public int userID;
-	//public Gun gun;
-	public float time;
-	//public float bangTime;
-	//public int sandAttack;
-	//public int playerRoundWin;
+	public float time = 0f;
+	public int deaths = 0;
 	
-	public Round(int id, int turn, int user, float time)//Gun theGun, float time, float bang, int attack, int roundWin)
+	public Round(int id, int turn, int user, float time, int deaths)
 	{
 		this.roundID = id;
 		this.turnID = turn;
 		this.userID = user;
-		//this.gun = theGun;
+		this.deaths = deaths;
 		this.time = time;
-		//this.bangTime = bang;
-		//this.sandAttack = attack;
-		//this.playerRoundWin = roundWin;
 	}
 }

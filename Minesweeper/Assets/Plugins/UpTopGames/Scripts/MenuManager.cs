@@ -76,12 +76,13 @@ public class MenuManager : MonoBehaviour
 					if(l.Key < firstLevel) firstLevel = l.Key;
 				}
 				
-				Debug.Log("firstLevel "+firstLevel);
+				//Debug.Log("firstLevel "+firstLevel);
 				
 				if(Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].id != 7)
 				{
+					
 					Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].toUnlock = 
-						Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter-1].id;
+						Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].id-1;
 				}
 				else 
 				{
@@ -127,8 +128,8 @@ public class MenuManager : MonoBehaviour
 					
 					//Debug.Log(Flow.worldDict[3].levelDict[7].id);
 					
-					Debug.Log("world: "+level["worldID"].Int32Value);
-					Debug.Log("level: "+level["levelID"].Int32Value);
+					//Debug.Log("world: "+level["worldID"].Int32Value);
+					//Debug.Log("level: "+level["levelID"].Int32Value);
 					
 					Flow.worldDict[level["worldID"].Int32Value].levelDict[level["levelID"].Int32Value].lastUpdate = level["lastUpdate"].DateTimeValue;
 					

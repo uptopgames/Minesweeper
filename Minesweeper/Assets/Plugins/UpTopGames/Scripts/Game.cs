@@ -27,6 +27,7 @@ public class Game : MonoBehaviour
 	public DateTime lastUpdate = new DateTime(1970,1,1);
 	public int myTotalScore = 0;
 	public int theirTotalScore = 0;
+	public bool isCustom = false;
 	
 	public GameObject yourTurnContainer;
 	public GameObject theirTurnContainer;
@@ -224,8 +225,10 @@ public class Game : MonoBehaviour
 				Flow.path = TurnStatus.ShowPast;
 			}
 			
-			
 			Flow.currentGame = GetComponent<Game>();
+			
+			Debug.Log(Flow.currentGame.world.id);
+			
 			Debug.Log("ID: " + Flow.currentGame.id.ToString() + "\nPast Index: " + Flow.currentGame.pastIndex.ToString() + 
 				"\nIs New Game: " + Flow.currentGame.isNewGame.ToString()+ "\nWas Updated: " + Flow.currentGame.wasUpdated.ToString()  + "\nFriend: " + Flow.currentGame.friend.ToString() + 
 				"\nMy Round List: " + Flow.currentGame.myRoundList.ToString() + "\nTheir Round List: " + Flow.currentGame.theirRoundList.ToString() + 
@@ -238,13 +241,17 @@ public class Game : MonoBehaviour
 				Flow.currentGame.lastUpdate.ToString() + "\nMy Total Score: " + Flow.currentGame.myTotalScore.ToString() + "\nTheir Total Score: " +
 				Flow.currentGame.theirTotalScore.ToString());
 			
-
-			
 			//if(status == "waitingChoice")
-			if (Flow.path == TurnStatus.BeginGame || Flow.path == TurnStatus.AnswerGame)			
+			if (Flow.path == TurnStatus.BeginGame)			
 			{
 				//UIPanelManager.instance.BringIn("WorldSelectionScenePanel");
-				UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
+				UIPanelManager.instance.BringIn("LevelSelectionPanel");
+			}
+			else if(Flow.path == TurnStatus.AnswerGame)
+			{
+				Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+				Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+				Application.LoadLevel("Game");
 			}
 			else
 			{
@@ -252,7 +259,7 @@ public class Game : MonoBehaviour
 				if(Flow.path == TurnStatus.ShowPast)
 				{
 					//UIPanelManager.instance.BringIn("BattleStatusScenePanel");
-					UIPanelManager.instance.BringIn("ReplayScenePanel");
+					UIPanelManager.instance.BringIn("BattleStatusScenePanel");
 				}
 				/*else if(Flow.path == TurnStatus.AnswerGame)
 				{
