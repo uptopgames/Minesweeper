@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Header : MonoBehaviour
 {
+	public SpriteText levelText;
+	public SpriteText experienceText;
+	public PackedSprite expBar;
+	
 	private int _coins;
 	public int coins
 	{

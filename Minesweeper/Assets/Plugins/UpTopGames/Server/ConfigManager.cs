@@ -69,9 +69,6 @@ public class ConfigManager : MonoBehaviour
 		public string key;
 		public ServerSettings.Serializable setting;
 	}
-	
-	
-	
 	// Arrays de Settings do Servidor
 	// Utilizados pelo Editor, ao alterar alguma Setting
 	public CachedServerSettings[] serverSettings;

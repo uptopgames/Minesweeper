@@ -79,6 +79,7 @@ public class Level : MonoBehaviour
 		else
 		{
 			Debug.Log ("locked");
+			Flow.game_native.showMessage("Locked Level", "You must beat the previous level to unlock this one.", "Ok");
 		}
 	}
 	
@@ -154,10 +155,10 @@ public class Level : MonoBehaviour
 		}
 		else 
 		{
-			Color levelTextureColor = transform.FindChild("LevelTexture").GetComponent<PackedSprite>().color;
+			/*Color levelTextureColor = transform.FindChild("LevelTexture").GetComponent<PackedSprite>().color;
 			levelTextureColor.a = 0.5f;
 			
-			transform.FindChild("LevelTexture").GetComponent<PackedSprite>().SetColor(levelTextureColor);
+			transform.FindChild("LevelTexture").GetComponent<PackedSprite>().SetColor(levelTextureColor);*/
 			
 			transform.FindChild("Locker").gameObject.SetActive(true);
 		}

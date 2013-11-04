@@ -7,14 +7,15 @@ public class LevelSelection : MonoBehaviour
 	private int actualWorld;
 	public UIScrollList scrollLevels;
 	public SpriteText worldTitle;
+	
+	private string[] worldTitles = new string[5]{"Peru", "Tibet", "Greece", "Amazonia", "Egypt"};
 
 	// Use this for initialization
 	void Start () 
-	{	
+	{
 		Debug.Log ("StartLevelSelection");
 		
 		GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitLevelSelection);
-		
 	}
 	
 	void InitLevelSelection(EZTransition transition)
@@ -67,7 +68,7 @@ public class LevelSelection : MonoBehaviour
 		//Debug.Log ("scrollItem: " + item);
 		actualWorld = item.Index +1;
 		//Debug.Log ("actualWorldScroll: " + actualWorld);
-		worldTitle.Text = "World " + actualWorld;
+		worldTitle.Text = worldTitles[actualWorld-1];
 	}
 	
 	void PreviousWorld()
@@ -85,20 +86,24 @@ public class LevelSelection : MonoBehaviour
 	
 	void Next()
 	{
+		foreach(KeyValuePair<int, World> w in Flow.worldDict)
+		{
+			//Debug.Log(w.Key);
+			//Debug.Log(w.Value);
+			foreach(KeyValuePair<int, Level> l in w.Value.levelDict)
+			{
+			  Debug.Log(l.Key);
+			  //Debug.Log(l.Value);
+			}
+		}
+		
 		Debug.Log ("NextWorld");
-		//Debug.Log ("world: " + actualWorld + " level9stars: " +  Flow.worldDict[actualWorld-1].levelDict[8].stars);
-		//Debug.Log ("worldId: " + Flow.worldDict[1].levelDict[1].id);
 	
-		if (actualWorld != Flow.MAX_WORLD_NUMBER && Flow.worldDict[actualWorld-1].levelDict[Flow.MAX_LEVEL_NUMBER-1].stars > 0)
+		if (actualWorld != Flow.MAX_WORLD_NUMBER)
 		{
 			//scrollLevels.transform.GetChild(0).transform.GetChild(actualWorld-1).gameObject.SetActive(false);
 			actualWorld++;
 			scrollLevels.ScrollToItem (actualWorld-1, 0.5f);
-		}
-		else
-		{
-			Debug.Log ("MustWinAllLevels");
-			// fazer mensagem de que ele precisa vencer todos os leveis
 		}
 	}
 	

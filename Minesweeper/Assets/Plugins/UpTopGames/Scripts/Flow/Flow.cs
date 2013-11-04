@@ -46,7 +46,12 @@ public class PlayerPrefsKeys
 	ITEM = "qpsHjQx2TC",
 	ITEMSPACK = "MgQTtHaxYF",
 	POINTS = "Q1ZULaw1OE",
-	LEVELSTARS = "fcUPEf6ONS";
+	LEVELSTARS = "fcUPEf6ONS",
+	PLAYERLEVEL = "gw3g43tgGw",
+	PLAYEREXPERIENCE = "RF13fa3gFs",
+	HPLEVEL = "9fwASsOQil",
+	RADARLEVEL = "mKAmfdmos",
+	MAPLEVEL = "DFwfmpFpw";
 }
 
 public enum PanelToLoad

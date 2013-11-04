@@ -45,7 +45,6 @@ public class MinesweeperRaider : MonoBehaviour
 	private int previousRow = 0;
 	private int previousColum = 0;
 	
-	public PackedSprite expBar;
 	public Transform shield;
 	public Transform mineManager;
 	public Transform character;
@@ -66,8 +65,6 @@ public class MinesweeperRaider : MonoBehaviour
 	private bool leveledUp = false;
 	private string currentUpgrade = "hp";
 	
-	public SpriteText levelText;
-	public SpriteText experienceText;
 	public UIInteractivePanel levelUpPanel;
 	public SpriteText upgradesDescription;
 	
@@ -78,10 +75,10 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Start()
 	{
-		levelText.Text = "Level " + Flow.playerLevel.ToString();
-		experienceText.Text = "Exp " + Flow.playerExperience.ToString();
-		expBar.width = 8 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
-		expBar.CalcSize();
+		Flow.header.levelText.Text = "Level " + Flow.playerLevel.ToString();
+		Flow.header.experienceText.Text = "Exp " + Flow.playerExperience.ToString();
+		Flow.header.expBar.width = 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
+		Flow.header.expBar.CalcSize();
 		
 		mapedMines = Flow.mapLevel;
 		radarDistance = Flow.radarLevel + 1;
@@ -482,23 +479,26 @@ public class MinesweeperRaider : MonoBehaviour
 	}
 	
 	void Victory()
-	{
-		if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
-		else if(Flow.hpLevel+1==currentHp && Flow.currentGame.level.stars<2) Flow.currentGame.level.stars = 2;
-		else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;
-		
-		Save.Set(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id, Flow.currentGame.level.stars, true);
-		Save.Set(PlayerPrefsKeys.POINTS, Flow.currentGame.level.id, true);
-		
+	{	
 		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		
 		if(Flow.currentMode == GameMode.SinglePlayer)
 		{
 			if(Flow.currentCustomStage == -1)
-			{
-				//se o cara já tiver jogado essa fase antes, ao invés da linha de baixo colocar: Flow.experience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
-				Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
-				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+			{	
+				if(Save.HasKey(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id))
+				{
+					Flow.playerExperience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
+					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 10 + (currentLevel+1) * 1).ToString();
+				}
+				else
+				{
+					Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
+					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+				}
+		
+				Save.Set(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id, Flow.currentGame.level.stars, true);
+				Save.Set(PlayerPrefsKeys.POINTS, Flow.currentGame.level.id, true);
 			}
 			else
 			{
@@ -511,9 +511,16 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			if(Flow.currentCustomStage == -1)
 			{
-				//se o cara já tiver jogado essa fase antes, ao invés da linha de baixo colocar: Flow.experience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
-				Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
-				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+				if(Save.HasKey(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id))
+				{
+					Flow.playerExperience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
+					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 10 + (currentLevel+1) * 1).ToString();
+				}
+				else
+				{
+					Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
+					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+				}
 			}
 			else
 			{
@@ -523,6 +530,9 @@ public class MinesweeperRaider : MonoBehaviour
 			}
 		}
 		
+		if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
+		else if(Flow.hpLevel+1==currentHp && Flow.currentGame.level.stars<2) Flow.currentGame.level.stars = 2;
+		else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;
 		
 		Debug.Log("Current Exp: " + Flow.playerExperience);
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
@@ -533,9 +543,14 @@ public class MinesweeperRaider : MonoBehaviour
 			CheckExperience();
 		}
 		
-		experienceText.Text = "Exp " + Flow.playerExperience.ToString();
-		expBar.width = 8 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
-		expBar.CalcSize();
+		Debug.Log("salvei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
+		
+		Save.Set(PlayerPrefsKeys.PLAYERLEVEL, Flow.playerLevel, true);
+		Save.Set(PlayerPrefsKeys.PLAYEREXPERIENCE, Flow.playerExperience, true);
+		
+		Flow.header.experienceText.Text = "Exp " + Flow.playerExperience.ToString();
+		Flow.header.expBar.width = 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
+		Flow.header.expBar.CalcSize();
 		
 		shield.gameObject.SetActive(false);
 		cameras[currentWorld].parent = winCamera;
@@ -558,7 +573,7 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			Flow.playerExperience -= Flow.playerLevel * Flow.playerLevel * 100;
 			Flow.playerLevel ++;
-			levelText.Text = "Level " + Flow.playerLevel.ToString();
+			Flow.header.levelText.Text = "Level " + Flow.playerLevel.ToString();
 			Debug.Log("Level Up!\nCurrent Level: " + Flow.playerLevel);
 			if(Flow.playerExperience >= Flow.playerLevel * Flow.playerLevel * 100)
 			{
@@ -743,16 +758,19 @@ public class MinesweeperRaider : MonoBehaviour
 				Flow.hpLevel++;
 				upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
 				upgradeText = "HP +1!";
+				Save.Set(PlayerPrefsKeys.HPLEVEL, Flow.hpLevel, true);
 			break;
 			case "map":
 				Flow.mapLevel++;
 				upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
 				upgradeText = "Map +1!";
+				Save.Set(PlayerPrefsKeys.MAPLEVEL, Flow.mapLevel, true);
 			break;
 			case "radar":
 				Flow.radarLevel++;
 				upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
 				upgradeText = "Radar +1!";
+				Save.Set(PlayerPrefsKeys.RADARLEVEL, Flow.radarLevel, true);
 			break;
 		}
 		

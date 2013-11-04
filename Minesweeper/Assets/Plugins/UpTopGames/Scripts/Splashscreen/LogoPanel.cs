@@ -11,6 +11,14 @@ public class LogoPanel : MonoBehaviour
 	
 	void Start () 
 	{
+		if(Save.HasKey(PlayerPrefsKeys.PLAYEREXPERIENCE)) Flow.playerExperience = Save.GetFloat(PlayerPrefsKeys.PLAYEREXPERIENCE);
+		if(Save.HasKey(PlayerPrefsKeys.PLAYERLEVEL)) Flow.playerLevel = Save.GetInt(PlayerPrefsKeys.PLAYERLEVEL);
+		if(Save.HasKey(PlayerPrefsKeys.HPLEVEL)) Flow.hpLevel = Save.GetInt(PlayerPrefsKeys.HPLEVEL);
+		if(Save.HasKey(PlayerPrefsKeys.MAPLEVEL)) Flow.mapLevel = Save.GetInt(PlayerPrefsKeys.MAPLEVEL);
+		if(Save.HasKey(PlayerPrefsKeys.RADARLEVEL)) Flow.radarLevel = Save.GetInt(PlayerPrefsKeys.RADARLEVEL);
+		
+		Debug.Log("peguei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
+		
 		StartCoroutine(getXML());
 		
 		logoPanel.AddTempTransitionDelegate(delegate
@@ -24,7 +32,12 @@ public class LogoPanel : MonoBehaviour
 	string rawXML;
 	
 	IEnumerator getXML()
-	{
+	{	
+		Flow.header.levelText.Text = "Level " + Flow.playerLevel.ToString();
+		Flow.header.experienceText.Text = "Exp " + Flow.playerExperience.ToString();
+		Flow.header.expBar.width = 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
+		Flow.header.expBar.CalcSize();
+		
 		string caminho = "file:///"+Application.persistentDataPath+"/"+fileName;
 		
 		WWW reader = new WWW (caminho);

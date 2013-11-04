@@ -1,0 +1,12 @@
+Animação de Câmera de vitória: refazer
+Animação do Player de vitória: pegar nova com o Raphael
+Golpes Especiais: limitar a um por partida
+Golpes Especiais: desativar quando player não tiver (e oferecer compra)
+HP: colocar mais corações quando tiver mais HP
+Escudo: colocar escudinhos sobre os corações
+Barra de Exp: trocar por degradê (fazer no Photoshop)
+Preparar vitória para ganhar vários níveis, quando acontecer
+Preparar jogo para armazenar "upgrades não usados" e oferecê-los no devido momento
+Jogo não está mostrando estrelas dos leveis direito
+
+Trocar todas as imagens do bang
