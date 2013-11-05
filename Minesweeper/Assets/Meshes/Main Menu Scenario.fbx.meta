@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: c6859eac386dc3042bb36dec206261de
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Batente
+    100002: Cadeira1
+    100004: Cadeira2
+    100006: Camera
+    100008: Estante
+    100010: Gaveta1
+    100012: Gaveta2
+    100014: Janela
+    100016: Lamparina
+    100018: Light
+    100020: Light.1
+    100022: Light.1.2
+    100024: Light.1.3
+    100026: Light.1.4
+    100028: Livro
+    100030: LivroA
+    100032: LivroA.1
+    100034: LivroA.2
+    100036: LivroA.3
+    100038: LivroA.4
+    100040: LivroA.5
+    100042: LivroA.6
+    100044: LivroA.7
+    100046: LivroA.7 2
+    100048: LivroA.8
+    100050: LivroA.8 2
+    100052: LivroA.9
+    100054: LivroA.9 2
+    100056: LivroB
+    100058: LivroB.1
+    100060: LivroB.2
+    100062: LivroB.3
+    100064: LivroB.4
+    100066: LivroB.4 2
+    100068: LivroB.5
+    100070: LivroB.6
+    100072: Luz1
+    100074: Luz2
+    100076: Luz3
+    100078: //RootNode
+    100080: Menu_Office
+    100082: Mesa
+    100084: Mesa_Tampo
+    100086: Parede1
+    100088: Parede2
+    100090: Parede3
+    100092: Parede4
+    100094: Piso
+    100096: Porta
+    100098: Portinha1
+    100100: Portinha2
+    100102: Rodapes
+    100104: Tapete
+    100106: Vista
+    400000: Batente
+    400002: Cadeira1
+    400004: Cadeira2
+    400006: Camera
+    400008: Estante
+    400010: Gaveta1
+    400012: Gaveta2
+    400014: Janela
+    400016: Lamparina
+    400018: Light
+    400020: Light.1
+    400022: Light.1.2
+    400024: Light.1.3
+    400026: Light.1.4
+    400028: Livro
+    400030: LivroA
+    400032: LivroA.1
+    400034: LivroA.2
+    400036: LivroA.3
+    400038: LivroA.4
+    400040: LivroA.5
+    400042: LivroA.6
+    400044: LivroA.7
+    400046: LivroA.7 2
+    400048: LivroA.8
+    400050: LivroA.8 2
+    400052: LivroA.9
+    400054: LivroA.9 2
+    400056: LivroB
+    400058: LivroB.1
+    400060: LivroB.2
+    400062: LivroB.3
+    400064: LivroB.4
+    400066: LivroB.4 2
+    400068: LivroB.5
+    400070: LivroB.6
+    400072: Luz1
+    400074: Luz2
+    400076: Luz3
+    400078: //RootNode
+    400080: Menu_Office
+    400082: Mesa
+    400084: Mesa_Tampo
+    400086: Parede1
+    400088: Parede2
+    400090: Parede3
+    400092: Parede4
+    400094: Piso
+    400096: Porta
+    400098: Portinha1
+    400100: Portinha2
+    400102: Rodapes
+    400104: Tapete
+    400106: Vista
+    2300000: Batente
+    2300002: Cadeira1
+    2300004: Cadeira2
+    2300006: Estante
+    2300008: Gaveta1
+    2300010: Gaveta2
+    2300012: Janela
+    2300014: Lamparina
+    2300016: Livro
+    2300018: LivroA
+    2300020: LivroA.1
+    2300022: LivroA.2
+    2300024: LivroA.3
+    2300026: LivroA.4
+    2300028: LivroA.5
+    2300030: LivroA.6
+    2300032: LivroA.7
+    2300034: LivroA.7 2
+    2300036: LivroA.8
+    2300038: LivroA.8 2
+    2300040: LivroA.9
+    2300042: LivroA.9 2
+    2300044: LivroB
+    2300046: LivroB.1
+    2300048: LivroB.2
+    2300050: LivroB.3
+    2300052: LivroB.4
+    2300054: LivroB.4 2
+    2300056: LivroB.5
+    2300058: LivroB.6
+    2300060: Luz1
+    2300062: Luz2
+    2300064: Luz3
+    2300066: Mesa
+    2300068: Mesa_Tampo
+    2300070: Parede1
+    2300072: Parede2
+    2300074: Parede3
+    2300076: Parede4
+    2300078: Piso
+    2300080: Porta
+    2300082: Portinha1
+    2300084: Portinha2
+    2300086: Rodapes
+    2300088: Tapete
+    2300090: Vista
+    3300000: Batente
+    3300002: Cadeira1
+    3300004: Cadeira2
+    3300006: Estante
+    3300008: Gaveta1
+    3300010: Gaveta2
+    3300012: Janela
+    3300014: Lamparina
+    3300016: Livro
+    3300018: LivroA
+    3300020: LivroA.1
+    3300022: LivroA.2
+    3300024: LivroA.3
+    3300026: LivroA.4
+    3300028: LivroA.5
+    3300030: LivroA.6
+    3300032: LivroA.7
+    3300034: LivroA.7 2
+    3300036: LivroA.8
+    3300038: LivroA.8 2
+    3300040: LivroA.9
+    3300042: LivroA.9 2
+    3300044: LivroB
+    3300046: LivroB.1
+    3300048: LivroB.2
+    3300050: LivroB.3
+    3300052: LivroB.4
+    3300054: LivroB.4 2
+    3300056: LivroB.5
+    3300058: LivroB.6
+    3300060: Luz1
+    3300062: Luz2
+    3300064: Luz3
+    3300066: Mesa
+    3300068: Mesa_Tampo
+    3300070: Parede1
+    3300072: Parede2
+    3300074: Parede3
+    3300076: Parede4
+    3300078: Piso
+    3300080: Porta
+    3300082: Portinha1
+    3300084: Portinha2
+    3300086: Rodapes
+    3300088: Tapete
+    3300090: Vista
+    4300000: Livro
+    4300002: Lamparina
+    4300004: Luz3
+    4300006: Luz2
+    4300008: Luz1
+    4300010: LivroA.9 2
+    4300012: LivroB.4 2
+    4300014: LivroA.8 2
+    4300016: LivroA.7 2
+    4300018: LivroB.6
+    4300020: LivroA.9
+    4300022: LivroA.8
+    4300024: LivroA.7
+    4300026: LivroB.5
+    4300028: LivroB.4
+    4300030: LivroB.3
+    4300032: LivroB.2
+    4300034: LivroB.1
+    4300036: LivroA.6
+    4300038: LivroA.5
+    4300040: LivroA.4
+    4300042: LivroA.3
+    4300044: LivroA.2
+    4300046: LivroA.1
+    4300048: LivroB
+    4300050: LivroA
+    4300052: Vista
+    4300054: Parede4
+    4300056: Parede3
+    4300058: Parede2
+    4300060: Parede1
+    4300062: Janela
+    4300064: Rodapes
+    4300066: Batente
+    4300068: Porta
+    4300070: Portinha1
+    4300072: Portinha2
+    4300074: Estante
+    4300076: Cadeira1
+    4300078: Cadeira2
+    4300080: Tapete
+    4300082: Piso
+    4300084: Gaveta1
+    4300086: Gaveta2
+    4300088: Mesa_Tampo
+    4300090: Mesa
+    7400000: main
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: main
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 238
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      transformMask: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

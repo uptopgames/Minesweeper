@@ -51,7 +51,9 @@ public class MinesweeperRaider : MonoBehaviour
 	public Transform winCamera;
 	public Transform diamond;
 	public GameObject[] hp;
-	public GameObject[] hpObjects;
+	public GameObject hat;
+	public Texture[] tommyTextures;
+	public Material tommyMaterial;
 	private Vector3 startingPosition;
 	
 	private int currentHp;
@@ -87,6 +89,11 @@ public class MinesweeperRaider : MonoBehaviour
 		upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
 		upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
 		upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
+		
+		for(int i = 0; i<Flow.hpLevel+2; i++)
+		{
+			hp[i].SetActive(true);
+		}
 		
 		if(Flow.currentCustomStage != -1)
 		{
@@ -475,7 +482,19 @@ public class MinesweeperRaider : MonoBehaviour
 		
 		currentHp--;
 		hp[currentHp].SetActive(false);
-		//hpObjects[currentHp].SetActive(false);
+		if(currentHp <= 0)
+		{
+			tommyMaterial.mainTexture = tommyTextures[3];
+		}
+		else if(currentHp <= 1)
+		{
+			hat.SetActive(false);
+			tommyMaterial.mainTexture = tommyTextures[2];
+		}
+		else
+		{
+			tommyMaterial.mainTexture = tommyTextures[1];
+		}
 	}
 	
 	void Victory()
@@ -607,6 +626,7 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			gameState = GameState.PlayerTurn;
 			shieldHp--;
+			hp[shieldHp].transform.FindChild("Shield").gameObject.SetActive(false);
 			if(shieldHp<=0)
 			{
 				shield.gameObject.SetActive(false);
@@ -624,6 +644,7 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			if(currentHp <= 0)
 			{
+				tommyMaterial.mainTexture = tommyTextures[0];
 				Application.LoadLevel(Application.loadedLevel);
 				Flow.currentCustomStage = -1;
 			}
@@ -652,6 +673,7 @@ public class MinesweeperRaider : MonoBehaviour
 		}
 		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage == -1)
 		{
+			tommyMaterial.mainTexture = tommyTextures[0];
 			Application.LoadLevel("Mainmenu");
 		}
 		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage != -1)
@@ -670,6 +692,7 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			Debug.Log(data);
 			Flow.nextPanel = PanelToLoad.BattleStatus;
+			tommyMaterial.mainTexture = tommyTextures[0];
 			Application.LoadLevel("Mainmenu");
 		}
 	}
@@ -678,7 +701,11 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		if(gameState!=GameState.PlayerTurn) return;
 		
-		shieldHp = 3;
+		shieldHp = currentHp;
+		for(int i = 0; i<currentHp; i++)
+		{
+			hp[i].transform.FindChild("Shield").gameObject.SetActive(true);
+		}
 		character.animation.CrossFade("standShield");
 		shield.gameObject.SetActive(true);
 	}

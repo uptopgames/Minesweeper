@@ -1,14 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\LevelSelection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs">
     <Files>
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\LevelSelection.cs" Line="71" Column="46" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Flow\Flow.cs" Line="54" Column="25" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\CreateStage.cs" Line="219" Column="91" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs" Line="754" Column="3" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Splashscreen\LogoPanel.cs" Line="18" Column="62" />
-      <File FileName="Assets\Plugins\UpTopGames\Header.cs" Line="8" Column="29" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Level.cs" Line="82" Column="32" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs" Line="706" Column="4" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Splashscreen\LogoPanel.cs" Line="18" Column="105" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

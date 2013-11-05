@@ -178,10 +178,9 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: stand
       takeName: C4D Animation Take
       firstFrame: 90
@@ -200,10 +199,9 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: waiting
       takeName: C4D Animation Take
       firstFrame: 330
@@ -222,10 +220,9 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: walkShield
       takeName: C4D Animation Take
       firstFrame: 150
@@ -244,10 +241,9 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: standShield
       takeName: C4D Animation Take
       firstFrame: 185
@@ -266,15 +262,14 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: Menu
       takeName: C4D Animation Take
       firstFrame: 480
       lastFrame: 660
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -288,10 +283,9 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: win
       takeName: C4D Animation Take
       firstFrame: 270
@@ -310,10 +304,9 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: lose1
       takeName: C4D Animation Take
       firstFrame: 0
@@ -332,10 +325,9 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     - name: lose2
       takeName: C4D Animation Take
       firstFrame: 390
@@ -354,20 +346,21 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      keepAdditionalBonesAnimation: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      skeletonMaskElements: []
+      transformMask: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
+    importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 0
+    weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
