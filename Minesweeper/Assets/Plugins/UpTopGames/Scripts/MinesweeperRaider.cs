@@ -28,6 +28,8 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	public GameState gameState = GameState.Null;
 	
+	public GameObject cutsceneHuds;
+	public GameObject gameHuds;
 	public GameObject flagPrefab;
 	public GameObject mine;
 	public GameObject ragdoll;
@@ -36,6 +38,9 @@ public class MinesweeperRaider : MonoBehaviour
 	public GameObject endFade;
 	public GameObject radarPing;
 	public GameObject levelUpFade;
+	
+	public SpriteText timeLabel;
+	private float timeCounter = 0;
 	
 	public List<List<int>> tileset;
 	private int currentRow = 0;
@@ -77,6 +82,9 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Start()
 	{
+		gameHuds.SetActive(false);
+		cutsceneHuds.SetActive(true);
+		
 		Flow.header.levelText.Text = "Level " + Flow.playerLevel.ToString();
 		Flow.header.experienceText.Text = "Exp " + Flow.playerExperience.ToString();
 		Flow.header.expBar.width = 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
@@ -103,6 +111,10 @@ public class MinesweeperRaider : MonoBehaviour
 			tileset = Flow.customStages[Flow.currentCustomStage].tileset;
 			
 			RealStart();
+		}
+		else
+		{
+			StartGame(0,0);
 		}
 	}
 	
@@ -212,11 +224,25 @@ public class MinesweeperRaider : MonoBehaviour
 						iTween.MoveTo(cameras[currentWorld].gameObject, iTween.Hash("position", cameraList[currentCameraView], "time", 1,
 						"oncomplete", "StartPlayerTurn", "oncompletetarget", gameObject));
 						iTween.RotateTo(cameras[currentWorld].gameObject, iTween.Hash("rotation", cameraList[currentCameraView], "time", 1));
+					
+						gameHuds.SetActive(true);
+						cutsceneHuds.SetActive(false);
+		
+						cameras[currentWorld].camera.rect = new Rect(0,0,1,1);
+						
 						gameState = GameState.Null;
 					}
 				}
 			break;
 			case GameState.PlayerTurn:
+			
+				timeCounter += Time.deltaTime;
+				int d = (int)(timeCounter * 100.0f);
+			    int minutes = d / (60 * 100);
+			    int seconds = (d % (60 * 100)) / 100;
+				
+				timeLabel.Text = String.Format("{0:00}:{1:00}", minutes, seconds);
+				
 				if(Input.GetMouseButtonDown(0))
 				{
 					if(flagMode)
@@ -498,7 +524,12 @@ public class MinesweeperRaider : MonoBehaviour
 	}
 	
 	void Victory()
-	{	
+	{
+		gameState = GameState.Null;
+		
+		Flow.currentGame.myRoundList[0].deaths = Flow.hpLevel + 2 - currentHp;
+		Flow.currentGame.myRoundList[0].time = Mathf.RoundToInt(timeCounter);
+		
 		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		
 		if(Flow.currentMode == GameMode.SinglePlayer)
@@ -644,9 +675,12 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			if(currentHp <= 0)
 			{
+				gameState = GameState.Null;
 				tommyMaterial.mainTexture = tommyTextures[0];
-				Application.LoadLevel(Application.loadedLevel);
 				Flow.currentCustomStage = -1;
+				Flow.currentGame.myRoundList[0].deaths = Flow.hpLevel + 2 - currentHp;
+				Flow.currentGame.myRoundList[0].time = Mathf.RoundToInt(timeCounter);
+				Application.LoadLevel(Application.loadedLevel);
 			}
 			else
 			{
@@ -660,7 +694,7 @@ public class MinesweeperRaider : MonoBehaviour
 	public void NextLevel()
 	{
 		if(Flow.currentMode == GameMode.Multiplayer && Flow.currentCustomStage == -1)
-		{
+		{	
 			GameJsonAuthConnection conn = new GameJsonAuthConnection(Flow.URL_BASE + "mines/managegame.php", GameSent);
 			WWWForm form = new WWWForm();
 			form.AddField("worldID",Flow.currentGame.world.id);
@@ -674,6 +708,7 @@ public class MinesweeperRaider : MonoBehaviour
 		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage == -1)
 		{
 			tommyMaterial.mainTexture = tommyTextures[0];
+			Flow.nextPanel = PanelToLoad.EndLevel;
 			Application.LoadLevel("Mainmenu");
 		}
 		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage != -1)
@@ -824,5 +859,23 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		upgradesDescription.Text = "Increases the range of the radar.";
 		currentUpgrade = "radar";
+	}
+	
+	void SkipCutscene()
+	{
+		Debug.Log("Skip");
+		
+		iTween.MoveTo(cameras[currentWorld].gameObject, iTween.Hash("position", cameraList[currentCameraView], "time", 1,
+		"oncomplete", "StartPlayerTurn", "oncompletetarget", gameObject));
+		iTween.RotateTo(cameras[currentWorld].gameObject, iTween.Hash("rotation", cameraList[currentCameraView], "time", 1));
+	
+		gameHuds.SetActive(true);
+		cutsceneHuds.SetActive(false);
+
+		cameras[currentWorld].camera.rect = new Rect(0,0,1,1);
+		
+		gameState = GameState.Null;
+		
+		ChangeCamera();
 	}
 }

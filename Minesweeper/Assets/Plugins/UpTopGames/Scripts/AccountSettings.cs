@@ -123,8 +123,14 @@ public class AccountSettings : MonoBehaviour
 		if(Save.HasKey(PlayerPrefsKeys.DATE_YEAR.ToString())) yearField.Text = Save.GetString(PlayerPrefsKeys.DATE_YEAR.ToString());
 		if(Save.HasKey(PlayerPrefsKeys.GENDER.ToString())) 
 		{
-			if(Save.GetString(PlayerPrefsKeys.GENDER.ToString()) == "Male") maleFemaleToggle.SetState(0);
-			else maleFemaleToggle.SetState(1);
+			if(Save.GetString(PlayerPrefsKeys.GENDER.ToString()) == "Male")
+			{
+				maleFemaleToggle.SetState(0);
+			}
+			else
+			{
+				maleFemaleToggle.SetState(1);
+			}
 		}
 		dayValidation = dayField.Text;
 		monthValidation = monthField.Text;
