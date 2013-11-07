@@ -209,6 +209,7 @@ public class CreateStage : MonoBehaviour
 		//terminar loading e lançar janela de level aprovado, com callback das linhas abaixo
 		Flow.AddCustomLevel(tileset, currentWorld, totalMines, inputName.GetComponent<UITextField>().Text);
 		
+		Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 		Application.LoadLevel("Game");
 	}
 	
@@ -239,6 +240,8 @@ public class CreateStage : MonoBehaviour
 	public void Back()
 	{
 		inputName.SetActive(false);
+		
+		Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 		Application.LoadLevel("Game");
 	}
 }

@@ -12,8 +12,11 @@ public class EndLevel : MonoBehaviour
 	public EndLevelButtonClicked buttonCliked = EndLevelButtonClicked.None;
 	
 	public SpriteText endLevelLabel;
-	public GameObject[] enemies;
-	public SpriteText enemyName;
+	public SpriteText time;
+	public SpriteText deaths;
+	public SpriteText exp;
+	public SpriteText totalExp;
+	public SpriteText expToLevelUp;
 	public Transform offerPanel;
 	public GameObject bigPlayAgain;
 	public GameObject smallPlayAgain;
@@ -66,12 +69,11 @@ public class EndLevel : MonoBehaviour
 	{
 		//Debug.Log(Flow.currentMode.ToString());
 		
-		Debug.Log("estamos no level: "+Flow.currentGame.level.id);
-		
-		enemyName.Text = Flow.currentGame.level.name;
-		enemies[Flow.currentGame.level.id-1].SetActive(true);
-		
-		//enemyPicture.material.mainTexture = Flow.currentGame.friend.rawText;	
+		time.Text = "Total Time: " + Flow.currentGame.myRoundList[0].time.ToString();
+		deaths.Text = "Activated Mines: " + Flow.currentGame.myRoundList[0].deaths.ToString();
+		exp.Text = "Experience Gained: " + Flow.currentGame.myRoundList[0].expGained.ToString();
+		totalExp.Text = "Total Experience: " + Flow.playerExperience.ToString();
+		expToLevelUp.Text = (Flow.playerLevel * Flow.playerLevel * 100 - Flow.playerExperience).ToString() + " to next Level";
 		
 		FixScreenButtons();
 		
@@ -81,7 +83,7 @@ public class EndLevel : MonoBehaviour
 			//Debug.Log ("world: " + Flow.currentGame.world.id);
 			//Debug.Log ("level: " + Flow.currentGame.level.id);
 			
-			endLevelLabel.Text = "You Win";
+			endLevelLabel.Text = "Stage Cleared";
 			
 			if (Flow.currentGame.world.id == Flow.MAX_WORLD_NUMBER && Flow.currentGame.level.id == Flow.MAX_LEVEL_NUMBER)
 			{
@@ -94,8 +96,8 @@ public class EndLevel : MonoBehaviour
 				//Debug.Log ("NextButtonTrue");
 			}
 			
-			Debug.Log("estrelas no level: "+Flow.worldDict[Flow.currentGame.world.id-1].levelDict[Flow.currentGame.level.id-1].stars);
-			for (int i = 0; i < Flow.worldDict[Flow.currentGame.world.id-1].levelDict[Flow.currentGame.level.id-1].stars; i++)
+			//Debug.Log("estrelas no level: "+Flow.currentGame.level.stars);
+			for (int i = 0; i < Flow.currentGame.level.stars; i++)
 			{
 				transform.FindChild("Star" + (i+1) + "Anim").gameObject.SetActive(true);
 				//transform.FindChild("Star" + (i+1) + "Anim").GetComponent<PackedSprite>().playAnimOnStart = true;
@@ -103,10 +105,10 @@ public class EndLevel : MonoBehaviour
 		}
 		else
 		{
-			endLevelLabel.Text = "You Lose";
+			endLevelLabel.Text = "Failure";
 			endLevelLabel.SetColor(new Color(1,0,0,1));
 			
-			transform.FindChild("NextButton").gameObject.SetActive(false);
+			transform.FindChild("NextButton").gameObject.SetActive(true);
 			
 			for (int i = 0; i < 3; i++)
 			{
@@ -187,24 +189,24 @@ public class EndLevel : MonoBehaviour
 	
 	void NextLevel()
 	{
-		Debug.Log ("crieiTodosWorldsGameObjectsEndLevel");	
+		//Debug.Log ("crieiTodosWorldsGameObjectsEndLevel");	
 		
 		int world = Flow.currentGame.world.id;
 		int level = Flow.currentGame.level.id;
 		
 		if (level == Flow.MAX_LEVEL_NUMBER)
 		{
-			Debug.Log ("Level9");
+			//Debug.Log ("Level9");
 			world++;
 			level = 1;
-			Debug.Log ("world: " + world);
-			Debug.Log ("level: " + level);
+			//Debug.Log ("world: " + world);
+			//Debug.Log ("level: " + level);
 		}
 		else
 		{
 			level++;
-			Debug.Log ("world: " + world);
-			Debug.Log ("level: " + level);
+			//Debug.Log ("world: " + world);
+			//Debug.Log ("level: " + level);
 		}
 		
 		Flow.currentGame = new Game();
@@ -221,16 +223,14 @@ public class EndLevel : MonoBehaviour
 		Flow.currentGame.friend = new Friend();
 		Flow.currentGame.friend.rawText = Flow.currentGame.level.image;
 		
-		Debug.Log ("flowWorld: " + Flow.currentGame.world.id);
-		Debug.Log ("flow.Level: " + Flow.currentGame.level.id);
+		//Debug.Log ("flowWorld: " + Flow.currentGame.world.id);
+		//Debug.Log ("flow.Level: " + Flow.currentGame.level.id);
 		
 		Flow.currentGame.theirRoundList = new List<Round>();
 			
 		for (int i = 0; i < Flow.ROUNDS_PER_TURN; i++)
 		{
-			Flow.currentGame.theirRoundList.Add(new Round(-1,-1,-1,-1, -1));/* Flow.currentGame.world.enemyGun, 
-				UnityEngine.Random.Range(Flow.currentGame.level.time.x, Flow.currentGame.level.time.y), UnityEngine.Random.Range(1, 5), 0,0));*/
-				//UnityEngine.Random.Range(3, 5), UnityEngine.Random.Range(3, 5), 0,0)); TESTE
+			Flow.currentGame.theirRoundList.Add(new Round(-1,-1,-1,-1,-1,-1));
 		}
 		
 		UIPanelManager.instance.BringIn("LevelSelectionScenePanel",UIPanelManager.MENU_DIRECTION.Forwards);

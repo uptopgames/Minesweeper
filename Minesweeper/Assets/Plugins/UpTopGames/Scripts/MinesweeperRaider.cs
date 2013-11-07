@@ -139,7 +139,7 @@ public class MinesweeperRaider : MonoBehaviour
 		}
 		
 		Flow.currentGame.myRoundList = new List<Round>();
-		Flow.currentGame.myRoundList.Add(new Round(-1,-1,-1,-1,-1));
+		Flow.currentGame.myRoundList.Add(new Round(-1,-1,-1,-1,-1,-1));
 		
 		tileset.Add(tempList);
 		
@@ -288,7 +288,7 @@ public class MinesweeperRaider : MonoBehaviour
 		previousRow = currentRow;
 		previousColum = currentColumn;
 		
-		Debug.Log("Row: " + currentRow + ", Column: " + currentColumn);
+		//Debug.Log("Row: " + currentRow + ", Column: " + currentColumn);
 		character.position = new Vector3(startingPosition.x + currentRow * 3, startingPosition.y, startingPosition.z + currentColumn * -3);
 		diamond.position = new Vector3(startingPosition.x + diamondRow * 3, startingPosition.y, startingPosition.z + diamondColumn * -3);
 	}
@@ -303,7 +303,7 @@ public class MinesweeperRaider : MonoBehaviour
 				currentCameraView = 1;
 			break;
 			case 1:
-				Debug.Log(currentRow);
+				//Debug.Log(currentRow);
 				if(currentRow < 4)
 				{
 					currentCameraView = 2;
@@ -525,6 +525,7 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Victory()
 	{
+		Flow.playerWin = true;
 		gameState = GameState.Null;
 		
 		Flow.currentGame.myRoundList[0].deaths = Flow.hpLevel + 2 - currentHp;
@@ -538,13 +539,11 @@ public class MinesweeperRaider : MonoBehaviour
 			{	
 				if(Save.HasKey(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id))
 				{
-					Flow.playerExperience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
-					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 10 + (currentLevel+1) * 1).ToString();
+					Flow.currentGame.myRoundList[0].expGained = (currentWorld+1) * 10 + (currentLevel+1) * 1;
 				}
 				else
 				{
-					Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
-					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+					Flow.currentGame.myRoundList[0].expGained = (currentWorld+1) * 100 + (currentLevel+1) * 10;
 				}
 		
 				Save.Set(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id, Flow.currentGame.level.stars, true);
@@ -553,8 +552,7 @@ public class MinesweeperRaider : MonoBehaviour
 			else
 			{
 				Flow.currentCustomStage = -1;
-				Flow.playerExperience += 80;
-				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +80";
+				Flow.currentGame.myRoundList[0].expGained = 80;
 			}
 		}
 		else
@@ -563,28 +561,30 @@ public class MinesweeperRaider : MonoBehaviour
 			{
 				if(Save.HasKey(PlayerPrefsKeys.LEVELSTARS+Flow.currentGame.level.id))
 				{
-					Flow.playerExperience += (currentWorld+1) * 10 + (currentLevel+1) * 1;
-					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 10 + (currentLevel+1) * 1).ToString();
+					Flow.currentGame.myRoundList[0].expGained = (currentWorld+1) * 10 + (currentLevel+1) * 1;
 				}
 				else
 				{
-					Flow.playerExperience += (currentWorld+1) * 100 + (currentLevel+1) * 10;
-					levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + ((currentWorld+1) * 100 + (currentLevel+1) * 10).ToString();
+					Flow.currentGame.myRoundList[0].expGained = (currentWorld+1) * 100 + (currentLevel+1) * 10;
 				}
 			}
 			else
 			{
 				Flow.currentCustomStage = -1;
-				Flow.playerExperience += 30;
-				levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +30";
+				Flow.currentGame.myRoundList[0].expGained = 30;
 			}
 		}
+		
+		Flow.currentGame.myRoundList[0].expGained = 8008;
+		
+		Flow.playerExperience += Flow.currentGame.myRoundList[0].expGained;
+		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + Flow.currentGame.myRoundList[0].expGained.ToString();
 		
 		if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
 		else if(Flow.hpLevel+1==currentHp && Flow.currentGame.level.stars<2) Flow.currentGame.level.stars = 2;
 		else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;
 		
-		Debug.Log("Current Exp: " + Flow.playerExperience);
+		//Debug.Log("Current Exp: " + Flow.playerExperience);
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		GameObject.Destroy(levelUp.GetComponent<Fader>());
 		
@@ -593,7 +593,7 @@ public class MinesweeperRaider : MonoBehaviour
 			CheckExperience();
 		}
 		
-		Debug.Log("salvei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
+		//Debug.Log("salvei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
 		
 		Save.Set(PlayerPrefsKeys.PLAYERLEVEL, Flow.playerLevel, true);
 		Save.Set(PlayerPrefsKeys.PLAYEREXPERIENCE, Flow.playerExperience, true);
@@ -621,10 +621,24 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		if(Flow.playerExperience >= Flow.playerLevel * Flow.playerLevel * 100)
 		{
+			if(Save.HasKey(PlayerPrefsKeys.SKILLPOINTS))
+			{
+				Debug.Log("eu tinha " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) + " Skill Points");
+				Save.Set(PlayerPrefsKeys.SKILLPOINTS, Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) + 1, true);
+			}
+			else
+			{
+				Debug.Log("eu non tinha skillpoints");
+				Save.Set(PlayerPrefsKeys.SKILLPOINTS, 1, true);
+			}
+			
+			levelUpPanel.transform.FindChild("Skill Points").GetComponent<SpriteText>().Text = "Unspent Skill Points: " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS);
+			Debug.Log("eu fiquei com " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) + " Skill Points");
+			
 			Flow.playerExperience -= Flow.playerLevel * Flow.playerLevel * 100;
 			Flow.playerLevel ++;
 			Flow.header.levelText.Text = "Level " + Flow.playerLevel.ToString();
-			Debug.Log("Level Up!\nCurrent Level: " + Flow.playerLevel);
+			//Debug.Log("Level Up!\nCurrent Level: " + Flow.playerLevel);
 			if(Flow.playerExperience >= Flow.playerLevel * Flow.playerLevel * 100)
 			{
 				CheckExperience();
@@ -643,7 +657,16 @@ public class MinesweeperRaider : MonoBehaviour
 		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Level " + Flow.playerLevel.ToString() + "!";
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		
-		levelUpPanel.BringIn();
+		if(Flow.mapLevel < 5 && Flow.radarLevel < 5 && Flow.hpLevel < 5)
+		{
+			levelUpPanel.BringIn();
+			levelUpPanel.transform.FindChild("Skill Points").GetComponent<SpriteText>().Text = "Unspent Skill Points: " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS);
+		}
+		else
+		{
+			FadeIn();
+			Invoke("NextLevel", 1.7f);
+		}
 	}
 	
 	public void FadeIn()
@@ -675,17 +698,20 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			if(currentHp <= 0)
 			{
+				Flow.playerWin = false;
 				gameState = GameState.Null;
 				tommyMaterial.mainTexture = tommyTextures[0];
 				Flow.currentCustomStage = -1;
 				Flow.currentGame.myRoundList[0].deaths = Flow.hpLevel + 2 - currentHp;
 				Flow.currentGame.myRoundList[0].time = Mathf.RoundToInt(timeCounter);
-				Application.LoadLevel(Application.loadedLevel);
+				Flow.currentGame.myRoundList[0].expGained = 0;
+				Flow.nextPanel = PanelToLoad.EndLevel;
+				Application.LoadLevel("Mainmenu");
 			}
 			else
 			{
 				character.gameObject.SetActive(true);
-				Debug.Log(character.position);
+				//Debug.Log(character.position);
 				gameState = GameState.PlayerTurn;
 			}
 		}
@@ -803,44 +829,82 @@ public class MinesweeperRaider : MonoBehaviour
 				
 				mineCoordinates.Add(hintList[i]);
 				
-				Debug.Log(hintList[i]);
+				//Debug.Log(hintList[i]);
 			}
 		}
 	}
 	
 	void ConfirmUpgrade()
 	{
-		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		string upgradeText = "";
-		levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		
 		switch(currentUpgrade)
 		{
 			case "hp":
-				Flow.hpLevel++;
-				upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
-				upgradeText = "HP +1!";
-				Save.Set(PlayerPrefsKeys.HPLEVEL, Flow.hpLevel, true);
+				if(Flow.hpLevel>=5)
+				{
+					Flow.game_native.showMessage("HP is already Maximum", "Choose another upgrade", "Ok");
+					return;
+				}
+				else
+				{
+					Flow.hpLevel++;
+					upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
+					upgradeText = "HP +1!";
+					Save.Set(PlayerPrefsKeys.HPLEVEL, Flow.hpLevel, true);
+					hp[Flow.hpLevel+1].SetActive(true);
+				}
 			break;
 			case "map":
-				Flow.mapLevel++;
-				upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
-				upgradeText = "Map +1!";
-				Save.Set(PlayerPrefsKeys.MAPLEVEL, Flow.mapLevel, true);
+				if(Flow.mapLevel>=5)
+				{
+					Flow.game_native.showMessage("Map is already Maximum", "Choose another upgrade", "Ok");
+					return;
+				}
+				else
+				{
+					Flow.mapLevel++;
+					upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
+					upgradeText = "Map +1!";
+					Save.Set(PlayerPrefsKeys.MAPLEVEL, Flow.mapLevel, true);
+				}
 			break;
 			case "radar":
-				Flow.radarLevel++;
-				upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
-				upgradeText = "Radar +1!";
-				Save.Set(PlayerPrefsKeys.RADARLEVEL, Flow.radarLevel, true);
+				if(Flow.radarLevel>=5)
+				{
+					Flow.game_native.showMessage("Radar is already Maximum", "Choose another upgrade", "Ok");
+					return;
+				}
+				else
+				{
+					Flow.radarLevel++;
+					upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
+					upgradeText = "Radar +1!";
+					Save.Set(PlayerPrefsKeys.RADARLEVEL, Flow.radarLevel, true);
+				}
 			break;
 		}
 		
+		Debug.Log("eu tinha " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) + " Skill Points");
+		
+		Save.Set(PlayerPrefsKeys.SKILLPOINTS, Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) - 1, true);
+		levelUpPanel.transform.FindChild("Skill Points").GetComponent<SpriteText>().Text = "Unspent Skill Points: " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS);
+		
+		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = upgradeText;
 		
-		Invoke("NextLevel", 5.7f);
-		Invoke("FadeIn", 4);
-		levelUpPanel.Dismiss();
+		if(Save.HasKey(PlayerPrefsKeys.SKILLPOINTS))
+		{
+			Debug.Log("eu fiquei com " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) + " Skill Points");
+			if(Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) == 0)
+			{
+				levelUp.GetComponent<UIInteractivePanel>().BringIn();
+				
+				Invoke("NextLevel", 5.7f);
+				Invoke("FadeIn", 4);
+				levelUpPanel.Dismiss();
+			}
+		}
 	}
 	
 	void UpgradeHP()
@@ -863,7 +927,7 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void SkipCutscene()
 	{
-		Debug.Log("Skip");
+		//Debug.Log("Skip");
 		
 		iTween.MoveTo(cameras[currentWorld].gameObject, iTween.Hash("position", cameraList[currentCameraView], "time", 1,
 		"oncomplete", "StartPlayerTurn", "oncompletetarget", gameObject));

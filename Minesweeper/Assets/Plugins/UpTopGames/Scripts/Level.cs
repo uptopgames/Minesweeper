@@ -30,14 +30,14 @@ public class Level : MonoBehaviour
 	
 	void EnterLevel()
 	{
-		Debug.Log ("EnterLevel");
-		Debug.Log ("Points: " + points);
-		Debug.Log ("toUnlock: " + toUnlock);
-		Debug.Log ("name: " + transform.name);
+		//Debug.Log ("EnterLevel");
+		//Debug.Log ("Points: " + points);
+		//Debug.Log ("toUnlock: " + toUnlock);
+		//Debug.Log ("name: " + transform.name);
 		
 		if (Save.GetInt (PlayerPrefsKeys.POINTS) >= toUnlock)
 		{
-			Debug.Log ("unlocked");
+			//Debug.Log ("unlocked");
 			
 			if(Flow.currentMode == GameMode.SinglePlayer) Flow.currentGame = new Game();
 			
@@ -68,12 +68,13 @@ public class Level : MonoBehaviour
 			
 			//Debug.Log ("EnterLevelGunId: " + Flow.currentGame.theirRoundList[0].gun.id);
 			//Debug.Log ("EnterLevelGunReaction: " + Flow.currentGame.theirRoundList[0].gun.reaction);
-			Debug.Log ("World: " + Flow.currentGame.world.id);
-			Debug.Log ("Level: " + Flow.currentGame.level.id);
+			//Debug.Log ("World: " + Flow.currentGame.world.id);
+			//Debug.Log ("Level: " + Flow.currentGame.level.id);
 			
 			Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 			Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 			
+			Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 			Application.LoadLevel("Game");
 		}
 		else

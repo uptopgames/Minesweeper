@@ -17,7 +17,7 @@ public class LogoPanel : MonoBehaviour
 		if(Save.HasKey(PlayerPrefsKeys.MAPLEVEL)) Flow.mapLevel = Save.GetInt(PlayerPrefsKeys.MAPLEVEL);
 		if(Save.HasKey(PlayerPrefsKeys.RADARLEVEL)) Flow.radarLevel = Save.GetInt(PlayerPrefsKeys.RADARLEVEL);
 		
-		Debug.Log("peguei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
+		//Debug.Log("peguei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
 		
 		StartCoroutine(getXML());
 		

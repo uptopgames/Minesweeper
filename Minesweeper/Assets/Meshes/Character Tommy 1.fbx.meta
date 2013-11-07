@@ -288,7 +288,7 @@ ModelImporter:
       takeName: C4D Animation Take
       firstFrame: 270
       lastFrame: 300
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0

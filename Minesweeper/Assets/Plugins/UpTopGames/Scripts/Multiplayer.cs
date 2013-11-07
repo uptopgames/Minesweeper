@@ -187,7 +187,8 @@ public class Multiplayer : MonoBehaviour
 							data["games"][i]["turn"].Int32Value, 
 							data["games"][i]["friendID"].Int32Value, 
 							data["games"][i]["friendTime"].ToFloat(), 
-							data["games"][i]["friendDeaths"].Int32Value));
+							data["games"][i]["friendDeaths"].Int32Value,
+							-1));
 						
 						//tempRoundList.Add (new Round (-1, data["games"][i]["turn"].Int32Value, data["games"][i]["friendID"].Int32Value, 
 						//	theirGun, shotTimes[j].ToFloat(), bangTimes[j].ToInt32(), sandAttacks[j].ToInt32(), -1));
@@ -213,9 +214,9 @@ public class Multiplayer : MonoBehaviour
 					
 					for(int k = 0 ; k < Flow.ROUNDS_PER_TURN ; k++)
 					{
-						tempPastMyRoundList.Add(new Round(-1,-1,-1,data["games"][i]["myPastTime"].ToFloat(), data["games"][i]["myPastDeaths"].Int32Value));
+						tempPastMyRoundList.Add(new Round(-1,-1,-1,data["games"][i]["myPastTime"].ToFloat(), data["games"][i]["myPastDeaths"].Int32Value,-1));
 						
-						tempPastTheirRoundList.Add(new Round(-1,-1,-1,data["games"][i]["friendPastTime"].ToFloat(), data["games"][i]["friendPastDeaths"].Int32Value));
+						tempPastTheirRoundList.Add(new Round(-1,-1,-1,data["games"][i]["friendPastTime"].ToFloat(), data["games"][i]["friendPastDeaths"].Int32Value,-1));
 						
 						/*tempPastMyRoundList.Add(new Round(-1,-1,-1, pastMyGun, pastMyShotTimes[k].ToFloat(), pastMyBangTimes[k].ToFloat(), 
 							int.Parse(pastMySandAttacks[k]), int.Parse(pastMyRoundsWin[k])));

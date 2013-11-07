@@ -13,7 +13,7 @@ public class LevelSelection : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log ("StartLevelSelection");
+		//Debug.Log ("StartLevelSelection");
 		
 		GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitLevelSelection);
 	}

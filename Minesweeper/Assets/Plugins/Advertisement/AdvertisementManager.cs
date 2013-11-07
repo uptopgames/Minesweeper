@@ -197,7 +197,7 @@ public class AdvertisementManager : MonoBehaviour, IRevMobListener
 	// Cria a lista default dos ads
 	protected void defaultList()
 	{
-		Debug.Log("defaultList");
+		//Debug.Log("defaultList");
 		if (banner == null) banner = new List<AdvertisementBase>();
 		if (interstitial == null) interstitial = new List<AdvertisementBase>();
 		if (popup == null) popup = new List<AdvertisementBase>();

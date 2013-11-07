@@ -16,6 +16,7 @@ public class WorldSelection : MonoBehaviour {
 	void StartGame()
 	{
 		Flow.currentGame.world.id = 1;
+		Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 		Application.LoadLevel("Game");
 	}
 }

@@ -55,7 +55,7 @@ public class ShopManager : MonoBehaviour
 		
 		string androidKey = Info.androidKey;
 		IAP.init (androidKey);	
-		Debug.Log("Started IAP");
+		//Debug.Log("Started IAP");
 		
 		List<string> androidList = new List<string>();
 		List<string> appleList = new List<string>();
@@ -478,7 +478,7 @@ public class ShopManager : MonoBehaviour
 		if(error != null) Debug.Log(error);
 		else
 		{
-			Debug.Log(data);
+			//Debug.Log(data);
 			
 			IJSonObject inapps = data["inapps"];
 			IJSonObject items = data["items"];

@@ -51,7 +51,8 @@ public class PlayerPrefsKeys
 	PLAYEREXPERIENCE = "RF13fa3gFs",
 	HPLEVEL = "9fwASsOQil",
 	RADARLEVEL = "mKAmfdmos",
-	MAPLEVEL = "DFwfmpFpw";
+	MAPLEVEL = "DFwfmpFpw",
+	SKILLPOINTS = "WognvfeOjV";
 }
 
 public enum PanelToLoad
@@ -89,9 +90,6 @@ public class Flow: MonoBehaviour
 	public static int mapLevel = 1;
 	public static int radarLevel = 1;
 	public static int hpLevel = 1;
-	
-	
-	
 	
 	public static GameNativeGUI game_native = new GameNativeGUI();
 	
@@ -225,7 +223,7 @@ public class Flow: MonoBehaviour
 		}
 		set
 		{
-			Debug.Log("mudaram o path: "+value.ToString());
+			//Debug.Log("mudaram o path: "+value.ToString());
 			_path = value;
 		}
 	}

@@ -1,10 +1,21 @@
-Animação de Câmera de vitória: refazer
-Animação do Player de vitória: pegar nova com o Raphael
-Golpes Especiais: limitar a um por partida
-Golpes Especiais: desativar quando player não tiver (e oferecer compra)
-Barra de Exp: trocar por degradê (fazer no Photoshop)
 Preparar vitória para ganhar vários níveis, quando acontecer
 Preparar jogo para armazenar "upgrades não usados" e oferecê-los no devido momento
 Jogo não está mostrando estrelas dos leveis direito
+Tremida de câmera ao pular cutscene
+Estrelas estão do Bang
 
-Trocar todas as imagens do bang
+Colocar fontes certas
+Ajeitar tela de shop
+Criar itens no servidor
+Golpes Especiais: limitar a um por partida
+Golpes Especiais: desativar quando player não tiver (e oferecer compra)
+Criar itens locais
+Ajeitar itens que chegam no shop (estão vindo do bang)
+Testar todos os itens e garantir que eles estão funcionando direito
+
+Testar Rate, Share e Like
+Criar actions no Facebook
+Ajeitar PHP's para as Actions do Facebook
+Testar todas as actions do Facebook
+
+Criador de leveis: pensar em tudo

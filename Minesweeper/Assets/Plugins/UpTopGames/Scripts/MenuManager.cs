@@ -17,19 +17,23 @@ public class MenuManager : MonoBehaviour
 		{
 			case PanelToLoad.Menu:
 				UIPanelManager.instance.BringIn("MenuScenePanel");
+				Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 			break;
 			
 			case PanelToLoad.BattleStatus:
 				UIPanelManager.instance.BringIn("BattleStatusScenePanel");
+				Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 			break;
 			
 			case PanelToLoad.WinLose:
 				UIPanelManager.instance.BringIn("WinLoseScenePanel");
+				Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 			break;
 			
 			// GLA
 			case PanelToLoad.EndLevel:
 				UIPanelManager.instance.BringIn("EndLevelPanel");
+				Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 			break;
 			
 			case PanelToLoad.Multiplayer:
@@ -111,7 +115,7 @@ public class MenuManager : MonoBehaviour
 		if(error != null) Debug.Log(error);
 		else
 		{
-			Debug.Log(data);
+			//Debug.Log(data);
 			
 			foreach(IJSonObject level in data.ArrayItems)
 			{	
