@@ -326,7 +326,7 @@ public class Invite : MonoBehaviour
 	}
 	
 	public void EraseFriendsListAndLoad()
-	{
+	{		
 		Debug.Log("EraseFriendsListAndLoad");
 		//Flow.game_native.startLoading(loadingDialog);
 		

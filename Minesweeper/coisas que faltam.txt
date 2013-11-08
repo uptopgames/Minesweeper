@@ -1,13 +1,11 @@
-Preparar vitória para ganhar vários níveis, quando acontecer
-Preparar jogo para armazenar "upgrades não usados" e oferecê-los no devido momento
 Jogo não está mostrando estrelas dos leveis direito
 Tremida de câmera ao pular cutscene
-Estrelas estão do Bang
+Ao voltar para multiplayer menu da cena de invite com toggle em "playing" e entrar novamente no invite, os dois scrolls ficam ligados
+Não salvou leveis liberados no playerprefs, por algum motivo (talvez o mundo seguinte ser liberado tenha zoado o mundo anterior)
 
 Colocar fontes certas
 Ajeitar tela de shop
 Criar itens no servidor
-Golpes Especiais: limitar a um por partida
 Golpes Especiais: desativar quando player não tiver (e oferecer compra)
 Criar itens locais
 Ajeitar itens que chegam no shop (estão vindo do bang)
@@ -18,4 +16,12 @@ Criar actions no Facebook
 Ajeitar PHP's para as Actions do Facebook
 Testar todas as actions do Facebook
 
-Criador de leveis: pensar em tudo
+Criar PHPs para trazer e mandar informações dos leveis criados para o servidor
+Preparar info para mandar para o PHP de criação de level no servidor
+Preparar para receber info dos leveis criados no servidor
+Criar containers da tela de challenges
+Criar script do menu challenges
+Criar container da tela de rankings
+Criar script do menu rankings
+Adaptar alguma tela do single para mandar para o criador de cenários
+Revisar o criador de cenários

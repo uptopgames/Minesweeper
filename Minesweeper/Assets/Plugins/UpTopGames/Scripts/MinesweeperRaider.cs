@@ -75,6 +75,11 @@ public class MinesweeperRaider : MonoBehaviour
 	public UIInteractivePanel levelUpPanel;
 	public SpriteText upgradesDescription;
 	
+	public GameObject shieldBlock;
+	public GameObject radarBlock;
+	public GameObject mapBlock;
+	private bool increasingExp;
+	
 	string fileName = "tileset.xml";
 	TextAsset tilesetXML;
 	string rawXML;
@@ -94,9 +99,36 @@ public class MinesweeperRaider : MonoBehaviour
 		radarDistance = Flow.radarLevel + 1;
 		currentHp = Flow.hpLevel + 2;
 		
-		upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
-		upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
-		upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
+		if(Flow.hpLevel < 5)
+		{
+			upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
+		}
+		else
+		{
+			upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = "MAX.";
+		}
+		if(Flow.mapLevel < 5)
+		{
+			upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
+		}
+		else
+		{
+			upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = "MAX.";
+		}
+		if(Flow.radarLevel < 5)
+		{
+			upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
+		}
+		else
+		{
+			upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = "MAX";
+		}
+		
+		if(Flow.hpLevel >= 5 && Flow.mapLevel >= 5 && Flow.radarLevel >= 5)
+		{
+			currentUpgrade = "max";
+			upgradesDescription.Text = "All upgrades have been bought.";
+		}
 		
 		for(int i = 0; i<Flow.hpLevel+2; i++)
 		{
@@ -212,7 +244,52 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Update ()
 	{
-		//Debug.Log("Previous Row: " + previousRow + ", Previous Column: " + previousColum);
+		if(increasingExp)
+		{
+			Debug.Log(Flow.header.expBar.width);
+			if(Flow.header.expBar.width < 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100))
+			{
+				Flow.header.expBar.width += 2 * Time.deltaTime;
+				Flow.header.expBar.CalcSize();
+				if(Flow.header.expBar.width > 7)
+				{
+					Debug.Log("zerei");
+					Flow.header.expBar.width = 0;
+					Flow.header.expBar.CalcSize();
+					CheckExperience();
+					leveledUp = true;
+				}
+			}
+			else if(Flow.header.expBar.width > 7)
+			{
+				Debug.Log("zerei");
+				Flow.header.expBar.width = 0;
+				Flow.header.expBar.CalcSize();
+				CheckExperience();
+				leveledUp = true;
+			}
+			else
+			{
+				Flow.header.expBar.width = 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
+				Flow.header.expBar.CalcSize();
+				increasingExp = false;
+				
+				Invoke("LevelUp", 0.1f);
+		
+				//Debug.Log("salvei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
+				
+				Save.Set(PlayerPrefsKeys.PLAYERLEVEL, Flow.playerLevel, true);
+				Save.Set(PlayerPrefsKeys.PLAYEREXPERIENCE, Flow.playerExperience, true);
+				
+				Flow.header.experienceText.Text = "Exp " + Flow.playerExperience.ToString();
+				
+				if(!leveledUp)
+				{
+					Invoke("NextLevel", 3.7f);
+					Invoke("FadeIn", 2f);
+				}
+			}
+		}
 		
 		switch(gameState)
 		{
@@ -492,6 +569,7 @@ public class MinesweeperRaider : MonoBehaviour
 	void Explode()
 	{
 		character.gameObject.SetActive(false);
+		gameHuds.SetActive(false);
 		
 		GameObject rag = GameObject.Instantiate(ragdoll, character.position, character.rotation) as GameObject;
 		rag.transform.FindChild("Camera").GetComponent<Skybox>().material = cameras[currentWorld].GetComponent<Skybox>().material;
@@ -575,7 +653,7 @@ public class MinesweeperRaider : MonoBehaviour
 			}
 		}
 		
-		Flow.currentGame.myRoundList[0].expGained = 8008;
+		//Flow.currentGame.myRoundList[0].expGained = 8008;
 		
 		Flow.playerExperience += Flow.currentGame.myRoundList[0].expGained;
 		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + Flow.currentGame.myRoundList[0].expGained.ToString();
@@ -587,20 +665,7 @@ public class MinesweeperRaider : MonoBehaviour
 		//Debug.Log("Current Exp: " + Flow.playerExperience);
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		GameObject.Destroy(levelUp.GetComponent<Fader>());
-		
-		if(Flow.playerExperience >= Flow.playerLevel * Flow.playerLevel * 100)
-		{
-			CheckExperience();
-		}
-		
-		//Debug.Log("salvei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
-		
-		Save.Set(PlayerPrefsKeys.PLAYERLEVEL, Flow.playerLevel, true);
-		Save.Set(PlayerPrefsKeys.PLAYEREXPERIENCE, Flow.playerExperience, true);
-		
-		Flow.header.experienceText.Text = "Exp " + Flow.playerExperience.ToString();
-		Flow.header.expBar.width = 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
-		Flow.header.expBar.CalcSize();
+		increasingExp = true;
 		
 		shield.gameObject.SetActive(false);
 		cameras[currentWorld].parent = winCamera;
@@ -609,12 +674,7 @@ public class MinesweeperRaider : MonoBehaviour
 		winCamera.animation.Play ();
 		GameObject.Destroy(diamond.gameObject);
 		character.animation.CrossFade("win");
-		
-		if(!leveledUp)
-		{
-			Invoke("NextLevel", 6.7f);
-			Invoke("FadeIn", 5f);
-		}
+		gameHuds.SetActive(false);
 	}
 	
 	void CheckExperience()
@@ -639,33 +699,23 @@ public class MinesweeperRaider : MonoBehaviour
 			Flow.playerLevel ++;
 			Flow.header.levelText.Text = "Level " + Flow.playerLevel.ToString();
 			//Debug.Log("Level Up!\nCurrent Level: " + Flow.playerLevel);
-			if(Flow.playerExperience >= Flow.playerLevel * Flow.playerLevel * 100)
-			{
-				CheckExperience();
-			}
-			else
-			{
-				Invoke("LevelUp", 3);
-				leveledUp = true;
-			}
+			
+			GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
+			levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Level " + Flow.playerLevel.ToString() + "!";
+			levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		}
 	}
 	
 	void LevelUp()
-	{
-		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
-		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Level " + Flow.playerLevel.ToString() + "!";
-		levelUp.GetComponent<UIInteractivePanel>().BringIn();
-		
+	{	
+		levelUpPanel.BringIn();
 		if(Flow.mapLevel < 5 && Flow.radarLevel < 5 && Flow.hpLevel < 5)
 		{
-			levelUpPanel.BringIn();
 			levelUpPanel.transform.FindChild("Skill Points").GetComponent<SpriteText>().Text = "Unspent Skill Points: " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS);
 		}
 		else
-		{
-			FadeIn();
-			Invoke("NextLevel", 1.7f);
+		{	
+			levelUpPanel.transform.FindChild("Skill Points").GetComponent<SpriteText>().Text = "";
 		}
 	}
 	
@@ -676,6 +726,7 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	public void Respawn()
 	{
+		gameHuds.SetActive(true);
 		if(shieldHp>0)
 		{
 			gameState = GameState.PlayerTurn;
@@ -769,6 +820,8 @@ public class MinesweeperRaider : MonoBehaviour
 		}
 		character.animation.CrossFade("standShield");
 		shield.gameObject.SetActive(true);
+		
+		shieldBlock.SetActive(true);
 	}
 	
 	public void GetRadar()
@@ -786,6 +839,8 @@ public class MinesweeperRaider : MonoBehaviour
 				}
 			}
 		}
+		
+		radarBlock.SetActive(true);
 	}
 	
 	public void GetMap()
@@ -832,6 +887,8 @@ public class MinesweeperRaider : MonoBehaviour
 				//Debug.Log(hintList[i]);
 			}
 		}
+		
+		mapBlock.SetActive(true);
 	}
 	
 	void ConfirmUpgrade()
@@ -849,7 +906,14 @@ public class MinesweeperRaider : MonoBehaviour
 				else
 				{
 					Flow.hpLevel++;
-					upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
+					if(Flow.hpLevel < 5)
+					{
+						upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.hpLevel.ToString();
+					}
+					else
+					{
+						upgradesDescription.transform.parent.FindChild("HPButton").FindChild("Level").GetComponent<SpriteText>().Text = "Max.";
+					}
 					upgradeText = "HP +1!";
 					Save.Set(PlayerPrefsKeys.HPLEVEL, Flow.hpLevel, true);
 					hp[Flow.hpLevel+1].SetActive(true);
@@ -864,7 +928,14 @@ public class MinesweeperRaider : MonoBehaviour
 				else
 				{
 					Flow.mapLevel++;
-					upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
+					if(Flow.mapLevel < 5)
+					{
+						upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.mapLevel.ToString();
+					}
+					else
+					{
+						upgradesDescription.transform.parent.FindChild("MapButton").FindChild("Level").GetComponent<SpriteText>().Text = "Max.";
+					}
 					upgradeText = "Map +1!";
 					Save.Set(PlayerPrefsKeys.MAPLEVEL, Flow.mapLevel, true);
 				}
@@ -878,11 +949,22 @@ public class MinesweeperRaider : MonoBehaviour
 				else
 				{
 					Flow.radarLevel++;
-					upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
+					if(Flow.radarLevel < 5)
+					{
+						upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = Flow.radarLevel.ToString();
+					}
+					else
+					{
+						upgradesDescription.transform.parent.FindChild("RadarButton").FindChild("Level").GetComponent<SpriteText>().Text = "Max.";
+					}
 					upgradeText = "Radar +1!";
 					Save.Set(PlayerPrefsKeys.RADARLEVEL, Flow.radarLevel, true);
 				}
 			break;
+			case "max":
+				Invoke("NextLevel", 1.7f);
+				FadeIn();
+			return;
 		}
 		
 		Debug.Log("eu tinha " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) + " Skill Points");
@@ -892,14 +974,13 @@ public class MinesweeperRaider : MonoBehaviour
 		
 		GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = upgradeText;
+		levelUp.GetComponent<UIInteractivePanel>().BringIn();
 		
 		if(Save.HasKey(PlayerPrefsKeys.SKILLPOINTS))
 		{
 			Debug.Log("eu fiquei com " + Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) + " Skill Points");
 			if(Save.GetInt(PlayerPrefsKeys.SKILLPOINTS) == 0)
-			{
-				levelUp.GetComponent<UIInteractivePanel>().BringIn();
-				
+			{	
 				Invoke("NextLevel", 5.7f);
 				Invoke("FadeIn", 4);
 				levelUpPanel.Dismiss();
@@ -911,18 +992,45 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		upgradesDescription.Text = "Increases the character's and the shield's HP.";
 		currentUpgrade = "hp";
+		if(Flow.hpLevel >= 5)
+		{
+			Flow.game_native.showMessage("HP is already Maximum", "Your HP cannot be increased anymore", "Ok");
+			if(Flow.mapLevel >= 5 && Flow.radarLevel >= 5)
+			{
+				upgradesDescription.Text = "All upgrades have been bought.";
+				currentUpgrade = "max";
+			}
+		}
 	}
 	
 	void UpgradeMap()
 	{
 		upgradesDescription.Text = "Increases the number of revealed mines on the map.";
 		currentUpgrade = "map";
+		if(Flow.mapLevel >= 5)
+		{
+			Flow.game_native.showMessage("Map is already Maximum", "Your Map cannot be increased anymore", "Ok");
+			if(Flow.hpLevel >= 5 && Flow.radarLevel >= 5)
+			{
+				upgradesDescription.Text = "All upgrades have been bought.";
+				currentUpgrade = "max";
+			}
+		}
 	}
 	
 	void UpgradeRadar()
 	{
 		upgradesDescription.Text = "Increases the range of the radar.";
 		currentUpgrade = "radar";
+		if(Flow.radarLevel >= 5)
+		{
+			Flow.game_native.showMessage("Radar is already Maximum", "Your Radar cannot be increased anymore", "Ok");
+			if(Flow.mapLevel >= 5 && Flow.hpLevel >= 5)
+			{
+				upgradesDescription.Text = "All upgrades have been bought.";
+				currentUpgrade = "max";
+			}
+		}
 	}
 	
 	void SkipCutscene()

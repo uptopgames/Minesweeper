@@ -44,15 +44,15 @@ public class CreateStage : MonoBehaviour
 	
 	void Start ()
 	{
-		maximumMines = 10 + Flow.playerLevel * 2;
+		maximumMines = 10 + Flow.playerLevel * 3;
 		if(maximumMines > 62) maximumMines = 62;
 		minesCounter.Text = "Mines: " + totalMines.ToString() + "/" + maximumMines.ToString();
 		startingPosition = player.transform.position;
 		
-		levelText.Text = "Level " + Flow.playerLevel.ToString();
-		experienceText.Text = "Exp " + Flow.playerExperience.ToString();
-		expBar.width = 8 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
-		expBar.CalcSize();
+		Flow.header.levelText.Text = "Level " + Flow.playerLevel.ToString();
+		Flow.header.experienceText.Text = "Exp " + Flow.playerExperience.ToString();
+		Flow.header.expBar.width = 8 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
+		Flow.header.expBar.CalcSize();
 		
 		transform.GetChild(0).gameObject.SetActive(true);
 		foreach(Transform child in mineManager) child.GetComponent<MineCounter>().UpdateTextEditor();

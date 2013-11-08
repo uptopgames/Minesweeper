@@ -99,7 +99,7 @@ public class EndLevel : MonoBehaviour
 			//Debug.Log("estrelas no level: "+Flow.currentGame.level.stars);
 			for (int i = 0; i < Flow.currentGame.level.stars; i++)
 			{
-				transform.FindChild("Star" + (i+1) + "Anim").gameObject.SetActive(true);
+				transform.FindChild("Star" + (i+1)).gameObject.SetActive(true);
 				//transform.FindChild("Star" + (i+1) + "Anim").GetComponent<PackedSprite>().playAnimOnStart = true;
 			}
 		}
@@ -112,7 +112,7 @@ public class EndLevel : MonoBehaviour
 			
 			for (int i = 0; i < 3; i++)
 			{
-				transform.FindChild("Star" + (i+1) + "Anim").gameObject.SetActive(false);
+				transform.FindChild("Star" + (i+1)).gameObject.SetActive(false);
 				//transform.FindChild("Star" + (i+1) + "Anim").GetComponent<PackedSprite>().playAnimOnStart = false;
 			}
 		}
