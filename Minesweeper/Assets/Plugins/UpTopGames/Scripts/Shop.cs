@@ -151,11 +151,6 @@ public class Shop : MonoBehaviour
 				}
 			}
 		}
-		
-		
-		
-		
-	
 	}
 	
 	public void RefreshItemsScroll(bool start=false)
@@ -249,6 +244,4 @@ public class Shop : MonoBehaviour
 			}
 		}
 	}
-	
 }
-

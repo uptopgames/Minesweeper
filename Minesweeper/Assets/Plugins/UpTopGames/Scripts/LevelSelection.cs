@@ -63,8 +63,6 @@ public class LevelSelection : MonoBehaviour
 			Debug.Log ("scrollGetItem: " + scrollLevels.GetItem(i).gameObject.name);
 		}*/
 		
-		
-		
 		//Debug.Log ("scrollItem: " + item);
 		actualWorld = item.Index +1;
 		//Debug.Log ("actualWorldScroll: " + actualWorld);
@@ -111,5 +109,16 @@ public class LevelSelection : MonoBehaviour
 	{
 		UIPanelManager.instance.BringIn("MenuScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
 	}
-
+	
+	void CustomStage()
+	{
+		if(Flow.currentMode == GameMode.SinglePlayer)
+		{
+			UIPanelManager.instance.BringIn("CustomLevelsScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
+		}
+		else if(Flow.currentMode == GameMode.Multiplayer)
+		{
+			UIPanelManager.instance.BringIn("ChallengesScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
+		}
+	}
 }

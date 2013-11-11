@@ -114,6 +114,14 @@ public class Header : MonoBehaviour
 		}
 	}
 	
+	void ChallengesButton()
+	{
+		if(Application.loadedLevelName == "Mainmenu")
+		{
+			if(UIPanelManager.instance.CurrentPanel.name != "ChallengesScenePanel") UIPanelManager.instance.BringIn("ChallengesScenePanel");
+		}
+	}
+	
 	void ShopButton()
 	{
 		if(Application.loadedLevelName == "Mainmenu")

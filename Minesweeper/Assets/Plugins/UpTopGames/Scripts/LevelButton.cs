@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class LevelButton : MonoBehaviour {
-	
-	public MinesweeperRaider game;
+public class LevelButton : MonoBehaviour
+{
 	public bool isCustom = false;
 	public int world = 0;
 	public int level = 0;
@@ -13,33 +12,35 @@ public class LevelButton : MonoBehaviour {
 	{
 		if(isCustom)
 		{
-			transform.FindChild("control_text").GetComponent<SpriteText>().Text = "Custom Stage " + (level+1);
-			transform.FindChild("name").GetComponent<SpriteText>().Text = Flow.customStages[transform.parent.GetComponent<UIListItem>().Index].name;
-			transform.FindChild("mines").GetComponent<SpriteText>().Text = "Mines: " + 
-				Flow.customStages[transform.parent.GetComponent<UIListItem>().Index].numberOfMines;
+			transform.FindChild("Level").FindChild("control_text").GetComponent<SpriteText>().Text = "Custom Stage " + (level+1);
+			transform.FindChild("Level").FindChild("name").GetComponent<SpriteText>().Text = Flow.customStages[transform.GetComponent<UIListItem>().Index].name;
+			transform.FindChild("Level").FindChild("mines").GetComponent<SpriteText>().Text = "Mines: " + 
+				Flow.customStages[transform.GetComponent<UIListItem>().Index].numberOfMines;
 		}
 	}
 	
 	public void StartGame()
 	{
-		game.StartGame(world, level);
+		//lembrar de criar o game, o turno, os rounds e tudo o mais no flow antes de mandar pro game
+		Application.LoadLevel("Game");
 	}
-	
-	/*public void StartCustomGame()
-	{
-		Application.LoadLevel("CustomStage");
-	}*/
 	
 	public void StartCustomGame()
 	{
+		//lembrar de criar o game, o turno, os rounds e tudo o mais no flow antes de mandar pro game
 		Flow.currentCustomStage = level;
-		Application.LoadLevel(Application.loadedLevel);
+		Application.LoadLevel("Game");
 	}
 	
 	public void Delete()
 	{
 		//chamar dialog; se confirmar, executa linhas abaixo
-		transform.parent.parent.parent.GetComponent<UIScrollList>().RemoveItem(transform.parent.GetComponent<UIListItem>(), true);
-		Flow.customStages.Remove(Flow.customStages[transform.parent.GetComponent<UIListItem>().Index]);
+		transform.parent.parent.GetComponent<UIScrollList>().RemoveItem(transform.GetComponent<UIListItem>(), true);
+		Flow.customStages.Remove(Flow.customStages[transform.GetComponent<UIListItem>().Index]);
+	}
+	
+	public void SendToFriend()
+	{
+		transform.parent.parent.GetComponent<CustomLevelScroll>().SendToFriend(this);
 	}
 }

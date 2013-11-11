@@ -62,7 +62,9 @@ public enum PanelToLoad
 	BattleStatus,
 	EndLevel,
 	Multiplayer,
-	LevelSelection
+	LevelSelection,
+	Challenge,
+	CustomStages
 }
 
 public class CustomStage
@@ -71,7 +73,10 @@ public class CustomStage
 	public List<List<int>> tileset;
 	public int numberOfMines = 0;
 	public string name = "New Stage";
+	public string creatorName = "Unknown";
 	public int id = 0;
+	public bool isNew = true;
+	public bool isChallenge = false;
 }
 
 public enum TurnStatus
@@ -84,7 +89,7 @@ public class Flow: MonoBehaviour
 	public static float playerExperience = 0;
 	public static int playerLevel = 1;
 	
-	public static List<CustomStage> customStages;
+	public static List<CustomStage> customStages = new List<CustomStage>();
 	public static int currentCustomStage = -1;
 	
 	public static int mapLevel = 1;

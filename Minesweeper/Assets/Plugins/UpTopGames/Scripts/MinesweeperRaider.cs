@@ -186,7 +186,7 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void RealStart ()
 	{
-		testButtons.SetActive(false);
+		if(testButtons != null) testButtons.SetActive(false);
 		
 		gameState = GameState.Start;
 		

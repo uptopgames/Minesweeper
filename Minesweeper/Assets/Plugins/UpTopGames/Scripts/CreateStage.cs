@@ -210,7 +210,10 @@ public class CreateStage : MonoBehaviour
 		Flow.AddCustomLevel(tileset, currentWorld, totalMines, inputName.GetComponent<UITextField>().Text);
 		
 		Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
-		Application.LoadLevel("Game");
+		
+		Flow.nextPanel = PanelToLoad.CustomStages;
+		
+		Application.LoadLevel("Mainmenu");
 	}
 	
 	public void StageDenied()
