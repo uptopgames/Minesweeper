@@ -603,6 +603,19 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Victory()
 	{
+		if(Flow.currentCustomStage == -1)
+		{
+			if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
+			else if(Flow.hpLevel+1==currentHp && Flow.currentGame.level.stars<2) Flow.currentGame.level.stars = 2;
+			else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;
+		}
+		else
+		{
+			if(Flow.hpLevel+2==currentHp && Flow.customStages[Flow.currentCustomStage].stars<3) Flow.customStages[Flow.currentCustomStage].stars = 3;
+			else if(Flow.hpLevel+1==currentHp && Flow.customStages[Flow.currentCustomStage].stars<2) Flow.customStages[Flow.currentCustomStage].stars = 2;
+			else if(Flow.customStages[Flow.currentCustomStage].stars<1) Flow.customStages[Flow.currentCustomStage].stars = 1;
+		}
+		
 		Flow.playerWin = true;
 		gameState = GameState.Null;
 		
@@ -629,7 +642,6 @@ public class MinesweeperRaider : MonoBehaviour
 			}
 			else
 			{
-				Flow.currentCustomStage = -1;
 				Flow.currentGame.myRoundList[0].expGained = 80;
 			}
 		}
@@ -648,7 +660,6 @@ public class MinesweeperRaider : MonoBehaviour
 			}
 			else
 			{
-				Flow.currentCustomStage = -1;
 				Flow.currentGame.myRoundList[0].expGained = 30;
 			}
 		}
@@ -657,10 +668,6 @@ public class MinesweeperRaider : MonoBehaviour
 		
 		Flow.playerExperience += Flow.currentGame.myRoundList[0].expGained;
 		levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Exp +" + Flow.currentGame.myRoundList[0].expGained.ToString();
-		
-		if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
-		else if(Flow.hpLevel+1==currentHp && Flow.currentGame.level.stars<2) Flow.currentGame.level.stars = 2;
-		else if(Flow.currentGame.level.stars<1) Flow.currentGame.level.stars = 1;
 		
 		//Debug.Log("Current Exp: " + Flow.playerExperience);
 		levelUp.GetComponent<UIInteractivePanel>().BringIn();
@@ -752,7 +759,7 @@ public class MinesweeperRaider : MonoBehaviour
 				Flow.playerWin = false;
 				gameState = GameState.Null;
 				tommyMaterial.mainTexture = tommyTextures[0];
-				Flow.currentCustomStage = -1;
+				//Flow.currentCustomStage = -1;
 				Flow.currentGame.myRoundList[0].deaths = Flow.hpLevel + 2 - currentHp;
 				Flow.currentGame.myRoundList[0].time = Mathf.RoundToInt(timeCounter);
 				Flow.currentGame.myRoundList[0].expGained = 0;
@@ -790,7 +797,9 @@ public class MinesweeperRaider : MonoBehaviour
 		}
 		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage != -1)
 		{
-			Flow.currentCustomStage = -1;
+			//Flow.currentCustomStage = -1;
+			Flow.nextPanel = PanelToLoad.EndLevel;
+			Application.LoadLevel("Mainmenu");
 		}
 	}
 	

@@ -14,8 +14,8 @@ public class CustomLevelScroll : MonoBehaviour
 			foreach(CustomStage c in Flow.customStages)
 			{
 				GameObject stage = GetComponent<UIScrollList>().CreateItem(customLevelPrefabs[c.world]).gameObject;
-				stage.GetComponent<LevelButton>().world = c.world;
-				stage.GetComponent<LevelButton>().level = Flow.customStages.IndexOf(c);
+				stage.GetComponent<CustomLevelButton>().world = c.world;
+				stage.GetComponent<CustomLevelButton>().level = Flow.customStages.IndexOf(c);
 			}
 		}
 	}
@@ -32,10 +32,10 @@ public class CustomLevelScroll : MonoBehaviour
 	public void BackButton()
 	{
 		GetComponent<UIScrollList>().ClearList (true);
-		UIPanelManager.instance.BringIn("MenuScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
+		UIPanelManager.instance.BringIn("LevelSelectionPanel", UIPanelManager.MENU_DIRECTION.Backwards);
 	}
 	
-	public void SendToFriend(LevelButton level)
+	public void SendToFriend(CustomLevelButton level)
 	{
 		Flow.game_native.showMessage("Feature not Implemented", "You cannot send your games to friends yet. Please wait until we implement this feature", "Ok");
 	}

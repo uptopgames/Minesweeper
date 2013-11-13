@@ -242,9 +242,10 @@ public class CreateStage : MonoBehaviour
 	
 	public void Back()
 	{
-		inputName.SetActive(false);
-		
 		Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
-		Application.LoadLevel("Game");
+		
+		Flow.nextPanel = PanelToLoad.CustomStages;
+		
+		Application.LoadLevel("Mainmenu");
 	}
 }

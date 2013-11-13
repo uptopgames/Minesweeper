@@ -97,10 +97,22 @@ public class EndLevel : MonoBehaviour
 			}
 			
 			//Debug.Log("estrelas no level: "+Flow.currentGame.level.stars);
-			for (int i = 0; i < Flow.currentGame.level.stars; i++)
+			
+			if(Flow.currentCustomStage != -1)
 			{
-				transform.FindChild("Star" + (i+1)).gameObject.SetActive(true);
-				//transform.FindChild("Star" + (i+1) + "Anim").GetComponent<PackedSprite>().playAnimOnStart = true;
+				for (int i = 0; i < Flow.customStages[Flow.currentCustomStage].stars; i++)
+				{
+					transform.FindChild("Star" + (i+1)).gameObject.SetActive(true);
+					//transform.FindChild("Star" + (i+1) + "Anim").GetComponent<PackedSprite>().playAnimOnStart = true;
+				}
+			}
+			else
+			{
+				for (int i = 0; i < Flow.currentGame.level.stars; i++)
+				{
+					transform.FindChild("Star" + (i+1)).gameObject.SetActive(true);
+					//transform.FindChild("Star" + (i+1) + "Anim").GetComponent<PackedSprite>().playAnimOnStart = true;
+				}
 			}
 		}
 		else
@@ -189,6 +201,12 @@ public class EndLevel : MonoBehaviour
 	
 	void NextLevel()
 	{
+		if(Flow.currentCustomStage != -1)
+		{
+			Flow.currentCustomStage = -1;
+			return;
+		}
+		
 		//Debug.Log ("crieiTodosWorldsGameObjectsEndLevel");	
 		
 		int world = Flow.currentGame.world.id;
@@ -532,5 +550,4 @@ public class EndLevel : MonoBehaviour
 		Debug.Log(error);
 		Debug.Log(data);
     }
-	
 }

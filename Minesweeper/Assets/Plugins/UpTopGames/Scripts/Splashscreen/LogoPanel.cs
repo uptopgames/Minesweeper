@@ -9,7 +9,7 @@ public class LogoPanel : MonoBehaviour
 {
 	public UIInteractivePanel logoPanel;
 	
-	void Start () 
+	void Start ()
 	{
 		if(Save.HasKey(PlayerPrefsKeys.PLAYEREXPERIENCE)) Flow.playerExperience = Save.GetFloat(PlayerPrefsKeys.PLAYEREXPERIENCE);
 		if(Save.HasKey(PlayerPrefsKeys.PLAYERLEVEL)) Flow.playerLevel = Save.GetInt(PlayerPrefsKeys.PLAYERLEVEL);
@@ -39,13 +39,14 @@ public class LogoPanel : MonoBehaviour
 		Flow.header.expBar.CalcSize();
 		
 		string caminho = "file:///"+Application.persistentDataPath+"/"+fileName;
+		Debug.Log(caminho);
 		
 		WWW reader = new WWW (caminho);
 		yield return reader;
 		
 		if (reader.error != null)
 		{
-			//Debug.Log ("Erro lendo arquivo xml: "+reader.error);
+			Debug.Log ("Erro lendo arquivo xml: "+reader.error);
 			
 			tilesetXML = Resources.Load("Tileset") as TextAsset;
 			rawXML = tilesetXML.text;
@@ -53,7 +54,8 @@ public class LogoPanel : MonoBehaviour
 		}
 		else
 		{
-			//Debug.Log("loaded DOCUMENTS xml");
+			Debug.Log("loaded DOCUMENTS xml");
+			
 			rawXML = reader.text;
 			readFromXML();
 		}
@@ -88,6 +90,36 @@ public class LogoPanel : MonoBehaviour
 			Flow.worldDict.Add(tempWorld.id, tempWorld);
 		}
 		
+		foreach(XmlNode customStage in xmlDoc.SelectNodes("Document/CustomStages/CustomStage"))
+		{
+			List<List<int>> customTileset = new List<List<int>>();
+			string all64 = customStage.SelectSingleNode("Tileset").InnerText;
+			int customMines = 0;
+			for(int i = 0; i< 8; i++)
+			{
+				List<int> singleRow = new List<int>();
+				for(int j = 0; j < 8; j++)
+				{
+					if(int.Parse(all64[i+j].ToString()) == 1) customMines++;
+					singleRow.Add(int.Parse(all64[i+j].ToString()));
+				}
+				customTileset.Add(singleRow);
+			}
+			
+			if(Flow.customStages == null)
+			{
+				Flow.customStages = new List<CustomStage>();
+			}
+			CustomStage c = new CustomStage();
+			c.tileset = customTileset;
+			c.world = int.Parse(customStage.SelectSingleNode("World").InnerText);
+			c.numberOfMines = customMines;
+			c.name = customStage.Attributes["Name"].InnerText;
+			Flow.customStages.Add(c);
+			
+			Debug.Log("adicionei o level " + customStage.Attributes["Name"].InnerText);
+		}
+		
 		logoPanel.StartTransition(UIPanelManager.SHOW_MODE.BringInForward);
 	}
 	
@@ -104,7 +136,7 @@ public class LogoPanel : MonoBehaviour
 			writer.WriteStartDocument();
 			writer.WriteStartElement("Document");
 		    writer.WriteStartElement("Worlds");
-	
+			
 		    for(int i = 0 ; i < 5 ; i++)
 		    {
 				writer.WriteStartElement("World");

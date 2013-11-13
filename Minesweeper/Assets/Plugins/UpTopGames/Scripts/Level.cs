@@ -30,6 +30,7 @@ public class Level : MonoBehaviour
 	
 	void EnterLevel()
 	{
+		Flow.currentCustomStage = -1;
 		//Debug.Log ("EnterLevel");
 		//Debug.Log ("Points: " + points);
 		//Debug.Log ("toUnlock: " + toUnlock);

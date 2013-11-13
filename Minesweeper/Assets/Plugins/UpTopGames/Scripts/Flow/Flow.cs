@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using CodeTitans.JSon;
 using System;
+using System.Xml;
+using System.IO;
 
 public enum GameMode { Multiplayer, SinglePlayer, None }
 
@@ -77,6 +79,7 @@ public class CustomStage
 	public int id = 0;
 	public bool isNew = true;
 	public bool isChallenge = false;
+	public int stars = 0;
 }
 
 public enum TurnStatus
@@ -282,6 +285,78 @@ public class Flow: MonoBehaviour
 		c.numberOfMines = numberOfMines;
 		c.name = name;
 		customStages.Add(c);
+		
+		UpdateXML();
+	}
+	
+	public static void UpdateXML()
+	{	
+		string filename = Application.persistentDataPath+"/Tileset.xml";
+		using (FileStream fileStream = new FileStream(filename, FileMode.Create))
+		using (StreamWriter sw = new StreamWriter(fileStream))
+		using (XmlTextWriter writer = new XmlTextWriter(sw))
+		{
+			writer.Formatting = Formatting.Indented;
+			writer.Indentation = 4;
+			
+			writer.WriteStartDocument();
+			writer.WriteStartElement("Document");
+		    
+			string tempString = "";
+			
+		    writer.WriteStartElement("Worlds");
+			int firstWorld = 9999; foreach(KeyValuePair<int,World> w in Flow.worldDict) {if(w.Key < firstWorld) firstWorld = w.Key;}
+			int firstLevel = 9999; foreach(KeyValuePair<int,Level> l in Flow.worldDict[firstWorld].levelDict){if(l.Key < firstLevel) firstLevel = l.Key;}
+			for(int i = 0 ; i < 5 ; i++)
+		    {
+				writer.WriteStartElement("World");
+				writer.WriteAttributeString("ID", Flow.worldDict[firstWorld+i].id.ToString());
+				writer.WriteStartElement("Levels");
+				for(int j = 0; j < 9; j++)
+				{
+					tempString = "";
+					
+					writer.WriteStartElement("Level");
+					writer.WriteAttributeString("ID", (firstLevel+i*9+j).ToString());
+					writer.WriteElementString("Update", DateTime.UtcNow.ToString());
+					
+					Debug.Log("firstLevel: " + firstLevel + ", i: " + i + ", j: " + j);
+					
+					foreach(int k in Flow.worldDict[firstWorld+i].levelDict[(firstLevel+i*9+j)].tileset) tempString += k.ToString();
+					
+					writer.WriteElementString("Tileset", tempString);
+					writer.WriteEndElement();
+				}
+				writer.WriteEndElement();
+				writer.WriteEndElement();
+		    }
+		    writer.WriteEndElement();
+			
+			writer.WriteStartElement("CustomStages");
+			foreach(CustomStage cs in Flow.customStages)
+			{
+				writer.WriteStartElement("CustomStage");
+				writer.WriteAttributeString("Name", cs.name);
+				writer.WriteElementString("Update", DateTime.UtcNow.ToString());
+				writer.WriteElementString("World", cs.world.ToString());
+				
+				tempString = "";
+				foreach(List<int> listInt in cs.tileset) foreach(int i in listInt) tempString += i.ToString();
+				writer.WriteElementString("Tileset", tempString);
+				writer.WriteEndElement();
+			}
+			writer.WriteEndElement();
+			
+		    writer.WriteEndDocument();
+		}
+	}
+	
+	public static void RemoveCustomLevel(int index)
+	{
+		Debug.Log("fui chamado");
+		customStages.Remove(Flow.customStages[index]);
+		
+		UpdateXML();
 	}
 	
 	public static void Reset()

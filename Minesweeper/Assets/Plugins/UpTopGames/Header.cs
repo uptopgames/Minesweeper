@@ -110,7 +110,11 @@ public class Header : MonoBehaviour
 	{
 		if(Application.loadedLevelName == "Mainmenu")
 		{
-			if(UIPanelManager.instance.CurrentPanel.name != "OptionsScenePanel") UIPanelManager.instance.BringIn("OptionsScenePanel");
+			if(UIPanelManager.instance.CurrentPanel.name != "OptionsScenePanel")
+			{
+				Flow.currentCustomStage = -1;
+				UIPanelManager.instance.BringIn("OptionsScenePanel");
+			}
 		}
 	}
 	
@@ -118,7 +122,11 @@ public class Header : MonoBehaviour
 	{
 		if(Application.loadedLevelName == "Mainmenu")
 		{
-			if(UIPanelManager.instance.CurrentPanel.name != "ChallengesScenePanel") UIPanelManager.instance.BringIn("ChallengesScenePanel");
+			if(UIPanelManager.instance.CurrentPanel.name != "ChallengesScenePanel")
+			{
+				Flow.currentCustomStage = -1;
+				UIPanelManager.instance.BringIn("ChallengesScenePanel");
+			}
 		}
 	}
 	
@@ -129,7 +137,11 @@ public class Header : MonoBehaviour
 			if(UIPanelManager.instance.CurrentPanel.name != "MenuScenePanel" &&
 				UIPanelManager.instance.CurrentPanel.name != "GunSelectionScenePanel" &&
 				UIPanelManager.instance.CurrentPanel.name != "BattleStatusScenePanel" &&
-				UIPanelManager.instance.CurrentPanel.name != "ReplayScenePanel") UIPanelManager.instance.BringIn("ShopScenePanel");
+				UIPanelManager.instance.CurrentPanel.name != "ReplayScenePanel")
+			{
+				UIPanelManager.instance.BringIn("ShopScenePanel");
+				Flow.currentCustomStage = -1;
+			}
 		}
 	}
 	
