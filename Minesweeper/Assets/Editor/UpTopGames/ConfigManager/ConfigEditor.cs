@@ -69,6 +69,7 @@ public class ConfigEditor : Editor
 		config.messageOkCancel = (GameObject) EditorGUILayout.ObjectField("Message Ok Cancel Dialog", config.messageOkCancel, typeof(GameObject));
 		config.inviteAllScroll = (UIScrollList) EditorGUILayout.ObjectField("Invite 'all' ScrollList ", config.inviteAllScroll, typeof(UIScrollList));
 		config.invitePlayingScroll = (UIScrollList) EditorGUILayout.ObjectField("Invite 'playing' ScrollList", config.invitePlayingScroll, typeof(UIScrollList));
+		config.challengeInviteScroll = (UIScrollList) EditorGUILayout.ObjectField("Challenge 'invite' ScrollList", config.challengeInviteScroll, typeof(UIScrollList));
 		
 		EditorGUILayout.LabelField("Janelas padrao", EditorStyles.whiteMiniLabel);
 		

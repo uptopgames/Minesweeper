@@ -18,7 +18,7 @@ public class Challenge : MonoBehaviour
 	void Start () 
 	{
 		GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitChallenge);
-		
+				
 		challengeToggle.SetState(0);
 		newPanel.gameObject.SetActive(true);
 		oldPanel.gameObject.SetActive(false);
@@ -58,7 +58,27 @@ public class Challenge : MonoBehaviour
 			
 		}
 		
+		Connect();
+		
 		Debug.Log("chamou InitChallenge");
+	}
+	
+	void Connect()
+	{
+		GameJsonAuthConnection conn = new GameJsonAuthConnection(Flow.URL_BASE + "mines/getcustomgames.php", OnGetCustomGames);
+		conn.connect();
+	}
+	
+	void OnGetCustomGames(string error, IJSonObject data)
+	{
+		if(error != null)
+		{
+			Debug.Log(error);
+		}
+		else
+		{
+			Debug.Log(data);
+		}
 	}
 	
 	public void RefreshNewScroll()
@@ -129,6 +149,7 @@ public class Challenge : MonoBehaviour
 	{
 		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.currentMode = GameMode.Multiplayer;
 		Application.LoadLevel("CustomStage");
 	}

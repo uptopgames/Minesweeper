@@ -354,4 +354,9 @@ public class Friend : MonoBehaviour
 	{
 		return "id: " + id + "\nfacebook_id: " + facebook_id + "\nname: " + name + "\nstatus: " + status.ToString() + "\nis playing: " + is_playing;
 	}
+	
+	public void SendStage()
+	{
+		transform.parent.parent.parent.GetComponent<CustomLevelScroll>().Connect(id);
+	}
 }

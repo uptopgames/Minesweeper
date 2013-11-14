@@ -30,6 +30,7 @@ public class CustomLevelButton : MonoBehaviour
 		
 		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		
 		Application.LoadLevel("Game");
 	}
@@ -54,6 +55,13 @@ public class CustomLevelButton : MonoBehaviour
 	
 	public void SendToFriend()
 	{
-		transform.parent.parent.GetComponent<CustomLevelScroll>().SendToFriend(this);
+		if(Save.HasKey(PlayerPrefsKeys.TOKEN.ToString()))
+		{
+			transform.parent.parent.GetComponent<CustomLevelScroll>().SendToFriend(Flow.customStages[transform.GetComponent<UIListItem>().Index]);
+		}
+		else
+		{
+			UIPanelManager.instance.BringIn("LoginScenePanel");
+		}
 	}
 }

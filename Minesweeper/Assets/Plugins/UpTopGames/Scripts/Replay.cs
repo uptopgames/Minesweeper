@@ -56,6 +56,7 @@ public class Replay : MonoBehaviour
 	{
 		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		//Application.LoadLevel("Scenario1");
 		Application.LoadLevelAsync("Scenario1");
 	}

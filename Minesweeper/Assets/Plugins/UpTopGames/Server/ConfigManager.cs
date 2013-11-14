@@ -87,6 +87,7 @@ public class ConfigManager : MonoBehaviour
 	
 	public UIScrollList inviteAllScroll;
 	public UIScrollList invitePlayingScroll;
+	public UIScrollList challengeInviteScroll;
 	
 	void Awake ()
 	{	

@@ -42,25 +42,8 @@ public class Invite : MonoBehaviour
 		scroll.transform.parent = gameObject.transform;
 		playingScroll.transform.parent = gameObject.transform;
 		
-		scroll.transform.position = new Vector3
-		(
-			// primeira coluna refere-se a posicao do panel manager no mundo
-			// segunda coluna refere-se a posicao do invite em relacao ao panel manager
-			// terceira coluna refere-se a posicao do scroll em relacao ao invite panel
-			-31.4336f 		+65.6814f		-0.7232132f, // x
-			-0.9254344f 	+0.9254344f  	+0.7468368f, // y
-			914.5213f 		+5.99231f		-7.011475f // z
-		);
-				
-		playingScroll.transform.position = new Vector3
-		(
-			// primeira coluna refere-se a posicao do panel manager no mundo
-			// segunda coluna refere-se a posicao do invite em relacao ao panel manager
-			// terceira coluna refere-se a posicao do scroll em relacao ao invite panel
-			-31.4336f 		+65.6814f 		-0.7232132f, 	// x
-			-0.9254344f		+0.9254344f 	 	+0.7468368f, 	// y
-			914.5213f 		+5.99231f 		-7.011475f 		// z
-		);
+		scroll.transform.localPosition = new Vector3(-0.7232132f, 0.7468368f, -7.011475f);
+		playingScroll.transform.position = new Vector3(-0.7232132f, 0.7468368f, -7.011475f);
 		
 		UIInteractivePanel panel = GetComponent<UIInteractivePanel>();
 		
