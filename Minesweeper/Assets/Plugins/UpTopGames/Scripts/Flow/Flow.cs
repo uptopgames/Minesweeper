@@ -76,7 +76,7 @@ public class CustomStage
 	public int numberOfMines = 0;
 	public string name = "New Stage";
 	public string creatorName = "Unknown";
-	public int id = 0;
+	public int id = -1;
 	public bool isNew = true;
 	public bool isChallenge = false;
 	public int stars = 0;
@@ -273,7 +273,7 @@ public class Flow: MonoBehaviour
         }
     }
 	
-	public static void AddCustomLevel(List<List<int>> customTileset, int customWorld, int numberOfMines, string name)
+	public static void AddCustomStage(List<List<int>> customTileset, int customWorld, int numberOfMines, string name, int id)
 	{
 		if(customStages == null)
 		{
@@ -284,6 +284,7 @@ public class Flow: MonoBehaviour
 		c.world = customWorld;
 		c.numberOfMines = numberOfMines;
 		c.name = name;
+		c.id = id;
 		customStages.Add(c);
 		
 		UpdateXML();
@@ -320,7 +321,7 @@ public class Flow: MonoBehaviour
 					writer.WriteAttributeString("ID", (firstLevel+i*9+j).ToString());
 					writer.WriteElementString("Update", DateTime.UtcNow.ToString());
 					
-					Debug.Log("firstLevel: " + firstLevel + ", i: " + i + ", j: " + j);
+					//Debug.Log("firstLevel: " + firstLevel + ", i: " + i + ", j: " + j);
 					
 					foreach(int k in Flow.worldDict[firstWorld+i].levelDict[(firstLevel+i*9+j)].tileset) tempString += k.ToString();
 					
@@ -337,6 +338,7 @@ public class Flow: MonoBehaviour
 			{
 				writer.WriteStartElement("CustomStage");
 				writer.WriteAttributeString("Name", cs.name);
+				writer.WriteElementString("ID", cs.id.ToString());
 				writer.WriteElementString("Update", DateTime.UtcNow.ToString());
 				writer.WriteElementString("World", cs.world.ToString());
 				

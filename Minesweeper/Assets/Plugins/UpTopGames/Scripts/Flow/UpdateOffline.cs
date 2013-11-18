@@ -29,7 +29,6 @@ public class UpdateOffline
 				}
 			}
 #endif
-			
 			conn.connect(form);
 			
 			// Se a foto do usuario estiver nula, abrir conexao pra baixar ela
@@ -50,7 +49,7 @@ public class UpdateOffline
 		if(error != null) Debug.Log(error);
 		else
 		{
-			Debug.Log("meu deus do ceu: "+data);
+			//Debug.Log("meu deus do ceu: "+data);
 		}
 	}
 }

@@ -23,9 +23,7 @@ public class CustomLevelScroll : MonoBehaviour
 		{
 			foreach(CustomStage c in Flow.customStages)
 			{
-				GameObject stage = GetComponent<UIScrollList>().CreateItem(customLevelPrefabs[c.world]).gameObject;
-				stage.GetComponent<CustomLevelButton>().world = c.world;
-				stage.GetComponent<CustomLevelButton>().level = Flow.customStages.IndexOf(c);
+				AddContainer(c);
 			}
 		}
 		
@@ -34,7 +32,14 @@ public class CustomLevelScroll : MonoBehaviour
 		scroll.transform.localPosition = new Vector3(-0.1220818f, -0.584363f, -7.011475f);
 	}
 	
-	public void StartStageCreator()
+	public void AddContainer(CustomStage c)
+	{
+		GameObject stage = GetComponent<UIScrollList>().CreateItem(customLevelPrefabs[c.world]).gameObject;
+		stage.GetComponent<CustomLevelButton>().world = c.world;
+		stage.GetComponent<CustomLevelButton>().level = Flow.customStages.IndexOf(c);
+	}
+	
+	public void StartStageCreator(CustomStage c)
 	{
 		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
@@ -87,6 +92,9 @@ public class CustomLevelScroll : MonoBehaviour
 		else
 		{
 			Debug.Log(data);
+			
+			currentCustomStage.id = data.Int32Value;
+			Flow.UpdateXML();
 			
 			//currentCustomStage.id = data["stageID"].Int32Value;
 			

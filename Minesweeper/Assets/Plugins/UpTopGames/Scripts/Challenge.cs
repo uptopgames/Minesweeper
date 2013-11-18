@@ -15,6 +15,8 @@ public class Challenge : MonoBehaviour
 	
 	public SpriteText noFriendsLabel;
 	
+	public CustomLevelScroll customLevelScroll;
+	
 	void Start () 
 	{
 		GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitChallenge);
@@ -78,7 +80,53 @@ public class Challenge : MonoBehaviour
 		else
 		{
 			Debug.Log(data);
+			
+			foreach(IJSonObject item in data.ArrayItems)
+			{
+				CreateChallengeContainer(item);
+			}
 		}
+	}
+	
+	void CreateChallengeContainer(IJSonObject item)
+	{
+		/*GameObject t = GameObject.Instantiate(newContainerPrefab) as GameObject;
+		t.GetComponent<ChallengeContainer>().Fill(
+			friend["customLevelID"].ToString(), 
+			friend["worldID"].ToString(),
+			friend["time"].ToString(),
+			friend["deaths"].ToString(),
+			friend["name"].ToString(),
+			friend["tileset"].ToString(),
+			friend["username"].ToString(),
+			friend["playername"].ToString()
+			);*/
+		
+		foreach(CustomStage c in Flow.customStages)
+		{
+			if(c.id == item["customLevelID"].Int32Value)
+			{
+				return;
+			}
+		}
+		
+		int numberOfMines = 0;
+		List<List<int>> tileset = new List<List<int>>();
+		for(int i = 0; i < 8; i++)
+		{
+			List<int> row = new List<int>();
+			for(int j = 0; j < 8; j++)
+			{
+				if(int.Parse(item["tileset"].StringValue[i+j].ToString())==1) numberOfMines++;
+				row.Add(int.Parse(item["tileset"].StringValue[i+j].ToString()));
+			}
+			tileset.Add(row);
+		}
+		
+		Flow.AddCustomStage(tileset, item["worldID"].Int32Value - 3, numberOfMines, item["name"].ToString(), item["customLevelID"].Int32Value);
+		Debug.Log("adicionei o level " + item["name"].ToString());
+		
+		customLevelScroll.AddContainer(Flow.customStages[Flow.customStages.Count-1]);
 	}
 	
 	public void RefreshNewScroll()

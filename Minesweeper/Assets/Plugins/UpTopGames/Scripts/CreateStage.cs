@@ -207,7 +207,7 @@ public class CreateStage : MonoBehaviour
 	public void StageApproved()
 	{
 		//terminar loading e lançar janela de level aprovado, com callback das linhas abaixo
-		Flow.AddCustomLevel(tileset, currentWorld, totalMines, inputName.GetComponent<UITextField>().Text);
+		Flow.AddCustomStage(tileset, currentWorld, totalMines, inputName.GetComponent<UITextField>().Text, -1);
 		
 		Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(false);
 		

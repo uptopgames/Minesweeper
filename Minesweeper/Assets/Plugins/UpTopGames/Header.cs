@@ -124,8 +124,16 @@ public class Header : MonoBehaviour
 		{
 			if(UIPanelManager.instance.CurrentPanel.name != "ChallengesScenePanel")
 			{
-				Flow.currentCustomStage = -1;
-				UIPanelManager.instance.BringIn("ChallengesScenePanel");
+				if(Save.HasKey(PlayerPrefsKeys.TOKEN.ToString()))
+				{
+					Flow.currentCustomStage = -1;
+					UIPanelManager.instance.BringIn("ChallengesScenePanel");
+				}
+				else
+				{
+					Flow.currentCustomStage = -1;
+					UIPanelManager.instance.BringIn("LoginScenePanel");
+				}
 			}
 		}
 	}
