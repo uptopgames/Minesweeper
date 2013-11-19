@@ -102,7 +102,7 @@ public class CustomLevelScroll : MonoBehaviour
 			scroll.transform.gameObject.SetActive(false);
 			EraseFriendsList();
 			
-			UIPanelManager.instance.BringIn("RankingsScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
+			UIPanelManager.instance.BringIn("ChallengesScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
 		}
 	}
 	

@@ -81,31 +81,101 @@ public class Challenge : MonoBehaviour
 		{
 			Debug.Log(data);
 			
+			newPanel.transform.FindChild("NewScroll").GetComponent<UIScrollList>().ClearList(true);
+			oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().ClearList(true);
+			
 			foreach(IJSonObject item in data.ArrayItems)
 			{
-				CreateChallengeContainer(item);
+				CreateChallengeContainerImproved(item);
 			}
 		}
 	}
 	
-	void CreateChallengeContainer(IJSonObject item)
-	{
-		/*GameObject t = GameObject.Instantiate(newContainerPrefab) as GameObject;
-		t.GetComponent<ChallengeContainer>().Fill(
-			friend["customLevelID"].ToString(), 
-			friend["worldID"].ToString(),
-			friend["time"].ToString(),
-			friend["deaths"].ToString(),
-			friend["name"].ToString(),
-			friend["tileset"].ToString(),
-			friend["username"].ToString(),
-			friend["playername"].ToString()
-			);*/
+	void CreateChallengeContainerImproved(IJSonObject item)
+	{	
+		CustomStage cs = new CustomStage();
+		cs.creatorName = item["playername"].ToString();
+		cs.id = item["customLevelID"].Int32Value;
+		cs.isChallenge = true;
+		if(item["time"].IsNull) cs.isNew = true;
+		else cs.isNew = false;
+		cs.name = item["name"].ToString();
+		cs.world = item["worldID"].Int32Value - 3;
+		int numberOfMines = 0;
+		List<List<int>> tileset = new List<List<int>>();
+		for(int i = 0; i < 8; i++)
+		{
+			List<int> row = new List<int>();
+			for(int j = 0; j < 8; j++)
+			{
+				if(int.Parse(item["tileset"].StringValue[i+j].ToString())==1) numberOfMines++;
+				row.Add(int.Parse(item["tileset"].StringValue[i+j].ToString()));
+			}
+			tileset.Add(row);
+		}
+		cs.numberOfMines = numberOfMines;
+		cs.tileset = tileset;
+		//falta definir as estrelas, se for ter mesmo
+		Flow.customGames.Add(cs);
 		
+		if(cs.isNew)
+		{
+			IUIListObject g = newPanel.transform.FindChild("NewScroll").GetComponent<UIScrollList>().CreateItem(newContainerPrefab);
+			g.transform.FindChild("Name").GetComponent<SpriteText>().Text = cs.creatorName;
+			g.transform.FindChild("Mines").GetComponent<SpriteText>().Text = "Mines: " + cs.numberOfMines;
+			g.transform.FindChild("StageName").GetComponent<SpriteText>().Text = cs.name;
+			g.transform.FindChild("World"+(1+cs.world).ToString()).gameObject.SetActive(true);
+			
+			Debug.Log("adicionei no novo");
+		}
+		else if(!cs.isNew)
+		{
+			IUIListObject g = oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().CreateItem(oldContainerPrefab);
+			g.transform.FindChild("Name").GetComponent<SpriteText>().Text = cs.name;
+			g.transform.FindChild("Mines").GetComponent<SpriteText>().Text = "Mines: " + cs.numberOfMines;
+			g.transform.FindChild("Host").GetComponent<SpriteText>().Text = "Hosted by " + cs.creatorName;
+			g.transform.FindChild("World"+(1+cs.world).ToString()).gameObject.SetActive(true);
+			g.transform.GetComponent<ChallengesButton>().index = Flow.customGames.IndexOf(cs);
+			
+			Debug.Log("adicionei no velho");
+		}
+		
+		QuickSwap();
+		
+		foreach(CustomStage c in Flow.customStages)
+		{
+			if(c.id == cs.id)
+			{
+				return;
+			}
+		}
+		
+		Flow.AddCustomStage(cs.tileset, cs.world, cs.numberOfMines, cs.name, cs.id, cs.isNew, cs.isChallenge, cs.creatorName);
+		customLevelScroll.AddContainer(cs);
+		Debug.Log("adicionei o level " + cs.name);
+	}
+	
+	/*void CreateChallengeContainer(IJSonObject item)
+	{	
 		foreach(CustomStage c in Flow.customStages)
 		{
 			if(c.id == item["customLevelID"].Int32Value)
 			{
+				//php is bringing all games of people who belong to a ranking that you belong to;
+				//the rankings you belong to are the rankings whose stages are equal to a stage you have received
+				
+				//is not showing games whose stage is the same of another game already being shown
+				
+				Debug.Log("O level de id " + c.id + " jah existe aqui");
+				c.creatorName = item["playername"].ToString();
+				c.isChallenge = true;
+				if(item["time"].IsNull) c.isNew = true;
+				else c.isNew = false;
+		
+				RefreshNewScroll();
+				RefreshOldScroll();
+				QuickSwap();
+				
 				return;
 			}
 		}
@@ -123,10 +193,44 @@ public class Challenge : MonoBehaviour
 			tileset.Add(row);
 		}
 		
-		Flow.AddCustomStage(tileset, item["worldID"].Int32Value - 3, numberOfMines, item["name"].ToString(), item["customLevelID"].Int32Value);
+		bool isNew = false;
+		if(item["time"].IsNull) isNew = true;
+		
+		Flow.AddCustomStage(tileset, item["worldID"].Int32Value - 3, numberOfMines, item["name"].ToString(), item["customLevelID"].Int32Value, isNew, true,
+			item["playername"].ToString());
 		Debug.Log("adicionei o level " + item["name"].ToString());
 		
 		customLevelScroll.AddContainer(Flow.customStages[Flow.customStages.Count-1]);
+		
+		RefreshNewScroll();
+		RefreshOldScroll();
+		QuickSwap();
+	}
+	*/
+	
+	public void QuickSwap()
+	{	
+		if(oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().Count != 0) noFriendsLabel.Text = "";
+		else noFriendsLabel.Text = "No Rankings";
+			
+		if(newPanel.IsShowing)
+		{
+			newPanel.Hide();
+			newPanel.gameObject.SetActive(false);
+		}
+		oldPanel.gameObject.SetActive(true);
+		oldPanel.Reveal();
+		
+		if(newPanel.transform.FindChild("NewScroll").GetComponent<UIScrollList>().Count != 0) noFriendsLabel.Text = "";
+		else noFriendsLabel.Text = "No New Challenges";
+		
+		newPanel.Reveal();
+		newPanel.gameObject.SetActive(true);
+		if(oldPanel.IsShowing)
+		{
+			oldPanel.Hide();
+			oldPanel.gameObject.SetActive(false);
+		}
 	}
 	
 	public void RefreshNewScroll()
@@ -159,6 +263,7 @@ public class Challenge : MonoBehaviour
 				g.transform.FindChild("Mines").GetComponent<SpriteText>().Text = "Mines: " + c.numberOfMines;
 				g.transform.FindChild("Host").GetComponent<SpriteText>().Text = "Hosted by " + c.creatorName;
 				g.transform.FindChild("World"+(1+c.world).ToString()).gameObject.SetActive(true);
+				g.transform.GetComponent<ChallengesButton>().index = Flow.customStages.IndexOf(c);
 			}
 		}
 	}
@@ -181,7 +286,7 @@ public class Challenge : MonoBehaviour
 		else
 		{
 			if(oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().Count != 0) noFriendsLabel.Text = "";
-			else noFriendsLabel.Text = "No Old Challenges";
+			else noFriendsLabel.Text = "No Rankings";
 			
 			if(newPanel.IsShowing)
 			{

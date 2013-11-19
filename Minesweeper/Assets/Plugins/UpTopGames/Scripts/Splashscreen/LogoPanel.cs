@@ -115,6 +115,7 @@ public class LogoPanel : MonoBehaviour
 			c.world = int.Parse(customStage.SelectSingleNode("World").InnerText);
 			c.numberOfMines = customMines;
 			c.name = customStage.Attributes["Name"].InnerText;
+			c.id = int.Parse(customStage.SelectSingleNode("ID").InnerText);
 			Flow.customStages.Add(c);
 			
 			Debug.Log("adicionei o level " + customStage.Attributes["Name"].InnerText);

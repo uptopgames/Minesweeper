@@ -89,8 +89,12 @@ public enum TurnStatus
 
 public class Flow: MonoBehaviour
 {
+	public static CustomStage currentRank;
+	
 	public static float playerExperience = 0;
 	public static int playerLevel = 1;
+	
+	public static List<CustomStage> customGames = new List<CustomStage>();
 	
 	public static List<CustomStage> customStages = new List<CustomStage>();
 	public static int currentCustomStage = -1;
@@ -273,7 +277,8 @@ public class Flow: MonoBehaviour
         }
     }
 	
-	public static void AddCustomStage(List<List<int>> customTileset, int customWorld, int numberOfMines, string name, int id)
+	public static void AddCustomStage(List<List<int>> customTileset, int customWorld, int numberOfMines, string name, int id, bool isNew = false, bool isChallenge = false,
+		string creatorName = "")
 	{
 		if(customStages == null)
 		{
@@ -285,6 +290,9 @@ public class Flow: MonoBehaviour
 		c.numberOfMines = numberOfMines;
 		c.name = name;
 		c.id = id;
+		c.isNew = isNew;
+		c.isChallenge = isChallenge;
+		c.creatorName = creatorName;
 		customStages.Add(c);
 		
 		UpdateXML();
