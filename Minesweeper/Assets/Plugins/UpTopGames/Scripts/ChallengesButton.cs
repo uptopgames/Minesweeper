@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ChallengesButton : MonoBehaviour
 {
-	public int index = -1;
+	public int challengeIndex = -1;
+	public int customLevelsIndex = -1;
 	
 	// Use this for initialization
 	void Start () {
@@ -12,13 +15,25 @@ public class ChallengesButton : MonoBehaviour
 	
 	void RankingScreen ()
 	{
-		//Flow.currentRank = Flow.customStages[index];
-		Flow.currentRank = Flow.customGames[index];
+		Flow.currentRank = Flow.customGames[challengeIndex];
 		UIPanelManager.instance.BringIn("RankingsScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
 	}
 	
 	void CreateGame()
 	{
-		Flow.game_native.showMessage("Feature not Implemented Yet", "Please wait until we implement this feature", "Ok");
+		Flow.currentGame = new Game();
+		Flow.currentCustomStage = customLevelsIndex;
+		
+		Flow.path = TurnStatus.AnswerGame;
+		Flow.currentGame.friend = new Friend();
+		
+		Flow.currentGame.theirRoundList = new List<Round>();
+		Flow.currentGame.myRoundList = new List<Round>(){new Round(-1,-1,-1,-1,-1,-1)};
+		
+		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		
+		Application.LoadLevel("Game");
 	}
 }

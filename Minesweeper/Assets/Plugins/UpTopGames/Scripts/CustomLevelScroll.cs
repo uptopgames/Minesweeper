@@ -39,7 +39,7 @@ public class CustomLevelScroll : MonoBehaviour
 		stage.GetComponent<CustomLevelButton>().level = Flow.customStages.IndexOf(c);
 	}
 	
-	public void StartStageCreator(CustomStage c)
+	public void StartStageCreator()
 	{
 		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
@@ -74,6 +74,7 @@ public class CustomLevelScroll : MonoBehaviour
 		
 		string tileset = "";
 		foreach(List<int> listInt in currentCustomStage.tileset) foreach(int i in listInt) tileset += i;
+		Debug.Log(tileset);
 		form.AddField("tileset", tileset);
 		
 		conn.connect(form);

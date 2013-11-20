@@ -100,8 +100,8 @@ public class LogoPanel : MonoBehaviour
 				List<int> singleRow = new List<int>();
 				for(int j = 0; j < 8; j++)
 				{
-					if(int.Parse(all64[i+j].ToString()) == 1) customMines++;
-					singleRow.Add(int.Parse(all64[i+j].ToString()));
+					if(int.Parse(all64[i*8+j].ToString()) == 1) customMines++;
+					singleRow.Add(int.Parse(all64[i*8+j].ToString()));
 				}
 				customTileset.Add(singleRow);
 			}
@@ -119,6 +119,17 @@ public class LogoPanel : MonoBehaviour
 			Flow.customStages.Add(c);
 			
 			Debug.Log("adicionei o level " + customStage.Attributes["Name"].InnerText);
+			Debug.Log("o tileset dele era " + all64);
+		}
+		
+		foreach(CustomStage c in Flow.customStages)
+		{
+			string testTileset = "";
+			foreach(List<int> listInt in c.tileset)
+			{
+				foreach(int i in listInt) testTileset += i;
+			}
+			Debug.Log(testTileset);
 		}
 		
 		logoPanel.StartTransition(UIPanelManager.SHOW_MODE.BringInForward);

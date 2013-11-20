@@ -140,6 +140,13 @@ public class MinesweeperRaider : MonoBehaviour
 			currentWorld = Flow.customStages[Flow.currentCustomStage].world;
 			currentLevel = 0;
 			
+			string testTileset = "";
+			foreach(List<int> listInt in Flow.customStages[Flow.currentCustomStage].tileset)
+			{
+				foreach(int i in listInt) testTileset += i;
+			}
+			Debug.Log(testTileset);
+			
 			tileset = Flow.customStages[Flow.currentCustomStage].tileset;
 			
 			RealStart();

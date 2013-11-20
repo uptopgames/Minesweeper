@@ -102,25 +102,32 @@ public class Challenge : MonoBehaviour
 		cs.name = item["name"].ToString();
 		cs.world = item["worldID"].Int32Value - 3;
 		int numberOfMines = 0;
+		
+		string testTileset = "";
 		List<List<int>> tileset = new List<List<int>>();
 		for(int i = 0; i < 8; i++)
 		{
 			List<int> row = new List<int>();
 			for(int j = 0; j < 8; j++)
 			{
-				if(int.Parse(item["tileset"].StringValue[i+j].ToString())==1) numberOfMines++;
-				row.Add(int.Parse(item["tileset"].StringValue[i+j].ToString()));
+				testTileset += item["tileset"].StringValue[i*8+j].ToString();
+				row.Add(int.Parse(item["tileset"].StringValue[i*8+j].ToString()));
+				if(int.Parse(item["tileset"].StringValue[i*8+j].ToString())==1) numberOfMines++;
 			}
 			tileset.Add(row);
 		}
 		cs.numberOfMines = numberOfMines;
 		cs.tileset = tileset;
 		//falta definir as estrelas, se for ter mesmo
+		
+		Debug.Log("chegou um challenge de tileset " + testTileset);
+		
 		Flow.customGames.Add(cs);
 		
+		IUIListObject g = null;
 		if(cs.isNew)
 		{
-			IUIListObject g = newPanel.transform.FindChild("NewScroll").GetComponent<UIScrollList>().CreateItem(newContainerPrefab);
+			g = newPanel.transform.FindChild("NewScroll").GetComponent<UIScrollList>().CreateItem(newContainerPrefab);
 			g.transform.FindChild("Name").GetComponent<SpriteText>().Text = cs.creatorName;
 			g.transform.FindChild("Mines").GetComponent<SpriteText>().Text = "Mines: " + cs.numberOfMines;
 			g.transform.FindChild("StageName").GetComponent<SpriteText>().Text = cs.name;
@@ -130,27 +137,29 @@ public class Challenge : MonoBehaviour
 		}
 		else if(!cs.isNew)
 		{
-			IUIListObject g = oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().CreateItem(oldContainerPrefab);
+			g = oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().CreateItem(oldContainerPrefab);
 			g.transform.FindChild("Name").GetComponent<SpriteText>().Text = cs.name;
 			g.transform.FindChild("Mines").GetComponent<SpriteText>().Text = "Mines: " + cs.numberOfMines;
 			g.transform.FindChild("Host").GetComponent<SpriteText>().Text = "Hosted by " + cs.creatorName;
 			g.transform.FindChild("World"+(1+cs.world).ToString()).gameObject.SetActive(true);
-			g.transform.GetComponent<ChallengesButton>().index = Flow.customGames.IndexOf(cs);
 			
 			Debug.Log("adicionei no velho");
 		}
 		
+		g.transform.GetComponent<ChallengesButton>().challengeIndex = Flow.customGames.IndexOf(cs);
 		QuickSwap();
 		
 		foreach(CustomStage c in Flow.customStages)
 		{
-			if(c.id == cs.id)
+			if(c.id == cs.id || (c.tileset == cs.tileset && c.world == cs.world))
 			{
+				g.transform.GetComponent<ChallengesButton>().customLevelsIndex = Flow.customStages.IndexOf(c);
 				return;
 			}
 		}
 		
 		Flow.AddCustomStage(cs.tileset, cs.world, cs.numberOfMines, cs.name, cs.id, cs.isNew, cs.isChallenge, cs.creatorName);
+		g.transform.GetComponent<ChallengesButton>().customLevelsIndex = Flow.customStages.Count-1;
 		customLevelScroll.AddContainer(cs);
 		Debug.Log("adicionei o level " + cs.name);
 	}
@@ -263,7 +272,7 @@ public class Challenge : MonoBehaviour
 				g.transform.FindChild("Mines").GetComponent<SpriteText>().Text = "Mines: " + c.numberOfMines;
 				g.transform.FindChild("Host").GetComponent<SpriteText>().Text = "Hosted by " + c.creatorName;
 				g.transform.FindChild("World"+(1+c.world).ToString()).gameObject.SetActive(true);
-				g.transform.GetComponent<ChallengesButton>().index = Flow.customStages.IndexOf(c);
+				g.transform.GetComponent<ChallengesButton>().challengeIndex = Flow.customStages.IndexOf(c);
 			}
 		}
 	}
