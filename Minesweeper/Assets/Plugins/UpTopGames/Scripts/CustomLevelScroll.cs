@@ -15,8 +15,26 @@ public class CustomLevelScroll : MonoBehaviour
 	
 	public CustomStage currentCustomStage;
 	
+	public bool isRankingScreen = false;
+	
 	// Use this for initialization
 	void Start ()
+	{
+		if(!isRankingScreen)
+		{
+			transform.parent.GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitCustomLevelScroll);
+			transform.parent.GetComponent<UIInteractivePanel>().transitions.list[1].AddTransitionStartDelegate(InitCustomLevelScroll);
+			transform.parent.GetComponent<UIInteractivePanel>().transitions.list[2].AddTransitionStartDelegate(InitCustomLevelScroll);
+			transform.parent.GetComponent<UIInteractivePanel>().transitions.list[3].AddTransitionStartDelegate(InitCustomLevelScroll);
+		}
+	}
+	
+	void InitCustomLevelScroll(EZTransition transition)
+	{
+		InitCall();
+	}
+	
+	public void InitCall()
 	{
 		GetComponent<UIScrollList>().ClearList (true);
 		if(Flow.customStages != null)
@@ -58,6 +76,11 @@ public class CustomLevelScroll : MonoBehaviour
 	
 	public void SendToFriend(CustomStage level)
 	{
+		if(isRankingScreen)
+		{
+			InitCall();
+		}
+		
 		currentCustomStage = level;
 		EnteredInvite();
 	}
@@ -67,6 +90,7 @@ public class CustomLevelScroll : MonoBehaviour
 		GameJsonAuthConnection conn = new GameJsonAuthConnection(Flow.URL_BASE + "mines/sharestage.php", OnShareStage);
 		WWWForm form = new WWWForm();
 		form.AddField("stageName", currentCustomStage.name);
+		form.AddField("stageID", -1);
 		form.AddField("friendID", friendID);
 		
 		int firstWorld = 9999; foreach(KeyValuePair<int,World> w in Flow.worldDict) {if(w.Key < firstWorld) firstWorld = w.Key;}

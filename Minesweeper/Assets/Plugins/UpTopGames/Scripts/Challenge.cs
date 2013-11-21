@@ -57,7 +57,6 @@ public class Challenge : MonoBehaviour
 			
 			Debug.Log("FETCH VIDEO!");
 			Advertisement.Video.Fetch();
-			
 		}
 		
 		Connect();
@@ -86,23 +85,30 @@ public class Challenge : MonoBehaviour
 			
 			foreach(IJSonObject item in data.ArrayItems)
 			{
-				CreateChallengeContainerImproved(item);
+				CreateChallengeContainerImproved(item, data);
 			}
 		}
 	}
 	
-	void CreateChallengeContainerImproved(IJSonObject item)
-	{	
+	void CreateChallengeContainerImproved(IJSonObject item, IJSonObject data)
+	{
 		CustomStage cs = new CustomStage();
-		cs.creatorName = item["playername"].ToString();
+		cs.creatorName = item["username"].ToString();
 		cs.id = item["customLevelID"].Int32Value;
 		cs.isChallenge = true;
-		if(item["time"].IsNull) cs.isNew = true;
-		else cs.isNew = false;
+		if(item["time"].IsNull && item["isMe"].BooleanValue)
+		{
+			cs.isNew = true;
+		}
+		else
+		{
+			cs.isNew = false;
+		}
 		cs.name = item["name"].ToString();
 		cs.world = item["worldID"].Int32Value - 3;
-		int numberOfMines = 0;
+		cs.hostID = item["creatorID"].StringValue;
 		
+		int numberOfMines = 0;
 		string testTileset = "";
 		List<List<int>> tileset = new List<List<int>>();
 		for(int i = 0; i < 8; i++)
@@ -123,6 +129,27 @@ public class Challenge : MonoBehaviour
 		Debug.Log("chegou um challenge de tileset " + testTileset);
 		
 		Flow.customGames.Add(cs);
+		
+		if(!cs.isNew)
+		{
+			foreach(CustomStage c in Flow.customGames)
+			{
+				if(c.id == cs.id && Flow.customGames.IndexOf(c)!=Flow.customGames.Count-1)
+				{
+					Debug.Log("impedindo que crie um container novo para um ranking que ja existe");
+					return;
+				}
+			}
+			foreach(IJSonObject subItem in data.ArrayItems)
+			{
+				Debug.Log(subItem);
+				if(subItem["customLevelID"].Int32Value == cs.id && subItem["isMe"].BooleanValue)
+				{
+					Debug.Log("impedindo que crie um container novo para um ranking que ja existe");
+					return;
+				}
+			}
+		}
 		
 		IUIListObject g = null;
 		if(cs.isNew)

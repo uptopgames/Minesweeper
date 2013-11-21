@@ -80,6 +80,7 @@ public class CustomStage
 	public bool isNew = true;
 	public bool isChallenge = false;
 	public int stars = 0;
+	public string hostID = "";
 }
 
 public enum TurnStatus

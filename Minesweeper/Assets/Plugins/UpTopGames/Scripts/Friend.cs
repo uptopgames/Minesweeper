@@ -359,4 +359,9 @@ public class Friend : MonoBehaviour
 	{
 		transform.parent.parent.parent.GetComponent<CustomLevelScroll>().Connect(id);
 	}
+	
+	public void SendCustomGame()
+	{
+		transform.parent.parent.parent.parent.GetComponent<RankingsPanel>().AddFriendConnection(id);
+	}
 }
