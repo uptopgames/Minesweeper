@@ -796,6 +796,17 @@ public class MinesweeperRaider : MonoBehaviour
 			
 			conn.connect(form);
 		}
+		else if(Flow.currentMode == GameMode.Multiplayer && Flow.currentCustomStage != -1)
+		{
+			Debug.Log("currentCustomGame (Gameplay) " + Flow.currentCustomGame);
+			GameJsonAuthConnection conn = new GameJsonAuthConnection(Flow.URL_BASE + "mines/updatechallenge.php", UpdateChallenge);
+			WWWForm form = new WWWForm();
+			form.AddField("gameID", Flow.currentCustomGame);
+			form.AddField("deaths", Flow.currentGame.myRoundList[0].deaths);
+			form.AddField("time", Flow.currentGame.myRoundList[0].time.ToString());
+			
+			conn.connect(form);
+		}
 		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage == -1)
 		{
 			tommyMaterial.mainTexture = tommyTextures[0];
@@ -806,6 +817,21 @@ public class MinesweeperRaider : MonoBehaviour
 		{
 			//Flow.currentCustomStage = -1;
 			Flow.nextPanel = PanelToLoad.EndLevel;
+			Application.LoadLevel("Mainmenu");
+		}
+	}
+	
+	public void UpdateChallenge(string error, IJSonObject data)
+	{
+		if(error != null)
+		{
+			Debug.Log(error);
+		}
+		else
+		{
+			Debug.Log(data);
+			Flow.nextPanel = PanelToLoad.Ranking;
+			tommyMaterial.mainTexture = tommyTextures[0];
 			Application.LoadLevel("Mainmenu");
 		}
 	}

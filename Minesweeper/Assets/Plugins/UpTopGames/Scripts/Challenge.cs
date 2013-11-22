@@ -83,6 +83,7 @@ public class Challenge : MonoBehaviour
 			newPanel.transform.FindChild("NewScroll").GetComponent<UIScrollList>().ClearList(true);
 			oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().ClearList(true);
 			
+			Flow.customGames = new List<CustomStage>();
 			foreach(IJSonObject item in data.ArrayItems)
 			{
 				CreateChallengeContainerImproved(item, data);
@@ -107,6 +108,7 @@ public class Challenge : MonoBehaviour
 		cs.name = item["name"].ToString();
 		cs.world = item["worldID"].Int32Value - 3;
 		cs.hostID = item["creatorID"].StringValue;
+		cs.isMe = item["isMe"].BooleanValue;
 		
 		int numberOfMines = 0;
 		string testTileset = "";
@@ -130,11 +132,17 @@ public class Challenge : MonoBehaviour
 		
 		Flow.customGames.Add(cs);
 		
+		if(item["creatorID"].StringValue != Save.GetString(PlayerPrefsKeys.ID) && !item["isMe"].BooleanValue)
+		{
+			Debug.Log("non me interessa pq n tem nada a ver comigo");
+			return;
+		}
+		
 		if(!cs.isNew)
 		{
 			foreach(CustomStage c in Flow.customGames)
 			{
-				if(c.id == cs.id && Flow.customGames.IndexOf(c)!=Flow.customGames.Count-1)
+				if(c.id == cs.id && Flow.customGames.IndexOf(c)!=Flow.customGames.Count-1 && (c.isMe || item["creatorID"].StringValue == Save.GetString(PlayerPrefsKeys.ID)))
 				{
 					Debug.Log("impedindo que crie um container novo para um ranking que ja existe");
 					return;
@@ -143,9 +151,9 @@ public class Challenge : MonoBehaviour
 			foreach(IJSonObject subItem in data.ArrayItems)
 			{
 				Debug.Log(subItem);
-				if(subItem["customLevelID"].Int32Value == cs.id && subItem["isMe"].BooleanValue)
+				if(subItem["customLevelID"].Int32Value == cs.id && subItem["time"].IsNull && subItem["isMe"].BooleanValue)
 				{
-					Debug.Log("impedindo que crie um container novo para um ranking que ja existe");
+					Debug.Log("impedindo que crie um container novo para um uma challenge nova que vai existir");
 					return;
 				}
 			}
@@ -174,6 +182,8 @@ public class Challenge : MonoBehaviour
 		}
 		
 		g.transform.GetComponent<ChallengesButton>().challengeIndex = Flow.customGames.IndexOf(cs);
+		g.transform.GetComponent<ChallengesButton>().gameIndex = item["customGameID"].Int32Value;
+		Debug.Log("custom game id (challenge): " + g.transform.GetComponent<ChallengesButton>().gameIndex);
 		QuickSwap();
 		
 		foreach(CustomStage c in Flow.customStages)

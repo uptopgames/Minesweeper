@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System;
 using CodeTitans.JSon;
 
-
 public class EndLevel : MonoBehaviour 
 {
 	public enum EndLevelButtonClicked { None, Like, ShareProgress };

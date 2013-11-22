@@ -41,7 +41,29 @@ public class RankingsPanel : MonoBehaviour
 	
 	void CreateGame()
 	{
-		Flow.game_native.showMessage("Feature not Implemented Yet", "Please wait until we implement this feature", "Ok");
+		Flow.currentMode = GameMode.Multiplayer;
+		
+		Flow.currentGame = new Game();
+		foreach(CustomStage c in Flow.customStages)
+		{
+			if(Flow.currentRank.id == c.id)
+			{
+				Flow.currentCustomStage = Flow.customStages.IndexOf(c);
+			}
+		}
+		
+		Flow.path = TurnStatus.AnswerGame;
+		Flow.currentGame.friend = new Friend();
+		
+		Flow.currentGame.theirRoundList = new List<Round>();
+		Flow.currentGame.myRoundList = new List<Round>(){new Round(-1,-1,-1,-1,-1,-1)};
+		
+		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		
+		Application.LoadLevel("Game");
+		//Flow.game_native.showMessage("Feature not Implemented Yet", "Please wait until we implement this feature", "Ok");
 	}
 	
 	void Challenge()

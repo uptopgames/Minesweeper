@@ -49,6 +49,9 @@ public class MenuManager : MonoBehaviour
 			case PanelToLoad.CustomStages:
 				UIPanelManager.instance.BringIn("CustomLevelsScenePanel");
 			break;
+			case PanelToLoad.Ranking:
+				UIPanelManager.instance.BringIn("RannkingsScenePanel");
+			break;
 		}
 		
 		// Se a foto do usuario estiver nula, abrir conexao pra baixar ela

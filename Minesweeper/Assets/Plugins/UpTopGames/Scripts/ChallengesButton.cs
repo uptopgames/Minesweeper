@@ -7,6 +7,7 @@ public class ChallengesButton : MonoBehaviour
 {
 	public int challengeIndex = -1;
 	public int customLevelsIndex = -1;
+	public int gameIndex = -1;
 	
 	// Use this for initialization
 	void Start () {
@@ -16,11 +17,20 @@ public class ChallengesButton : MonoBehaviour
 	void RankingScreen ()
 	{
 		Flow.currentRank = Flow.customGames[challengeIndex];
+		Flow.currentCustomGame = gameIndex;
+		Debug.Log("currentCustomGame (ChallengeButton) " + Flow.currentCustomGame);
+		
 		UIPanelManager.instance.BringIn("RankingsScenePanel", UIPanelManager.MENU_DIRECTION.Backwards);
 	}
 	
 	void CreateGame()
 	{
+		Flow.currentRank = Flow.customGames[challengeIndex];
+		Flow.currentCustomGame = gameIndex;
+		Debug.Log("currentCustomGame (ChallengeButton) " + Flow.currentCustomGame);
+		
+		Flow.currentMode = GameMode.Multiplayer;
+		
 		Flow.currentGame = new Game();
 		Flow.currentCustomStage = customLevelsIndex;
 		

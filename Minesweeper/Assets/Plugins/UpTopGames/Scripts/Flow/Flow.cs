@@ -66,7 +66,8 @@ public enum PanelToLoad
 	Multiplayer,
 	LevelSelection,
 	Challenge,
-	CustomStages
+	CustomStages,
+	Ranking
 }
 
 public class CustomStage
@@ -81,6 +82,7 @@ public class CustomStage
 	public bool isChallenge = false;
 	public int stars = 0;
 	public string hostID = "";
+	public bool isMe = false;
 }
 
 public enum TurnStatus
@@ -96,6 +98,7 @@ public class Flow: MonoBehaviour
 	public static int playerLevel = 1;
 	
 	public static List<CustomStage> customGames = new List<CustomStage>();
+	public static int currentCustomGame = -1;
 	
 	public static List<CustomStage> customStages = new List<CustomStage>();
 	public static int currentCustomStage = -1;
