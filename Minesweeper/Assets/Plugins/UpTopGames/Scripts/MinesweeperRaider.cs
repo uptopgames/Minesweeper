@@ -830,6 +830,7 @@ public class MinesweeperRaider : MonoBehaviour
 		else
 		{
 			Debug.Log(data);
+			Debug.Log("current rank: " + Flow.currentRank.id);
 			Flow.nextPanel = PanelToLoad.Ranking;
 			tommyMaterial.mainTexture = tommyTextures[0];
 			Application.LoadLevel("Mainmenu");

@@ -20,6 +20,9 @@ public class Challenge : MonoBehaviour
 	void Start () 
 	{
 		GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitChallenge);
+		GetComponent<UIInteractivePanel>().transitions.list[1].AddTransitionStartDelegate(InitChallenge);
+		GetComponent<UIInteractivePanel>().transitions.list[2].AddTransitionStartDelegate(InitChallenge);
+		GetComponent<UIInteractivePanel>().transitions.list[3].AddTransitionStartDelegate(InitChallenge);
 				
 		challengeToggle.SetState(0);
 		newPanel.gameObject.SetActive(true);

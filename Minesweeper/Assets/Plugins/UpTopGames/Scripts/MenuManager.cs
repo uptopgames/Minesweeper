@@ -50,7 +50,7 @@ public class MenuManager : MonoBehaviour
 				UIPanelManager.instance.BringIn("CustomLevelsScenePanel");
 			break;
 			case PanelToLoad.Ranking:
-				UIPanelManager.instance.BringIn("RannkingsScenePanel");
+				UIPanelManager.instance.BringIn("RankingsScenePanel");
 			break;
 		}
 		

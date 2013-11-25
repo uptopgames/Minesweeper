@@ -10,8 +10,12 @@ public class RankingsPanel : MonoBehaviour
 	public SpriteText hostName;
 	public GameObject playAgainButton;
 	public GameObject challengeButton;
-	
+	public GameObject rankingsPrefab;
 	public CustomLevelScroll customLevelScroll;
+	public UIScrollList scroll;
+	public int maximumContainers = 10;
+	
+	private int containerCounter = 0;
 
 	void Start ()
 	{
@@ -23,6 +27,7 @@ public class RankingsPanel : MonoBehaviour
 	
 	void InitRankings(EZTransition transition)
 	{
+		Debug.Log("transition rankings");
 		stageName.Text = Flow.currentRank.name;
 		hostName.Text = "Hosted by " + Flow.currentRank.creatorName;
 		if(Flow.currentRank.hostID == Save.GetString(PlayerPrefsKeys.ID))
@@ -115,6 +120,9 @@ public class RankingsPanel : MonoBehaviour
 	
 	public void Connect()
 	{
+		scroll.ClearList(true);
+		containerCounter = 0;
+		
 		GameJsonAuthConnection conn = new GameJsonAuthConnection(Flow.URL_BASE + "mines/getranking.php", OnGetRanking);
 		WWWForm form = new WWWForm();
 		form.AddField("customLevelID", Flow.currentRank.id);
@@ -131,6 +139,18 @@ public class RankingsPanel : MonoBehaviour
 		else
 		{
 			Debug.Log(data);
+			foreach(IJSonObject item in data.ArrayItems) if(containerCounter<maximumContainers) CreateContainer(item);
 		}
+	}
+	
+	void CreateContainer(IJSonObject item)
+	{
+		containerCounter++;
+		GameObject g = scroll.CreateItem(rankingsPrefab).gameObject;
+		g.transform.FindChild("Name").GetComponent<SpriteText>().Text = item["name"].StringValue;
+		g.transform.FindChild("Time").GetComponent<SpriteText>().Text = "Time: " + item["time"].StringValue;
+		g.transform.FindChild("Deaths").GetComponent<SpriteText>().Text = "Deaths: " + item["deaths"].StringValue;
+		g.transform.FindChild("Matches").GetComponent<SpriteText>().Text = "Tries: " + item["tries"].StringValue;
+		g.transform.FindChild("Ranking").GetComponent<SpriteText>().Text = containerCounter.ToString();
 	}
 }

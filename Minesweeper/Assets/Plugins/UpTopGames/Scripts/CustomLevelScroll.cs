@@ -92,7 +92,8 @@ public class CustomLevelScroll : MonoBehaviour
 		GameJsonAuthConnection conn = new GameJsonAuthConnection(Flow.URL_BASE + "mines/sharestage.php", OnShareStage);
 		WWWForm form = new WWWForm();
 		form.AddField("stageName", currentCustomStage.name);
-		form.AddField("stageID", -1);
+		if(isRankingScreen) form.AddField("stageID", currentCustomStage.id);
+		else form.AddField("stageID", -1);
 		form.AddField("friendID", friendID);
 		
 		int firstWorld = 9999; foreach(KeyValuePair<int,World> w in Flow.worldDict) {if(w.Key < firstWorld) firstWorld = w.Key;}
