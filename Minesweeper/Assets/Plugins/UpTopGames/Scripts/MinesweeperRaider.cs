@@ -253,14 +253,14 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		if(increasingExp)
 		{
-			Debug.Log(Flow.header.expBar.width);
+			//Debug.Log(Flow.header.expBar.width);
 			if(Flow.header.expBar.width < 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100))
 			{
 				Flow.header.expBar.width += 2 * Time.deltaTime;
 				Flow.header.expBar.CalcSize();
 				if(Flow.header.expBar.width > 7)
 				{
-					Debug.Log("zerei");
+					//Debug.Log("zerei");
 					Flow.header.expBar.width = 0;
 					Flow.header.expBar.CalcSize();
 					CheckExperience();
@@ -269,7 +269,7 @@ public class MinesweeperRaider : MonoBehaviour
 			}
 			else if(Flow.header.expBar.width > 7)
 			{
-				Debug.Log("zerei");
+				//Debug.Log("zerei");
 				Flow.header.expBar.width = 0;
 				Flow.header.expBar.CalcSize();
 				CheckExperience();
@@ -280,10 +280,8 @@ public class MinesweeperRaider : MonoBehaviour
 				Flow.header.expBar.width = 7 * Flow.playerExperience/(Flow.playerLevel * Flow.playerLevel * 100);
 				Flow.header.expBar.CalcSize();
 				increasingExp = false;
-				
-				Invoke("LevelUp", 0.1f);
 		
-				//Debug.Log("salvei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
+				Debug.Log("salvei level " + Flow.playerLevel + " na key " + PlayerPrefsKeys.PLAYERLEVEL);
 				
 				Save.Set(PlayerPrefsKeys.PLAYERLEVEL, Flow.playerLevel, true);
 				Save.Set(PlayerPrefsKeys.PLAYEREXPERIENCE, Flow.playerExperience, true);
@@ -294,6 +292,10 @@ public class MinesweeperRaider : MonoBehaviour
 				{
 					Invoke("NextLevel", 3.7f);
 					Invoke("FadeIn", 2f);
+				}
+				else
+				{
+					Invoke("LevelUp", 0.1f);	
 				}
 			}
 		}
@@ -722,6 +724,7 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void LevelUp()
 	{	
+		Debug.Log("chamei levelup");
 		levelUpPanel.BringIn();
 		if(Flow.mapLevel < 5 && Flow.radarLevel < 5 && Flow.hpLevel < 5)
 		{

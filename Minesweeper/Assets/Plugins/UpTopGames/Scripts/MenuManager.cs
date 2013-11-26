@@ -93,7 +93,6 @@ public class MenuManager : MonoBehaviour
 				
 				if(Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].id != 7)
 				{
-					
 					Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].toUnlock = 
 						Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].id-1;
 				}
@@ -102,7 +101,7 @@ public class MenuManager : MonoBehaviour
 					Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter].toUnlock = 0;
 				}
 				
-				child.GetComponent<Level>().SetLevel(Flow.worldDict[firstWorld+i].levelDict[firstLevel+ levelCounter]);
+				child.GetComponent<Level>().SetLevel(Flow.worldDict[firstWorld+i].levelDict[firstLevel+levelCounter]);
 				
 				levelCounter++;
 			}

@@ -63,7 +63,7 @@ public class CustomLevelScroll : MonoBehaviour
 		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
 		Flow.currentMode = GameMode.SinglePlayer;
-		Debug.Log(Flow.currentMode);
+		//Debug.Log(Flow.currentMode);
 		Application.LoadLevel("CustomStage");
 	}
 	
@@ -120,6 +120,7 @@ public class CustomLevelScroll : MonoBehaviour
 		else
 		{
 			Debug.Log(data);
+			Debug.Log("dupliquei o estopedo");
 			
 			currentCustomStage.id = data.Int32Value;
 			Flow.UpdateXML();

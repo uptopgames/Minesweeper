@@ -64,7 +64,7 @@ public class Challenge : MonoBehaviour
 		
 		Connect();
 		
-		Debug.Log("chamou InitChallenge");
+		//Debug.Log("chamou InitChallenge");
 	}
 	
 	void Connect()
@@ -131,13 +131,13 @@ public class Challenge : MonoBehaviour
 		cs.tileset = tileset;
 		//falta definir as estrelas, se for ter mesmo
 		
-		Debug.Log("chegou um challenge de tileset " + testTileset);
+		//Debug.Log("chegou um challenge de tileset " + testTileset);
 		
 		Flow.customGames.Add(cs);
 		
 		if(item["creatorID"].StringValue != Save.GetString(PlayerPrefsKeys.ID) && !item["isMe"].BooleanValue)
 		{
-			Debug.Log("non me interessa pq n tem nada a ver comigo");
+			//Debug.Log("non me interessa pq n tem nada a ver comigo");
 			return;
 		}
 		
@@ -147,16 +147,16 @@ public class Challenge : MonoBehaviour
 			{
 				if(c.id == cs.id && Flow.customGames.IndexOf(c)!=Flow.customGames.Count-1 && (c.isMe || item["creatorID"].StringValue == Save.GetString(PlayerPrefsKeys.ID)))
 				{
-					Debug.Log("impedindo que crie um container novo para um ranking que ja existe");
+					//Debug.Log("impedindo que crie um container novo para um ranking que ja existe");
 					return;
 				}
 			}
 			foreach(IJSonObject subItem in data.ArrayItems)
 			{
-				Debug.Log(subItem);
+				//Debug.Log(subItem);
 				if(subItem["customLevelID"].Int32Value == cs.id && subItem["time"].IsNull && subItem["isMe"].BooleanValue)
 				{
-					Debug.Log("impedindo que crie um container novo para um uma challenge nova que vai existir");
+					//Debug.Log("impedindo que crie um container novo para um uma challenge nova que vai existir");
 					return;
 				}
 			}
@@ -171,7 +171,7 @@ public class Challenge : MonoBehaviour
 			g.transform.FindChild("StageName").GetComponent<SpriteText>().Text = cs.name;
 			g.transform.FindChild("World"+(1+cs.world).ToString()).gameObject.SetActive(true);
 			
-			Debug.Log("adicionei no novo");
+			//Debug.Log("adicionei no novo");
 		}
 		else if(!cs.isNew)
 		{
@@ -181,17 +181,17 @@ public class Challenge : MonoBehaviour
 			g.transform.FindChild("Host").GetComponent<SpriteText>().Text = "Hosted by " + cs.creatorName;
 			g.transform.FindChild("World"+(1+cs.world).ToString()).gameObject.SetActive(true);
 			
-			Debug.Log("adicionei no velho");
+			//Debug.Log("adicionei no velho");
 		}
 		
 		g.transform.GetComponent<ChallengesButton>().challengeIndex = Flow.customGames.IndexOf(cs);
 		g.transform.GetComponent<ChallengesButton>().gameIndex = item["customGameID"].Int32Value;
-		Debug.Log("custom game id (challenge): " + g.transform.GetComponent<ChallengesButton>().gameIndex);
+		//Debug.Log("custom game id (challenge): " + g.transform.GetComponent<ChallengesButton>().gameIndex);
 		QuickSwap();
 		
 		foreach(CustomStage c in Flow.customStages)
 		{
-			if(c.id == cs.id || (c.tileset == cs.tileset && c.world == cs.world))
+			if(c.id == cs.id || (Flow.DecodeList(c.tileset) == Flow.DecodeList(cs.tileset) && c.world == cs.world) && c.name == cs.name)
 			{
 				g.transform.GetComponent<ChallengesButton>().customLevelsIndex = Flow.customStages.IndexOf(c);
 				return;
@@ -203,59 +203,6 @@ public class Challenge : MonoBehaviour
 		customLevelScroll.AddContainer(cs);
 		Debug.Log("adicionei o level " + cs.name);
 	}
-	
-	/*void CreateChallengeContainer(IJSonObject item)
-	{	
-		foreach(CustomStage c in Flow.customStages)
-		{
-			if(c.id == item["customLevelID"].Int32Value)
-			{
-				//php is bringing all games of people who belong to a ranking that you belong to;
-				//the rankings you belong to are the rankings whose stages are equal to a stage you have received
-				
-				//is not showing games whose stage is the same of another game already being shown
-				
-				Debug.Log("O level de id " + c.id + " jah existe aqui");
-				c.creatorName = item["playername"].ToString();
-				c.isChallenge = true;
-				if(item["time"].IsNull) c.isNew = true;
-				else c.isNew = false;
-		
-				RefreshNewScroll();
-				RefreshOldScroll();
-				QuickSwap();
-				
-				return;
-			}
-		}
-		
-		int numberOfMines = 0;
-		List<List<int>> tileset = new List<List<int>>();
-		for(int i = 0; i < 8; i++)
-		{
-			List<int> row = new List<int>();
-			for(int j = 0; j < 8; j++)
-			{
-				if(int.Parse(item["tileset"].StringValue[i+j].ToString())==1) numberOfMines++;
-				row.Add(int.Parse(item["tileset"].StringValue[i+j].ToString()));
-			}
-			tileset.Add(row);
-		}
-		
-		bool isNew = false;
-		if(item["time"].IsNull) isNew = true;
-		
-		Flow.AddCustomStage(tileset, item["worldID"].Int32Value - 3, numberOfMines, item["name"].ToString(), item["customLevelID"].Int32Value, isNew, true,
-			item["playername"].ToString());
-		Debug.Log("adicionei o level " + item["name"].ToString());
-		
-		customLevelScroll.AddContainer(Flow.customStages[Flow.customStages.Count-1]);
-		
-		RefreshNewScroll();
-		RefreshOldScroll();
-		QuickSwap();
-	}
-	*/
 	
 	public void QuickSwap()
 	{	

@@ -153,7 +153,6 @@ public class Level : MonoBehaviour
 				//Debug.Log ("desenhaEstrelasLevel: " + id);
 				transform.FindChild("LevelStar"+i).gameObject.SetActive(true);
 				transform.FindChild("LevelStarGrey"+i).gameObject.SetActive(false);
-				
 			}
 		}
 		else 

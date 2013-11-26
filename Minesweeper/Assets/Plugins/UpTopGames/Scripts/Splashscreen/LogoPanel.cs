@@ -118,11 +118,11 @@ public class LogoPanel : MonoBehaviour
 			c.id = int.Parse(customStage.SelectSingleNode("ID").InnerText);
 			Flow.customStages.Add(c);
 			
-			Debug.Log("adicionei o level " + customStage.Attributes["Name"].InnerText);
-			Debug.Log("o tileset dele era " + all64);
+			//Debug.Log("adicionei o level " + customStage.Attributes["Name"].InnerText);
+			//Debug.Log("o tileset dele era " + all64);
 		}
 		
-		foreach(CustomStage c in Flow.customStages)
+		/*foreach(CustomStage c in Flow.customStages)
 		{
 			string testTileset = "";
 			foreach(List<int> listInt in c.tileset)
@@ -130,7 +130,7 @@ public class LogoPanel : MonoBehaviour
 				foreach(int i in listInt) testTileset += i;
 			}
 			Debug.Log(testTileset);
-		}
+		}*/
 		
 		logoPanel.StartTransition(UIPanelManager.SHOW_MODE.BringInForward);
 	}

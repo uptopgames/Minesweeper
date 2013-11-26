@@ -92,6 +92,19 @@ public enum TurnStatus
 
 public class Flow: MonoBehaviour
 {
+	public static string DecodeList(List<List<int>> listToDecode)
+	{
+		string decodedList = "";
+		foreach(List<int> subList in listToDecode)
+		{
+			foreach(int i in subList)
+			{
+				decodedList += i;
+			}
+		}
+		return decodedList;
+	}
+	
 	public static CustomStage currentRank;
 	
 	public static float playerExperience = 0;

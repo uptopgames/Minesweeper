@@ -36,7 +36,6 @@ public class LevelSelection : MonoBehaviour
 		//scrollLevels.SetSelectedItem(actualWorld);
 		scrollLevels.AddItemSnappedDelegate(SetWorld);
 		
-		
 		//Debug.Log ("actualWorld: " + actualWorld);
 		
 		// salva as estrelas ganhas no flow
@@ -47,7 +46,8 @@ public class LevelSelection : MonoBehaviour
 			{
 				if (Save.HasKey (PlayerPrefsKeys.LEVELSTARS+l.Key))
 				{
-					l.Value.stars = Save.GetInt(PlayerPrefsKeys.LEVELSTARS+l.Key); // world1_level1_stars
+					l.Value.stars = Save.GetInt(PlayerPrefsKeys.LEVELSTARS+(l.Key).ToString()); // world1_level1_stars
+					Debug.Log("l.Value.stars: " + l.Value.stars + ", level: " + l.Value.id + ", world: " + w.Value.id);
 					//l.Value.points = l.Key;
 				}
 			}
