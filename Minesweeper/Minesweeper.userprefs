@@ -1,17 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\LevelSelection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs">
     <Files>
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs" Line="650" Column="71" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\CustomLevelScroll.cs" Line="122" Column="1" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\RankingsPanel.cs" Line="87" Column="3" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Flow\Flow.cs" Line="28" Column="26" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Challenge.cs" Line="102" Column="25" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Splashscreen\LogoPanel.cs" Line="122" Column="6" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\EndLevel.cs" Line="196" Column="35" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\LevelSelection.cs" Line="50" Column="17" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\MenuManager.cs" Line="95" Column="6" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Level.cs" Line="158" Column="8" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs" Line="473" Column="60" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

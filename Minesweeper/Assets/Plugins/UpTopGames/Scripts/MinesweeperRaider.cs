@@ -37,6 +37,7 @@ public class MinesweeperRaider : MonoBehaviour
 	public GameObject shieldPrefab;
 	public GameObject endFade;
 	public GameObject radarPing;
+	public GameObject squarePing;
 	public GameObject levelUpFade;
 	
 	public SpriteText timeLabel;
@@ -321,14 +322,7 @@ public class MinesweeperRaider : MonoBehaviour
 				}
 			break;
 			case GameState.PlayerTurn:
-			
-				timeCounter += Time.deltaTime;
-				int d = (int)(timeCounter * 100.0f);
-			    int minutes = d / (60 * 100);
-			    int seconds = (d % (60 * 100)) / 100;
-				
-				timeLabel.Text = String.Format("{0:00}:{1:00}", minutes, seconds);
-				
+				UpdateTimer();
 				if(Input.GetMouseButtonDown(0))
 				{
 					if(flagMode)
@@ -345,7 +339,20 @@ public class MinesweeperRaider : MonoBehaviour
 					Victory();
 				}
 			break;
+			case GameState.Moving:
+				UpdateTimer();
+			break;
 		}
+	}
+	
+	void UpdateTimer()
+	{
+		timeCounter += Time.deltaTime;
+		int d = (int)(timeCounter * 100.0f);
+	    int minutes = d / (60 * 100);
+	    int seconds = (d % (60 * 100)) / 100;
+		
+		timeLabel.Text = String.Format("{0:00}:{1:00}", minutes, seconds);
 	}
 	
 	void CreateTiles()
@@ -462,7 +469,7 @@ public class MinesweeperRaider : MonoBehaviour
 			if(hits[i].transform.tag == "Flag")
 			{
 				GameObject.Destroy(hits[i].transform.gameObject);
-				/*GameObject.Instantiate(radarPing, new Vector3(hits[i].transform.position.x, startingPosition.y - 1.4f,
+				/*GameObject.Instantiate(squarePing, new Vector3(hits[i].transform.position.x, startingPosition.y - 1.4f,
 					hits[i].transform.position.z), Quaternion.identity);*/
 				return;
 			}
@@ -522,7 +529,7 @@ public class MinesweeperRaider : MonoBehaviour
 					if(shieldHp>0) character.animation.CrossFade("walkShield");
 					else character.animation.CrossFade("walk");
 					nextPosition.y = startingPosition.y - 1.4f;
-					//GameObject.Instantiate(radarPing, nextPosition, Quaternion.identity);
+					GameObject.Instantiate(squarePing, nextPosition, Quaternion.identity);
 					
 					if(currentCameraView == 2 || currentCameraView == 3)
 					{
@@ -595,6 +602,12 @@ public class MinesweeperRaider : MonoBehaviour
 		
 		currentHp--;
 		hp[currentHp].SetActive(false);
+		if(currentHp==6 || currentHp==4)
+		{
+			currentHp--;
+			hp[currentHp].SetActive(false);
+		}
+		
 		if(currentHp <= 0)
 		{
 			tommyMaterial.mainTexture = tommyTextures[3];
@@ -749,6 +762,12 @@ public class MinesweeperRaider : MonoBehaviour
 			gameState = GameState.PlayerTurn;
 			shieldHp--;
 			hp[shieldHp].transform.FindChild("Shield").gameObject.SetActive(false);
+			Debug.Log("shieldHP: " + shieldHp);
+			if(shieldHp==4 || shieldHp==6)
+			{
+				shieldHp--;
+				hp[shieldHp].transform.FindChild("Shield").gameObject.SetActive(false);
+			}
 			if(shieldHp<=0)
 			{
 				shield.gameObject.SetActive(false);
@@ -858,9 +877,10 @@ public class MinesweeperRaider : MonoBehaviour
 	public void GetShield()
 	{
 		if(gameState!=GameState.PlayerTurn) return;
-		
+		Debug.Log("currentHP: " + currentHp);
 		shieldHp = currentHp;
-		for(int i = 0; i<currentHp; i++)
+		if(currentHp==4 || currentHp==6) shieldHp--;
+		for(int i = 0; i<shieldHp; i++)
 		{
 			hp[i].transform.FindChild("Shield").gameObject.SetActive(true);
 		}
