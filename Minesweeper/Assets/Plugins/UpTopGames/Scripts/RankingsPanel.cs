@@ -111,11 +111,16 @@ public class RankingsPanel : MonoBehaviour
 			Debug.Log(data);
 			
 			Flow.game_native.showMessage("Stage Sent", "You can check the online ranking of your stage on the 'Challenges' Menu", "Ok");
-			customLevelScroll.scroll.transform.gameObject.SetActive(false);
-			customLevelScroll.EraseFriendsList();
+			EraseFriendList();
 			
 			Connect();
 		}
+	}
+	
+	void EraseFriendList()
+	{
+		customLevelScroll.scroll.transform.gameObject.SetActive(false);
+		customLevelScroll.EraseFriendsList();
 	}
 	
 	public void Connect()

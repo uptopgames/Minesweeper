@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\EndLevel.cs">
     <Files>
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs" Line="473" Column="60" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\EndLevel.cs" Line="234" Column="1" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Challenge.cs" Line="245" Column="25" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\RankingsPanel.cs" Line="127" Column="3" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Invite.cs" Line="313" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -264,7 +264,6 @@ public class Invite : MonoBehaviour
 			
 			playingScroll.gameObject.SetActive(false);
 			scroll.gameObject.SetActive(true);
-			
 		}
 		else
 		{
@@ -309,8 +308,15 @@ public class Invite : MonoBehaviour
 	}
 	
 	public void EraseFriendsListAndLoad()
-	{		
-		Debug.Log("EraseFriendsListAndLoad");
+	{
+		if(scroll.Count == 0) noFriendsText.SetActive(true);
+		else noFriendsText.SetActive(false);
+		
+		playingScroll.gameObject.SetActive(false);
+		scroll.gameObject.SetActive(true);
+		
+		allPlayingButton.SetState(0);
+		
 		//Flow.game_native.startLoading(loadingDialog);
 		
 		//scroll.ClearList(false);
@@ -349,8 +355,11 @@ public class Invite : MonoBehaviour
 		}
 		
 		string user_id = data["user_id"].StringValue;
-		if (user_id == null) return;
-		
+		if (user_id == null)
+		{
+			Debug.Log("userID null");
+			return;
+		}
 		Flow.currentGame = new Game();
 		Flow.currentGame.friend.id = user_id;
 		Flow.currentGame.friend.is_playing = true;
@@ -363,8 +372,8 @@ public class Invite : MonoBehaviour
 		Debug.Log(Flow.currentGame.friend.ToString());
 		
 		//mandar para próxima cena e colocar o temp delegate para parar o loading
-		UIPanelManager.instance.BringIn("LevelSelectionScenePanel");
-		
+			UIPanelManager.instance.BringIn("LevelSelectionPanel");
+			Debug.Log("choose random friend");
 	}
 	
 	void LinkWithFacebook()

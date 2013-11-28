@@ -17,6 +17,8 @@ public class Challenge : MonoBehaviour
 	
 	public CustomLevelScroll customLevelScroll;
 	
+	bool swapToRanking = false;
+	
 	void Start () 
 	{
 		GetComponent<UIInteractivePanel>().transitions.list[0].AddTransitionStartDelegate(InitChallenge);
@@ -36,6 +38,7 @@ public class Challenge : MonoBehaviour
 	
 	void InitChallenge(EZTransition transition)
 	{
+		Debug.Log("initChallenge");
 		Flow.header.transform.FindChild("OptionsPanel").gameObject.SetActive(true);
 		
 		newPanel.gameObject.SetActive(true);
@@ -91,6 +94,8 @@ public class Challenge : MonoBehaviour
 			{
 				CreateChallengeContainerImproved(item, data);
 			}
+			
+			if(swapToRanking) RealQuickSwapToRanking();
 		}
 	}
 	
@@ -187,7 +192,7 @@ public class Challenge : MonoBehaviour
 		g.transform.GetComponent<ChallengesButton>().challengeIndex = Flow.customGames.IndexOf(cs);
 		g.transform.GetComponent<ChallengesButton>().gameIndex = item["customGameID"].Int32Value;
 		//Debug.Log("custom game id (challenge): " + g.transform.GetComponent<ChallengesButton>().gameIndex);
-		QuickSwap();
+		QuickSwapToNew();
 		
 		foreach(CustomStage c in Flow.customStages)
 		{
@@ -204,11 +209,8 @@ public class Challenge : MonoBehaviour
 		Debug.Log("adicionei o level " + cs.name);
 	}
 	
-	public void QuickSwap()
-	{	
-		if(oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().Count != 0) noFriendsLabel.Text = "";
-		else noFriendsLabel.Text = "No Rankings";
-			
+	public void QuickSwapToNew()
+	{
 		if(newPanel.IsShowing)
 		{
 			newPanel.Hide();
@@ -227,6 +229,26 @@ public class Challenge : MonoBehaviour
 			oldPanel.Hide();
 			oldPanel.gameObject.SetActive(false);
 		}
+	}
+	
+	void RealQuickSwapToRanking()
+	{
+		if(oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().Count != 0) noFriendsLabel.Text = "";
+		else noFriendsLabel.Text = "No Rankings";
+			
+		newPanel.Hide();
+		newPanel.gameObject.SetActive(false);
+		
+		oldPanel.gameObject.SetActive(true);
+		oldPanel.Reveal();
+		
+		swapToRanking = false;
+		Debug.Log("estou mostrando o oldPanel");
+	}
+	
+	public void QuickSwapToRanking()
+	{
+		swapToRanking = true;
 	}
 	
 	public void RefreshNewScroll()
