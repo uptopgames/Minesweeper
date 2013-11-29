@@ -211,31 +211,34 @@ public class EndLevel : MonoBehaviour
 		int world = Flow.currentGame.world.id;
 		int level = Flow.currentGame.level.id;
 		
-		if (level == Flow.MAX_LEVEL_NUMBER)
+		Debug.Log("Level era: " + level.ToString());
+		
+		if (level == 6+(world-2)*9)
 		{
-			//Debug.Log ("Level9");
+			Debug.Log ("mudando o mundo");
 			world++;
-			level = 1;
-			//Debug.Log ("world: " + world);
-			//Debug.Log ("level: " + level);
+			level = 7;
 		}
 		else
 		{
 			level++;
+			level -= (world-3) * 9;
 			//Debug.Log ("world: " + world);
 			//Debug.Log ("level: " + level);
 		}
 		
+		Debug.Log("Level ficou: " + level.ToString());
+		
 		Flow.currentGame = new Game();
 			
 		Flow.currentGame.world = 
-		GameObject.FindWithTag("LevelSelection").transform.FindChild("ScrollLevels").transform.GetChild(0).transform.GetChild(world-1).GetComponent<World>();
+		GameObject.FindWithTag("LevelSelection").transform.FindChild("ScrollLevels").transform.GetChild(0).transform.GetChild(world-3).GetComponent<World>();
 		
 		Flow.currentGame.level = 
-		GameObject.FindWithTag("LevelSelection").transform.FindChild("ScrollLevels").transform.GetChild(0).transform.GetChild(world-1).FindChild
-				("Level " + level + " Panel").GetComponent<Level>();
+		GameObject.FindWithTag("LevelSelection").transform.FindChild("ScrollLevels").transform.GetChild(0).transform.GetChild(world-3).FindChild
+				("Level " + (level-6).ToString() + " Panel").GetComponent<Level>();
 		//Flow.currentGame.world =  GameObject.FindWithTag("World" + world).GetComponent<World>();
-		//Flow.currentGame.level = GameObject.FindWithTag("World" + world).transform.FindChild("Level" + level).GetComponent<Level>()	;
+		//Flow.currentGame.level = GameObject.FindWithTag("World" + world).transform.FindChild("Level" + level).GetComponent<Level>();
 		
 		Flow.currentGame.friend = new Friend();
 		Flow.currentGame.friend.rawText = Flow.currentGame.level.image;
@@ -251,6 +254,60 @@ public class EndLevel : MonoBehaviour
 		}
 		
 		UIPanelManager.instance.BringIn("LevelSelectionScenePanel",UIPanelManager.MENU_DIRECTION.Forwards);
+		
+		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		
+		Application.LoadLevel("Game");
+	}
+	
+	void PlayAgain()
+	{
+		if(Flow.currentCustomStage != -1)
+		{
+			Flow.currentCustomStage = -1;
+			return;
+		}
+		
+		//Debug.Log ("crieiTodosWorldsGameObjectsEndLevel");	
+		
+		int world = Flow.currentGame.world.id;
+		int level = Flow.currentGame.level.id;
+		
+		level -= (world-3)*9;
+		
+		Flow.currentGame = new Game();
+			
+		Flow.currentGame.world = 
+		GameObject.FindWithTag("LevelSelection").transform.FindChild("ScrollLevels").transform.GetChild(0).transform.GetChild(world-3).GetComponent<World>();
+		
+		Flow.currentGame.level = 
+		GameObject.FindWithTag("LevelSelection").transform.FindChild("ScrollLevels").transform.GetChild(0).transform.GetChild(world-3).FindChild
+				("Level " + (level-6).ToString() + " Panel").GetComponent<Level>();
+		//Flow.currentGame.world =  GameObject.FindWithTag("World" + world).GetComponent<World>();
+		//Flow.currentGame.level = GameObject.FindWithTag("World" + world).transform.FindChild("Level" + level).GetComponent<Level>();
+		
+		Flow.currentGame.friend = new Friend();
+		Flow.currentGame.friend.rawText = Flow.currentGame.level.image;
+		
+		//Debug.Log ("flowWorld: " + Flow.currentGame.world.id);
+		//Debug.Log ("flow.Level: " + Flow.currentGame.level.id);
+		
+		Flow.currentGame.theirRoundList = new List<Round>();
+			
+		for (int i = 0; i < Flow.ROUNDS_PER_TURN; i++)
+		{
+			Flow.currentGame.theirRoundList.Add(new Round(-1,-1,-1,-1,-1,-1));
+		}
+		
+		UIPanelManager.instance.BringIn("LevelSelectionScenePanel",UIPanelManager.MENU_DIRECTION.Forwards);
+		
+		Flow.config.GetComponent<ConfigManager>().inviteAllScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().invitePlayingScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.transform.parent = GameObject.FindWithTag("RepoFLists").transform;
+		
+		Application.LoadLevel("Game");
 	}
 	
 	void ShareProgress()

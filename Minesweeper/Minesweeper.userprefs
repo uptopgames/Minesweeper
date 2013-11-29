@@ -1,11 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\EndLevel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\Level.cs">
     <Files>
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\EndLevel.cs" Line="234" Column="1" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Challenge.cs" Line="245" Column="25" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\RankingsPanel.cs" Line="127" Column="3" />
-      <File FileName="Assets\Plugins\UpTopGames\Scripts\Invite.cs" Line="313" Column="2" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\MenuManager.cs" Line="58" Column="31" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Login.cs" Line="366" Column="44" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Flow\Flow.cs" Line="279" Column="20" />
+      <File FileName="Assets\Plugins\UpTopGames\Header.cs" Line="126" Column="5" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\CustomLevelButton.cs" Line="26" Column="42" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Menu.cs" Line="41" Column="39" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Options.cs" Line="100" Column="53" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\RankingsPanel.cs" Line="165" Column="92" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\EndLevel.cs" Line="278" Column="24" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\ChallengesButton.cs" Line="28" Column="3" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\Level.cs" Line="24" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

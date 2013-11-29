@@ -97,6 +97,7 @@ public class Options : MonoBehaviour
 		}
 		else
 		{
+			Flow.panelAfterLogin = "AccountSettingsScenePanel";
 			UIPanelManager.instance.BringIn("LoginScenePanel",UIPanelManager.MENU_DIRECTION.Forwards);
 		}
 	}

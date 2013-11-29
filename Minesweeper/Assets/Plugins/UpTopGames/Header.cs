@@ -124,6 +124,8 @@ public class Header : MonoBehaviour
 		{
 			if(UIPanelManager.instance.CurrentPanel.name != "ChallengesScenePanel")
 			{
+				Flow.panelAfterLogin = "ChallengesScenePanel";
+				
 				if(Save.HasKey(PlayerPrefsKeys.TOKEN.ToString()))
 				{
 					Flow.currentCustomStage = -1;

@@ -18,14 +18,12 @@ Custom Stages: rever layout. Challenge a friend vai ficar daquele jeito?
 Custom Stages - Share Stage: background preto não ficou bom. Rever layout
 Options: botão "push notifications" está estranho
 Login: falta uma caret no container de input
-Login: mandar para o lugar certo depois de logar (está mandando sempre para o menu multiplayer)
 Invite: Trocar o "all/playing" (está o do bang)
 Invite - Invite: está estranho, background amarelo transparente não está bom para visualizar. Rever
 Invite - Find Friends: checar se está funcionando
-Rankings: espaçamento entre os containers não está bom. Decidir se vai colocar estrelas ou não nos containers
 Rankings - Challenge: background preto não está bom. Rever
 Gameplay: animação de vitória ainda está ruim
 Gameplay: o jogador ainda atinge 10 vidas. Balancear melhor
 Gameplay: compra de itens in-game. Permitir uso de itens só se o jogador os tiver de fato
 Gameplay: fade out final se transforma em fade in, quando deveria ser só fade out
-EndGame: rever "play again" e "next". Ambos levam ao Level Selection
+Endlevel: precisa de um botão que manda pra level selection

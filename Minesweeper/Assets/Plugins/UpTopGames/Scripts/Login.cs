@@ -361,14 +361,9 @@ public class Login : MonoBehaviour
 			//messageOkDialog.transform.FindChild("ConfirmButtonPanel").FindChild("ConfirmButton").GetComponent<UIButton>().methodToInvoke = "BringInInvite";
 			Flow.game_native.showMessage("Hello!", "Hi! You've registered with us! We've emailed you your password.");
 		}
-		
-		
-		
-		
-		
 		// Redireciona a proxima cena
 		
-		panelManager.BringIn("MultiplayerScenePanel");
+		panelManager.BringIn(Flow.panelAfterLogin);
 	}
 	
 	void ClickedConfirmPasswordDialog()

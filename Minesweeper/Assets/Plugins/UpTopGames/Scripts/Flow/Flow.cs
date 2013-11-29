@@ -233,6 +233,7 @@ public class Flow: MonoBehaviour
 	public static string[] availableMaps = { "usa", "brazil", "uk", "southafrica", "world", "china", "france", "australia" };
 	
 	public static PanelToLoad nextPanel = PanelToLoad.Menu;
+	public static string panelAfterLogin = "MultiplayerScenePanel";
 	
 	public static List<Game> gameList = new List<Game>();
 	//public static List<Texture> gamePictures = new List<Texture>();

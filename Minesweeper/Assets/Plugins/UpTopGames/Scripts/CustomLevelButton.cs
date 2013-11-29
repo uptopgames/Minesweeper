@@ -61,6 +61,7 @@ public class CustomLevelButton : MonoBehaviour
 		}
 		else
 		{
+			Flow.panelAfterLogin = "CustomLevelsScenePanel";
 			UIPanelManager.instance.BringIn("LoginScenePanel");
 		}
 	}

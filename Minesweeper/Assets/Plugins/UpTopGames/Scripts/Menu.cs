@@ -38,6 +38,7 @@ public class Menu : MonoBehaviour
 		}
 		else
 		{
+			Flow.panelAfterLogin = "MultiplayerScenePanel";
 			UIPanelManager.instance.BringIn("LoginScenePanel");
 		}
 	}

@@ -14,6 +14,7 @@ public class RankingsPanel : MonoBehaviour
 	public CustomLevelScroll customLevelScroll;
 	public UIScrollList scroll;
 	public int maximumContainers = 10;
+	public SpriteText noChallengers;
 	
 	private int containerCounter = 0;
 
@@ -146,6 +147,15 @@ public class RankingsPanel : MonoBehaviour
 			Debug.Log(data);
 			foreach(IJSonObject item in data.ArrayItems) if(containerCounter<maximumContainers) CreateContainer(item);
 		}
+		
+		if(containerCounter == 0)
+		{
+			noChallengers.Text = "No Challengers Yet";
+		}
+		else
+		{
+			noChallengers.Text = "";
+		}
 	}
 	
 	void CreateContainer(IJSonObject item)
@@ -154,8 +164,26 @@ public class RankingsPanel : MonoBehaviour
 		GameObject g = scroll.CreateItem(rankingsPrefab).gameObject;
 		g.transform.FindChild("Name").GetComponent<SpriteText>().Text = item["name"].StringValue;
 		g.transform.FindChild("Time").GetComponent<SpriteText>().Text = "Time: " + item["time"].StringValue;
-		g.transform.FindChild("Deaths").GetComponent<SpriteText>().Text = "Deaths: " + item["deaths"].StringValue;
+		//g.transform.FindChild("Deaths").GetComponent<SpriteText>().Text = "Deaths: " + item["deaths"].StringValue;
 		g.transform.FindChild("Matches").GetComponent<SpriteText>().Text = "Tries: " + item["tries"].StringValue;
 		g.transform.FindChild("Ranking").GetComponent<SpriteText>().Text = containerCounter.ToString();
+		if(!item["deaths"].IsNull)
+		{
+			switch(item["deaths"].Int32Value)
+			{
+				case 0:
+					g.transform.FindChild("Star1").gameObject.SetActive(true);
+					g.transform.FindChild("Star2").gameObject.SetActive(true);
+					g.transform.FindChild("Star3").gameObject.SetActive(true);
+				break;
+				case 1:
+					g.transform.FindChild("Star1").gameObject.SetActive(true);
+					g.transform.FindChild("Star2").gameObject.SetActive(true);
+				break;
+				case 2:
+					g.transform.FindChild("Star1").gameObject.SetActive(true);
+				break;
+			}
+		}
 	}
 }
