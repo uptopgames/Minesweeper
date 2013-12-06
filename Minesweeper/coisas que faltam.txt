@@ -1,15 +1,14 @@
 Colocar fontes certas
 Golpes Especiais: desativar quando player não tiver (e oferecer compra)
-Criar itens locais
-Ajeitar itens que chegam no shop (estão vindo do bang)
 Testar todos os itens e garantir que eles estão funcionando direito
+Definir preço das coisas
 
 Testar Rate, Share e Like
 Criar actions no Facebook
 Ajeitar PHP's para as Actions do Facebook
 Testar todas as actions do Facebook
 
-SHOP: falta tudo, inclusive parte do servidor
+Shop: compra não está acontecendo
 Som: pegar músicas e efeitos sonoros e implementar em tudo
 Facebook Actions: falta tudo
 Header - Challenges: ver se precisa desligar mesmo em algumas cenas

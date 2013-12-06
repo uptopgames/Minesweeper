@@ -36,7 +36,7 @@ public class Level : MonoBehaviour
 		//Debug.Log ("toUnlock: " + toUnlock);
 		//Debug.Log ("name: " + transform.name);
 		
-		if (Save.GetInt (PlayerPrefsKeys.POINTS) >= toUnlock)
+		if (0==0)//(Save.GetInt (PlayerPrefsKeys.POINTS) >= toUnlock)
 		{
 			//Debug.Log ("unlocked");
 			

@@ -86,6 +86,12 @@ public class MinesweeperRaider : MonoBehaviour
 	string rawXML;
 	private List<List<List<int>>> xmlList;
 	
+	public AudioClip destroyFlagSound;
+	public AudioClip shieldSound;
+	public AudioClip mapSound;
+	public AudioClip radarSound;
+	public AudioClip victorySound;
+	
 	void Start()
 	{
 		gameHuds.SetActive(false);
@@ -469,6 +475,7 @@ public class MinesweeperRaider : MonoBehaviour
 			if(hits[i].transform.tag == "Flag")
 			{
 				GameObject.Destroy(hits[i].transform.gameObject);
+				audio.PlayOneShot(destroyFlagSound);
 				/*GameObject.Instantiate(squarePing, new Vector3(hits[i].transform.position.x, startingPosition.y - 1.4f,
 					hits[i].transform.position.z), Quaternion.identity);*/
 				return;
@@ -625,6 +632,8 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Victory()
 	{
+		audio.PlayOneShot(victorySound);
+		
 		if(Flow.currentCustomStage == -1)
 		{
 			if(Flow.hpLevel+2==currentHp && Flow.currentGame.level.stars<3) Flow.currentGame.level.stars = 3;
@@ -874,8 +883,16 @@ public class MinesweeperRaider : MonoBehaviour
 		}
 	}
 	
+	void BuyShield(ShopResultStatus status, string name)
+	{
+		Debug.Log("comprei essa bagassa, agora tenho " + Flow.shopManager.GetShopItem("Shield").count);
+	}
+	
 	public void GetShield()
 	{
+		audio.PlayOneShot (shieldSound);
+		Flow.shopManager.BuyItem(BuyShield, Flow.shopManager.GetShopItem("Shield"));
+		
 		if(gameState!=GameState.PlayerTurn) return;
 		Debug.Log("currentHP: " + currentHp);
 		shieldHp = currentHp;
@@ -893,6 +910,8 @@ public class MinesweeperRaider : MonoBehaviour
 	public void GetRadar()
 	{
 		if(gameState!=GameState.PlayerTurn) return;
+		
+		audio.PlayOneShot (radarSound);
 		
 		for(int i = 0; i<tileset.Count; i++)
 		{
@@ -912,6 +931,8 @@ public class MinesweeperRaider : MonoBehaviour
 	public void GetMap()
 	{
 		if(gameState!=GameState.PlayerTurn) return;
+		
+		audio.PlayOneShot (mapSound);
 		
 		List<Vector2> hintList = new List<Vector2>();
 		for(int i = 0; i<tileset.Count; i++)
