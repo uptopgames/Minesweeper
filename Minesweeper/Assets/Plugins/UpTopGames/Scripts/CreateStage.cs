@@ -24,6 +24,12 @@ public class CreateStage : MonoBehaviour
 	public SpriteText experienceText;
 	public GameObject inputName;
 	
+	public AudioClip createMineAudio;
+	public AudioClip setPlayerAudio;
+	public AudioClip setDiamondAudio;
+	public AudioClip stageApprovedAudio;
+	public AudioClip stageDeniedAudio;
+	
 	public enum InsertType
 	{
 		Mine, Player, Diamond, Null
@@ -85,6 +91,7 @@ public class CreateStage : MonoBehaviour
 			switch(hits[i].transform.tag)
 			{
 				case "Mine":
+					audio.PlayOneShot(createMineAudio);
 					GameObject.Destroy(hits[i].transform.gameObject);
 					totalMines--;
 					minesCounter.Text = "Mines: " + totalMines.ToString() + "/" + maximumMines.ToString();
@@ -116,6 +123,7 @@ public class CreateStage : MonoBehaviour
 					case InsertType.Mine:
 						if(totalMines<maximumMines)
 						{
+							audio.PlayOneShot(createMineAudio);
 							GameObject tempFlag = GameObject.Instantiate(minePrefab, insertPosition, minePrefab.transform.rotation) as GameObject;
 							totalMines++;
 							minesCounter.Text = "Mines: " + totalMines.ToString() + "/" + maximumMines.ToString();
@@ -126,6 +134,7 @@ public class CreateStage : MonoBehaviour
 						return;
 					break;
 					case InsertType.Player:
+						audio.PlayOneShot(setPlayerAudio);
 						player.SetActive(true);
 						player.transform.position = insertPosition;
 						for(int j = 0; j<tileset.Count; j++)
@@ -145,6 +154,7 @@ public class CreateStage : MonoBehaviour
 						return;
 					break;
 					case InsertType.Diamond:
+						audio.PlayOneShot(setDiamondAudio);
 						diamond.SetActive(true);
 						diamond.transform.position = insertPosition;
 						for(int j = 0; j<tileset.Count; j++)
@@ -206,6 +216,7 @@ public class CreateStage : MonoBehaviour
 	
 	public void StageApproved()
 	{
+		audio.PlayOneShot(stageApprovedAudio);
 		//terminar loading e lançar janela de level aprovado, com callback das linhas abaixo
 		Flow.AddCustomStage(tileset, currentWorld, totalMines, inputName.GetComponent<UITextField>().Text, -1);
 		
@@ -219,6 +230,7 @@ public class CreateStage : MonoBehaviour
 	public void StageDenied()
 	{
 		//Flow.game_native.addActionShowMessage(ResetLevel);
+		audio.PlayOneShot(stageDeniedAudio);
 		Flow.game_native.showMessage("You created an impossible level",
 			"Please remove the mines that prevent the character from reaching the treasure", "Ok");
 	}

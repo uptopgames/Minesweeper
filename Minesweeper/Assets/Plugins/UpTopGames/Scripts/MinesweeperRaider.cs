@@ -711,6 +711,7 @@ public class MinesweeperRaider : MonoBehaviour
 		cameras[currentWorld].rotation = winCamera.rotation;
 		winCamera.animation.Play ();
 		GameObject.Destroy(diamond.gameObject);
+		character.animation["win"].speed = 3;
 		character.animation.CrossFade("win");
 		gameHuds.SetActive(false);
 	}
