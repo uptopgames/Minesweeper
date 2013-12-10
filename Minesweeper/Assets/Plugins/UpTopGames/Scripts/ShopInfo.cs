@@ -77,6 +77,7 @@ public class ShopInfo : MonoBehaviour
 	// metodo chamado so por itens
 	void ClickedShopItem()
 	{
+		Debug.Log(id);
 		if(!has) Flow.shopManager.BuyItem(CheckBuyItem, Flow.shopManager.GetShopItem(id));
 	}
 	

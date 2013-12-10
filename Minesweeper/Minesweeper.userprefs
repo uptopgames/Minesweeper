@@ -1,12 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\UpTopGames\Classes\Shop\ShopManager.cs">
     <Files>
+      <File FileName="Assets\Plugins\UpTopGames\Classes\Shop\ShopManager.cs" Line="234" Column="3" />
       <File FileName="Assets\Plugins\UpTopGames\Scripts\CreateStage.cs" Line="30" Column="37" />
       <File FileName="Assets\Plugins\UpTopGames\Scripts\CustomLevelButton.cs" Line="69" Column="44" />
       <File FileName="Assets\Plugins\UpTopGames\Scripts\Shop.cs" Line="32" Column="1" />
       <File FileName="Assets\Plugins\UpTopGames\Scripts\Invite.cs" Line="419" Column="28" />
       <File FileName="Assets\Plugins\UpTopGames\Scripts\MinesweeperRaider.cs" Line="713" Column="42" />
+      <File FileName="Assets\Plugins\UpTopGames\Scripts\ShopInfo.cs" Line="201" Column="16" />
+      <File FileName="Assets\Plugins\UpTopGames\Connection\GameRawAuthConnection.cs" Line="97" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

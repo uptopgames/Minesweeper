@@ -198,15 +198,17 @@ public class ShopManager : MonoBehaviour
 	{
 		ShopItem item = new ShopItem();
 		
-		//Debug.Log("nome: "+id);
+		Debug.Log("nome: "+id);
+		Debug.Log(itemList.Length);
 		
 		for (int i = 0 ; i < itemList.Length ; i++)
 		{
+			Debug.Log(itemList[i].id);
 			if(itemList[i].id == id)
 			{
 				item = new ShopItem(itemList[i]);
 				
-				//Debug.Log(item.type);
+				Debug.Log(item.type);
 				break;
 			}
 		}
@@ -229,6 +231,7 @@ public class ShopManager : MonoBehaviour
 	
 	public void BuyItem(ShopDelegate callback, ShopItem item)
 	{
+		Debug.Log(item.id);
 		foreach(ShopItem itemWithin in item.itemsWithin)
 		{
 			if(Save.HasKey(PlayerPrefsKeys.ITEM+itemWithin.id) && itemWithin.type == ShopItemType.NonConsumable)
