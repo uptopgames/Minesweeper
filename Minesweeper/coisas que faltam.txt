@@ -1,6 +1,3 @@
-Colocar fontes certas
-Golpes Especiais: desativar quando player não tiver (e oferecer compra)
-Testar todos os itens e garantir que eles estão funcionando direito
 Definir preço das coisas
 
 Testar Rate, Share e Like
@@ -8,16 +5,7 @@ Criar actions no Facebook
 Ajeitar PHP's para as Actions do Facebook
 Testar todas as actions do Facebook
 
-Shop: compra não está acontecendo
 Facebook Actions: falta tudo
 Level Selection: está mostrando estrelas errado
 Level Selection: está habilitando leveis errado
-Custom Stages: rever layout. Challenge a friend vai ficar daquele jeito?
-Custom Stages - Share Stage: background preto não ficou bom. Rever layout
-Invite - Invite: está estranho, background amarelo transparente não está bom para visualizar. Rever
-Invite - Find Friends: checar se está funcionando
-Rankings - Challenge: background preto não está bom. Rever
-Gameplay: animação de vitória ainda está ruim
-Gameplay: o jogador ainda atinge 10 vidas. Balancear melhor
-Gameplay: compra de itens in-game. Permitir uso de itens só se o jogador os tiver de fato
 Gameplay: fade out final se transforma em fade in, quando deveria ser só fade out

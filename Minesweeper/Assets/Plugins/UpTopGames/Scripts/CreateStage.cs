@@ -91,7 +91,7 @@ public class CreateStage : MonoBehaviour
 			switch(hits[i].transform.tag)
 			{
 				case "Mine":
-					audio.PlayOneShot(createMineAudio);
+					audio.PlayOneShot(createMineAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 					GameObject.Destroy(hits[i].transform.gameObject);
 					totalMines--;
 					minesCounter.Text = "Mines: " + totalMines.ToString() + "/" + maximumMines.ToString();
@@ -123,7 +123,7 @@ public class CreateStage : MonoBehaviour
 					case InsertType.Mine:
 						if(totalMines<maximumMines)
 						{
-							audio.PlayOneShot(createMineAudio);
+							audio.PlayOneShot(createMineAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 							GameObject tempFlag = GameObject.Instantiate(minePrefab, insertPosition, minePrefab.transform.rotation) as GameObject;
 							totalMines++;
 							minesCounter.Text = "Mines: " + totalMines.ToString() + "/" + maximumMines.ToString();
@@ -134,7 +134,7 @@ public class CreateStage : MonoBehaviour
 						return;
 					break;
 					case InsertType.Player:
-						audio.PlayOneShot(setPlayerAudio);
+						audio.PlayOneShot(setPlayerAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 						player.SetActive(true);
 						player.transform.position = insertPosition;
 						for(int j = 0; j<tileset.Count; j++)
@@ -154,7 +154,7 @@ public class CreateStage : MonoBehaviour
 						return;
 					break;
 					case InsertType.Diamond:
-						audio.PlayOneShot(setDiamondAudio);
+						audio.PlayOneShot(setDiamondAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 						diamond.SetActive(true);
 						diamond.transform.position = insertPosition;
 						for(int j = 0; j<tileset.Count; j++)
@@ -216,7 +216,7 @@ public class CreateStage : MonoBehaviour
 	
 	public void StageApproved()
 	{
-		audio.PlayOneShot(stageApprovedAudio);
+		audio.PlayOneShot(stageApprovedAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 		//terminar loading e lançar janela de level aprovado, com callback das linhas abaixo
 		Flow.AddCustomStage(tileset, currentWorld, totalMines, inputName.GetComponent<UITextField>().Text, -1);
 		
@@ -230,7 +230,7 @@ public class CreateStage : MonoBehaviour
 	public void StageDenied()
 	{
 		//Flow.game_native.addActionShowMessage(ResetLevel);
-		audio.PlayOneShot(stageDeniedAudio);
+		audio.PlayOneShot(stageDeniedAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 		Flow.game_native.showMessage("You created an impossible level",
 			"Please remove the mines that prevent the character from reaching the treasure", "Ok");
 	}

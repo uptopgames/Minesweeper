@@ -47,7 +47,7 @@ public class CustomLevelScroll : MonoBehaviour
 		
 		scroll = Flow.config.GetComponent<ConfigManager>().challengeInviteScroll;
 		scroll.transform.parent = transform;
-		scroll.transform.localPosition = new Vector3(-0.1220818f, -0.584363f, -7.011475f);
+		scroll.transform.localPosition = new Vector3(-0.1220818f, 0.1973438f, -7.011475f);
 	}
 	
 	public void AddContainer(CustomStage c)
@@ -80,7 +80,7 @@ public class CustomLevelScroll : MonoBehaviour
 		{
 			scroll = Flow.config.GetComponent<ConfigManager>().challengeInviteScroll;
 			scroll.transform.parent = transform;
-			scroll.transform.localPosition = new Vector3(-0.1220818f, -0.584363f, -7.011475f);
+			scroll.transform.localPosition = new Vector3(-0.1220818f, 0.1973438f, -7.011475f);
 		}
 		
 		currentCustomStage = level;

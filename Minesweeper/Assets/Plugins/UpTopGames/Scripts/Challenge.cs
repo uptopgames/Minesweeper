@@ -233,6 +233,8 @@ public class Challenge : MonoBehaviour
 	
 	void RealQuickSwapToRanking()
 	{
+		Flow.config.GetComponent<ConfigManager>().challengeInviteScroll.gameObject.SetActive(false);
+		
 		if(oldPanel.transform.FindChild("OldScroll").GetComponent<UIScrollList>().Count != 0) noFriendsLabel.Text = "";
 		else noFriendsLabel.Text = "No Rankings";
 			

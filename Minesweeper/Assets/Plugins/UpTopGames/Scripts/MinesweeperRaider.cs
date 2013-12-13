@@ -81,6 +81,10 @@ public class MinesweeperRaider : MonoBehaviour
 	public GameObject mapBlock;
 	private bool increasingExp;
 	
+	public SpriteText shieldCount;
+	public SpriteText radarCount;
+	public SpriteText mapCount;
+	
 	string fileName = "tileset.xml";
 	TextAsset tilesetXML;
 	string rawXML;
@@ -91,9 +95,19 @@ public class MinesweeperRaider : MonoBehaviour
 	public AudioClip mapSound;
 	public AudioClip radarSound;
 	public AudioClip victorySound;
+	public AudioClip experienceSound;
+	public AudioClip levelUpSound;
+	public AudioClip upgradeSound;
 	
 	void Start()
 	{
+		if(Save.HasKey(PlayerPrefsKeys.ITEM+"map")) mapCount.Text = "x" + Save.GetInt(PlayerPrefsKeys.ITEM+"map");
+		else mapCount.Text = "x0";
+		if(Save.HasKey(PlayerPrefsKeys.ITEM+"radar"))radarCount.Text = "x" + Save.GetInt(PlayerPrefsKeys.ITEM+"radar");
+		else radarCount.Text = "x0";
+		if(Save.HasKey(PlayerPrefsKeys.ITEM+"shield"))shieldCount.Text = "x" + Save.GetInt(PlayerPrefsKeys.ITEM+"shield");
+		else shieldCount.Text = "x0";
+		
 		gameHuds.SetActive(false);
 		cutsceneHuds.SetActive(true);
 		
@@ -475,7 +489,7 @@ public class MinesweeperRaider : MonoBehaviour
 			if(hits[i].transform.tag == "Flag")
 			{
 				GameObject.Destroy(hits[i].transform.gameObject);
-				audio.PlayOneShot(destroyFlagSound);
+				audio.PlayOneShot(destroyFlagSound, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 				/*GameObject.Instantiate(squarePing, new Vector3(hits[i].transform.position.x, startingPosition.y - 1.4f,
 					hits[i].transform.position.z), Quaternion.identity);*/
 				return;
@@ -632,7 +646,8 @@ public class MinesweeperRaider : MonoBehaviour
 	
 	void Victory()
 	{
-		audio.PlayOneShot(victorySound);
+		audio.PlayOneShot(victorySound, 1);
+		audio.PlayOneShot(experienceSound, 1);
 		
 		if(Flow.currentCustomStage == -1)
 		{
@@ -742,6 +757,7 @@ public class MinesweeperRaider : MonoBehaviour
 			GameObject levelUp = GameObject.Instantiate(levelUpFade) as GameObject;
 			levelUp.transform.GetChild(0).GetComponent<SpriteText>().Text = "Level " + Flow.playerLevel.ToString() + "!";
 			levelUp.GetComponent<UIInteractivePanel>().BringIn();
+			audio.PlayOneShot(levelUpSound, 3);
 		}
 	}
 	
@@ -884,17 +900,63 @@ public class MinesweeperRaider : MonoBehaviour
 		}
 	}
 	
-	void BuyShield(ShopResultStatus status, string name)
+	public void BuyRadar()
 	{
-		Debug.Log("comprei essa bagassa, agora tenho " + Flow.shopManager.GetShopItem("Shield").count);
+		Flow.shopManager.BuyItem(BuyItems, Flow.shopManager.GetShopItem("packRadars"));
+	}
+	
+	public void BuyRadarDelegate(string buttonPressed)
+	{
+		if(buttonPressed.ToLower() == "ok")
+		{
+			BuyRadar();
+		}
+	}
+	
+	public void BuyMap()
+	{
+		Flow.shopManager.BuyItem(BuyItems, Flow.shopManager.GetShopItem("packMaps"));
+	}
+	
+	public void BuyMapDelegate(string buttonPressed)
+	{
+		if(buttonPressed.ToLower() == "ok")
+		{
+			BuyMap();
+		}
+	}
+	
+	public void BuyShield()
+	{
+		Flow.shopManager.BuyItem(BuyItems, Flow.shopManager.GetShopItem("packShields"));
+	}
+	
+	public void BuyShieldDelegate(string buttonPressed)
+	{
+		if(buttonPressed.ToLower() == "ok")
+		{
+			BuyShield();
+		}
 	}
 	
 	public void GetShield()
 	{
-		audio.PlayOneShot (shieldSound);
-		Flow.shopManager.BuyItem(BuyShield, Flow.shopManager.GetShopItem("Shield"));
-		
 		if(gameState!=GameState.PlayerTurn) return;
+		
+		if(Save.GetInt(PlayerPrefsKeys.ITEM+"shield") > 0)
+		{
+			Save.Set(PlayerPrefsKeys.ITEM+"shield", Save.GetInt(PlayerPrefsKeys.ITEM+"shield") - 1, true);
+			shieldCount.Text = "x"+Save.GetInt(PlayerPrefsKeys.ITEM+"shield").ToString();
+		}
+		else
+		{
+			Flow.game_native.showMessageOkCancel(this, "BuyShield", BuyShieldDelegate, "", "Do you want to buy more shields?",
+			"You must buy more shields to be able to use them in game", "Ok", "Cancel");
+			return;
+		}
+		
+		audio.PlayOneShot(shieldSound, 2);
+		
 		Debug.Log("currentHP: " + currentHp);
 		shieldHp = currentHp;
 		if(currentHp==4 || currentHp==6) shieldHp--;
@@ -912,7 +974,19 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		if(gameState!=GameState.PlayerTurn) return;
 		
-		audio.PlayOneShot (radarSound);
+		if(Save.GetInt(PlayerPrefsKeys.ITEM+"radar") > 0)
+		{
+			Save.Set(PlayerPrefsKeys.ITEM+"radar", Save.GetInt(PlayerPrefsKeys.ITEM+"radar") - 1, true);
+			radarCount.Text = "x"+Save.GetInt(PlayerPrefsKeys.ITEM+"radar").ToString();
+		}
+		else
+		{
+			Flow.game_native.showMessageOkCancel(this, "BuyRadar", BuyRadarDelegate, "", "Do you want to buy more radars?",
+			"You must buy more radars to be able to use them in game", "Ok", "Cancel");
+			return;
+		}
+		
+		audio.PlayOneShot(radarSound, 2);
 		
 		for(int i = 0; i<tileset.Count; i++)
 		{
@@ -933,7 +1007,19 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		if(gameState!=GameState.PlayerTurn) return;
 		
-		audio.PlayOneShot (mapSound);
+		if(Save.GetInt(PlayerPrefsKeys.ITEM+"map") > 0)
+		{
+			Save.Set(PlayerPrefsKeys.ITEM+"map", Save.GetInt(PlayerPrefsKeys.ITEM+"map") - 1, true);
+			mapCount.Text = "x"+Save.GetInt(PlayerPrefsKeys.ITEM+"map").ToString();
+		}
+		else
+		{
+			Flow.game_native.showMessageOkCancel(this, "BuyMap", BuyMapDelegate, "", "Do you want to buy more maps?",
+			"You must buy more maps to be able to use them in game", "Ok", "Cancel");
+			return;
+		}
+		
+		audio.PlayOneShot(mapSound, 3);
 		
 		List<Vector2> hintList = new List<Vector2>();
 		for(int i = 0; i<tileset.Count; i++)
@@ -979,6 +1065,16 @@ public class MinesweeperRaider : MonoBehaviour
 		mapBlock.SetActive(true);
 	}
 	
+	void BuyItems(ShopResultStatus status, string x)
+	{
+		Debug.Log(status);
+		mapCount.Text = "x"+Save.GetInt(PlayerPrefsKeys.ITEM+"map").ToString();
+		radarCount.Text = "x"+Save.GetInt(PlayerPrefsKeys.ITEM+"radar").ToString();
+		shieldCount.Text = "x"+Save.GetInt(PlayerPrefsKeys.ITEM+"shield").ToString();
+		Flow.messageOkCancelDialog.SetActive(false);
+		Flow.game_native.showMessage("Item Received", "You received 10 units of this item to use in game", "ok");
+	}
+	
 	void ConfirmUpgrade()
 	{
 		string upgradeText = "";
@@ -993,6 +1089,7 @@ public class MinesweeperRaider : MonoBehaviour
 				}
 				else
 				{
+					audio.PlayOneShot(upgradeSound, 1);
 					Flow.hpLevel++;
 					if(Flow.hpLevel < 5)
 					{
@@ -1015,6 +1112,7 @@ public class MinesweeperRaider : MonoBehaviour
 				}
 				else
 				{
+					audio.PlayOneShot(upgradeSound, 1);
 					Flow.mapLevel++;
 					if(Flow.mapLevel < 5)
 					{
@@ -1036,6 +1134,7 @@ public class MinesweeperRaider : MonoBehaviour
 				}
 				else
 				{
+					audio.PlayOneShot(upgradeSound, 1);
 					Flow.radarLevel++;
 					if(Flow.radarLevel < 5)
 					{

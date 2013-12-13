@@ -204,6 +204,7 @@
     </Worlds>
     <CustomStages>
         <CustomStage Name="Bonus Stage">
+			<ID>-1</ID>
             <Update>11/13/2013 5:36:40 PM</Update>
             <World>3</World>
             <Tileset>0010100100000010001010000001301001021000000101000100000010010100</Tileset>

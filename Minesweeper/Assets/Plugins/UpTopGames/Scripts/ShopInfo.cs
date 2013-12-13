@@ -78,6 +78,7 @@ public class ShopInfo : MonoBehaviour
 	void ClickedShopItem()
 	{
 		Debug.Log(id);
+		Debug.Log(Flow.shopManager.GetShopItem(id).id);
 		if(!has) Flow.shopManager.BuyItem(CheckBuyItem, Flow.shopManager.GetShopItem(id));
 	}
 	

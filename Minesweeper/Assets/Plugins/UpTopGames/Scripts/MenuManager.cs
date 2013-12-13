@@ -83,7 +83,7 @@ public class MenuManager : MonoBehaviour
 			foreach(Transform child in worldObjects[i].transform)
 			{
 				int firstLevel = 9999;
-				
+				Debug.Log(firstWorld);
 				foreach(KeyValuePair<int,Level> l in Flow.worldDict[firstWorld+i].levelDict)
 				{
 					if(l.Key < firstLevel) firstLevel = l.Key;

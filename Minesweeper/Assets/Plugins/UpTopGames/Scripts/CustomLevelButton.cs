@@ -24,7 +24,7 @@ public class CustomLevelButton : MonoBehaviour
 	
 	public void StartCustomGame()
 	{
-		audio.PlayOneShot(startGameAudio);
+		audio.PlayOneShot(startGameAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 		
 		Flow.currentGame = new Game();
 		Flow.currentCustomStage = level;
@@ -44,14 +44,14 @@ public class CustomLevelButton : MonoBehaviour
 	
 	public void Delete()
 	{
-		audio.PlayOneShot(deleteAudio);
+		audio.PlayOneShot(deleteAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 		Flow.game_native.showMessageOkCancel(this, "ConfirmDeletion", ConfirmDeletionDelegate, "", "Are you sure?",
 			"If you delete " + Flow.customStages[transform.GetComponent<UIListItem>().Index].name + " you will not be able to recover it ever again!", "Delete", "Return");
 	}
 	
 	public void ConfirmDeletion()
 	{
-		audio.PlayOneShot(confirmDeletionAudio);
+		audio.PlayOneShot(confirmDeletionAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 		Flow.messageOkCancelDialog.SetActive(false);
 		transform.parent.parent.GetComponent<UIScrollList>().RemoveItem(transform.GetComponent<UIListItem>(), true);
 		Flow.RemoveCustomLevel(transform.GetComponent<UIListItem>().Index);
@@ -66,12 +66,12 @@ public class CustomLevelButton : MonoBehaviour
 	{
 		if(Save.HasKey(PlayerPrefsKeys.TOKEN.ToString()))
 		{
-			audio.PlayOneShot(challengeFriendAudio);
+			audio.PlayOneShot(challengeFriendAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 			transform.parent.parent.GetComponent<CustomLevelScroll>().SendToFriend(Flow.customStages[transform.GetComponent<UIListItem>().Index]);
 		}
 		else
 		{
-			audio.PlayOneShot(cancelDeletionAudio);
+			audio.PlayOneShot(cancelDeletionAudio, PlayerPrefs.GetFloat(PlayerPrefsKeys.VOLUME));
 			Flow.panelAfterLogin = "CustomLevelsScenePanel";
 			UIPanelManager.instance.BringIn("LoginScenePanel");
 		}
