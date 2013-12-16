@@ -6,6 +6,4 @@ Ajeitar PHP's para as Actions do Facebook
 Testar todas as actions do Facebook
 
 Facebook Actions: falta tudo
-Level Selection: está mostrando estrelas errado
-Level Selection: está habilitando leveis errado
 Gameplay: fade out final se transforma em fade in, quando deveria ser só fade out

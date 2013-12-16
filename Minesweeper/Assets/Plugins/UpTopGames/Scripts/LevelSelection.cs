@@ -52,6 +52,28 @@ public class LevelSelection : MonoBehaviour
 				}
 			}
 		}
+		
+		for(int i = 0; i < 5; i++)
+		{
+			for(int j = 0; j < 9; j++)
+			{
+				int stars = i*9+7+j;
+				
+				if (Save.HasKey (PlayerPrefsKeys.LEVELSTARS+stars))
+				{
+					transform.FindChild("ScrollLevels").FindChild("Mover").FindChild("World " + (i+1).ToString() + " List Item").
+					FindChild("Level " + (j+1).ToString() + " Panel").GetComponent<Level>().stars = Save.GetInt(PlayerPrefsKeys.LEVELSTARS+stars);
+				}
+				else
+				{
+					transform.FindChild("ScrollLevels").FindChild("Mover").FindChild("World " + (i+1).ToString() + " List Item").
+					FindChild("Level " + (j+1).ToString() + " Panel").GetComponent<Level>().stars = 0;
+				}
+				
+				transform.FindChild("ScrollLevels").FindChild("Mover").FindChild("World " + (i+1).ToString() + " List Item").
+					FindChild("Level " + (j+1).ToString() + " Panel").GetComponent<Level>().SetStars();
+			}
+		}
 	}
 	
 	void SetWorld(IUIListObject item)
