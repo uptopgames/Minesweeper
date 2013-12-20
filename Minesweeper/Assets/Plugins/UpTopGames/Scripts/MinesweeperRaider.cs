@@ -857,6 +857,7 @@ public class MinesweeperRaider : MonoBehaviour
 		}
 		else if(Flow.currentMode == GameMode.SinglePlayer && Flow.currentCustomStage == -1)
 		{
+			if(Save.HasKey (PlayerPrefsKeys.FACEBOOK_TOKEN.ToString())) postActionFacebook();
 			tommyMaterial.mainTexture = tommyTextures[0];
 			Flow.nextPanel = PanelToLoad.EndLevel;
 			Application.LoadLevel("Mainmenu");
@@ -867,6 +868,26 @@ public class MinesweeperRaider : MonoBehaviour
 			Flow.nextPanel = PanelToLoad.EndLevel;
 			Application.LoadLevel("Mainmenu");
 		}
+	}
+	
+	private void postActionFacebook()
+	{
+		Debug.Log ("postActionFacebook");
+		
+		GameJsonAuthConnection postFb = new GameJsonAuthConnection (Flow.URL_BASE + "mines/publish_single.php", actionResponse);
+		WWWForm form = new WWWForm();
+		form.AddField ("world", Flow.currentGame.world.id);
+		form.AddField ("level", Flow.currentGame.level.id);
+		form.AddField ("time", Mathf.RoundToInt(timeCounter));
+		form.AddField ("deaths", Flow.hpLevel + 2 - currentHp);
+		
+		postFb.connect (form);
+	}
+	
+	private void actionResponse(string error, IJSonObject data)
+	{
+		if (error != null) Debug.Log ("error: " + error);
+		else Debug.Log ("data: " + data);
 	}
 	
 	public void UpdateChallenge(string error, IJSonObject data)

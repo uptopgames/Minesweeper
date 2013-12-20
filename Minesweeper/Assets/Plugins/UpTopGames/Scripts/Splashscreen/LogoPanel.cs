@@ -11,6 +11,14 @@ public class LogoPanel : MonoBehaviour
 	
 	void Start ()
 	{
+		if(!Save.HasKey(PlayerPrefsKeys.FIRST_TIME))
+		{
+			Save.Set(PlayerPrefsKeys.FIRST_TIME, true);
+			Flow.shopManager.BuyItem(BuyItems, Flow.shopManager.GetShopItem("packRadars"));
+			Flow.shopManager.BuyItem(BuyItems, Flow.shopManager.GetShopItem("packMaps"));
+			Flow.shopManager.BuyItem(BuyItems, Flow.shopManager.GetShopItem("packShields"));
+		}
+		
 		if(Save.HasKey(PlayerPrefsKeys.PLAYEREXPERIENCE)) Flow.playerExperience = Save.GetFloat(PlayerPrefsKeys.PLAYEREXPERIENCE);
 		if(Save.HasKey(PlayerPrefsKeys.PLAYERLEVEL)) Flow.playerLevel = Save.GetInt(PlayerPrefsKeys.PLAYERLEVEL);
 		if(Save.HasKey(PlayerPrefsKeys.HPLEVEL)) Flow.hpLevel = Save.GetInt(PlayerPrefsKeys.HPLEVEL);
@@ -32,6 +40,8 @@ public class LogoPanel : MonoBehaviour
 			Application.LoadLevel("Mainmenu");	
 		});
 	}
+	
+	void BuyItems(ShopResultStatus status, string x){}
 	
 	string fileName = "Tileset.xml";
 	TextAsset tilesetXML;

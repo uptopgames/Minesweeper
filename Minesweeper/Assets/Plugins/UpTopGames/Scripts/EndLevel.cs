@@ -119,7 +119,7 @@ public class EndLevel : MonoBehaviour
 			endLevelLabel.Text = "Failure";
 			endLevelLabel.SetColor(new Color(1,0,0,1));
 			
-			transform.FindChild("NextButton").gameObject.SetActive(true);
+			transform.FindChild("NextButton").gameObject.SetActive(false);
 			
 			for (int i = 0; i < 3; i++)
 			{

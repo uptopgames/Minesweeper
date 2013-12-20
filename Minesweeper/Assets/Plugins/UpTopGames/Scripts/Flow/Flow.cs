@@ -54,7 +54,8 @@ public class PlayerPrefsKeys
 	HPLEVEL = "9fwASsOQil",
 	RADARLEVEL = "mKAmfdmos",
 	MAPLEVEL = "DFwfmpFpw",
-	SKILLPOINTS = "WognvfeOjV";
+	SKILLPOINTS = "WognvfeOjV",
+	FIRST_TIME = "Has4FlbSpkh";
 }
 
 public enum PanelToLoad
