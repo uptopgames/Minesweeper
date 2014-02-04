@@ -1,9 +1,12 @@
 Definir preço das coisas
 
-Testar Rate, Share e Like
-Criar actions no Facebook
-Ajeitar PHP's para as Actions do Facebook
-Testar todas as actions do Facebook
-
-Facebook Actions: falta tudo
 Gameplay: fade out final se transforma em fade in, quando deveria ser só fade out
+
+Actions estão com imagem provisória ainda
+
+Testar bem Rate, Share e Like
+Testar bem todas as actions do Facebook
+
+Aconteceu de novo o bug de bagunçar os leveis liberados
+
+Last Turn Results está todo feio (funciona, mas está feio)

@@ -874,12 +874,25 @@ public class MinesweeperRaider : MonoBehaviour
 	{
 		Debug.Log ("postActionFacebook");
 		
+		int firstWorld = 9999;
+		int firstLevel = 9999;
+		foreach(KeyValuePair<int,World> w in Flow.worldDict)
+		{
+			if(w.Key < firstWorld) firstWorld = w.Key;
+		}
+		
+		firstLevel = 9999;
+		foreach(KeyValuePair<int,Level> l in Flow.worldDict[firstWorld].levelDict)
+		{
+			if(l.Key < firstLevel) firstLevel = l.Key;
+		}
+		
 		GameJsonAuthConnection postFb = new GameJsonAuthConnection (Flow.URL_BASE + "mines/publish_single.php", actionResponse);
 		WWWForm form = new WWWForm();
-		form.AddField ("world", Flow.currentGame.world.id);
-		form.AddField ("level", Flow.currentGame.level.id);
-		form.AddField ("time", Mathf.RoundToInt(timeCounter));
-		form.AddField ("deaths", Flow.hpLevel + 2 - currentHp);
+		form.AddField ("world", Flow.currentGame.world.id - firstWorld + 1);
+		form.AddField ("level", Flow.currentGame.level.id - firstLevel - (Flow.currentGame.world.id - firstWorld)*9 + 1);
+		form.AddField ("time", Mathf.CeilToInt(timeCounter));
+		form.AddField ("deaths", Flow.hpLevel + 3 - currentHp);
 		
 		postFb.connect (form);
 	}
